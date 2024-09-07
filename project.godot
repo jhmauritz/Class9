@@ -32,6 +32,10 @@ CameraShakeManager="*res://scenes/preloads/camera_shake_manager.tscn"
 window/size/resizable=false
 window/stretch/mode="canvas_items"
 
+[dotnet]
+
+project/assembly_name="Game Base 2D"
+
 [input]
 
 ui_cancel={
