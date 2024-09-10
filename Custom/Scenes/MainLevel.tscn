@@ -1,12 +1,10 @@
 [gd_scene load_steps=5 format=4 uid="uid://cp2py8bnulkt"]
 
-[ext_resource type="PackedScene" uid="uid://dnlir14iywfl8" path="res://scenes/common/simple_platformer_character.tscn" id="1_ggj52"]
+[ext_resource type="PackedScene" uid="uid://c72jkuqqvpqrw" path="res://Custom/Prefabs/Player.tscn" id="2_833s2"]
+[ext_resource type="Texture2D" uid="uid://cua17f0ejypn3" path="res://assets_collected/Powerstation/Tileset.png" id="2_jjvbr"]
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_jetsd"]
-load_path = "res://.godot/imported/Tileset.png-7a17d5ca969f526618a407ae3c55a46e.ctex"
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fcdot"]
-texture = SubResource("CompressedTexture2D_jetsd")
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_cdors"]
+texture = ExtResource("2_jjvbr")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
@@ -260,23 +258,17 @@ texture = SubResource("CompressedTexture2D_jetsd")
 14:15/0 = 0
 15:15/0 = 0
 
-[sub_resource type="TileSet" id="TileSet_4ll7e"]
-sources/0 = SubResource("TileSetAtlasSource_fcdot")
+[sub_resource type="TileSet" id="TileSet_k1y4g"]
+physics_layer_0/collision_layer = 1
+terrain_set_0/mode = 0
+sources/0 = SubResource("TileSetAtlasSource_cdors")
 
 [node name="MainLevel" type="Node2D"]
 
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(-14, 27)
-zoom = Vector2(-3.27, -3.27)
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+texture_filter = 1
+tile_map_data = PackedByteArray("AAD0/wYAAAAAAAAAAAD1/wYAAAAAAAAAAAD2/wYAAAAAAAAAAAD3/wYAAAAAAAAAAAD4/wYAAAAAAAAAAAD5/wYAAAAAAAAAAAD6/wYAAAAAAAAAAAD7/wYAAAAAAAAAAAD8/wYAAAAAAAAAAAD9/wYAAAAAAAAAAAD+/wYAAAAAAAAAAAD//wYAAAAAAAAAAAAAAAYAAAAAAAAAAAABAAYAAAAAAAAAAAACAAYAAAAAAAAAAAADAAYAAAAAAAAAAAAEAAYAAAAAAAAAAAAFAAYAAAAAAAAAAAAGAAYAAAAAAAAAAAAHAAYAAAAAAAAAAAAIAAYAAAAAAAAAAAA=")
+tile_set = SubResource("TileSet_k1y4g")
 
-[node name="platformer_character" parent="Camera2D" instance=ExtResource("1_ggj52")]
-position = Vector2(-3.8147e-06, 7.62939e-06)
-
-[node name="TileMap" type="TileMap" parent="."]
-tile_set = SubResource("TileSet_4ll7e")
-format = 2
-
-[node name="Layer0" type="TileMapLayer" parent="TileMap"]
-use_parent_material = true
-tile_map_data = PackedByteArray("AAD2/wQAAAAAAAUAAAD3/wQAAAABAAUAAAD4/wQAAAABAAUAAAD5/wQAAAABAAUAAAD6/wQAAAABAAUAAAD7/wQAAAABAAUAAAD8/wQAAAABAAUAAAD9/wQAAAABAAUAAAD+/wQAAAABAAUAAAD//wQAAAABAAUAAAAAAAQAAAABAAUAAAABAAQAAAABAAUAAAACAAQAAAABAAUAAAADAAQAAAABAAUAAAAEAAQAAAABAAUAAAAFAAQAAAABAAUAAAAGAAQAAAABAAUAAAAHAAQAAAAFAAUAAAD2/wMAAAAAAAQAAAD2/wIAAAAAAAQAAAD2/wEAAAAAAAQAAAD3/wAAAAAAAAQAAAD3////AAAAAAQAAAD4////AAAAAAQAAAD4//7/AAAAAAQAAAD5//7/AAAAAAQAAAD5//3/AAAAAAQAAAD6//3/AAAAAAQAAAD7//3/AAAAAAQAAAD8//3/AAAAAAQAAAD9//3/AAAAAAQAAAD9//z/AAAAAAQAAAD+//z/AAAAAAQAAAACAPz/AAAAAAQAAAADAPz/AAAAAAQAAAADAP3/AAAAAAQAAAAEAP3/AAAAAAQAAAAFAP3/AAAAAAQAAAAFAP7/AAAAAAQAAAAGAP7/AAAAAAQAAAAGAP//AAAAAAQAAAAHAP//AAAAAAQAAAAHAAAAAAAAAAQAAAAHAAEAAAAAAAQAAAAIAAEAAAAAAAQAAAAIAAIAAAAAAAQAAAAHAAIAAAAAAAQAAAAHAAMAAAAAAAQAAAD2/wAAAAAAAAQAAAA=")
-tile_set = SubResource("TileSet_4ll7e")
+[node name="Player" parent="." instance=ExtResource("2_833s2")]
+position = Vector2(-19, 57)
