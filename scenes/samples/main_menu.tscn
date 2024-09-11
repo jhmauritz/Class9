@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://chee17ae0u5op"]
+[gd_scene load_steps=50 format=3 uid="uid://chee17ae0u5op"]
 
 [ext_resource type="Theme" uid="uid://byds11vsd6ber" path="res://themes/pixelart/pixelart.tres" id="1_0bcbq"]
 [ext_resource type="Script" path="res://scripts/ui/main_menu.gd" id="1_7gw0o"]
@@ -15,13 +15,23 @@
 [ext_resource type="Script" path="res://scripts/ui/viewport_texture_rect.gd" id="8_hr3wm"]
 [ext_resource type="PackedScene" path="res://scenes/common/ui/load_button.tscn" id="9_ijoqn"]
 [ext_resource type="Texture2D" uid="uid://df1kj4ykh362u" path="res://assets_collected/Backdrops/background 3/2.png" id="12_7o0yf"]
+[ext_resource type="StyleBox" path="res://textures/Button_1.tres" id="13_4kot4"]
 [ext_resource type="Texture2D" uid="uid://3anj7nbdnu0" path="res://assets_collected/Backdrops/background 1/4.png" id="13_ainpi"]
+[ext_resource type="Texture2D" uid="uid://d0bygl2qq3qk8" path="res://assets_collected/Icons/Icon_34.png" id="14_mqldd"]
 [ext_resource type="Texture2D" uid="uid://3edsg7ewo3ha" path="res://assets_collected/Backdrops/2 Background/5.png" id="15_8k2h3"]
 [ext_resource type="Texture2D" uid="uid://eixynkl1up2x" path="res://assets_collected/Overlays/13.png" id="15_ds4m2"]
+[ext_resource type="Texture2D" uid="uid://c1gblu2ig6hnv" path="res://assets_collected/Icons/Icon_18.png" id="16_t8nun"]
 [ext_resource type="Texture2D" uid="uid://mnt1j7etd40y" path="res://assets_collected/Backdrops/1 Backgrounds/4/Night/5.png" id="16_ub5ri"]
+[ext_resource type="Texture2D" uid="uid://dh8w4dim3ncse" path="res://assets_collected/Icons/Icon_26.png" id="17_7ofq0"]
 [ext_resource type="Texture2D" uid="uid://dvdv7hepv24db" path="res://assets_collected/Overlays/19.png" id="17_hr4pb"]
+[ext_resource type="Texture2D" uid="uid://cw2hitg0pr62e" path="res://assets_collected/Icons/Icon_35.png" id="18_wlgkm"]
 [ext_resource type="Texture2D" uid="uid://23gcynqbkr4s" path="res://assets_collected/Overlays/8.png" id="20_hlwwr"]
+[ext_resource type="Texture2D" uid="uid://dyoy1lym2sxi2" path="res://assets_collected/Icons/Icon_37.png" id="21_yvxkg"]
+[ext_resource type="Texture2D" uid="uid://ba7xgyoyfmna" path="res://assets_collected/Icons/Icon_07.png" id="22_j3tko"]
 [ext_resource type="Texture2D" uid="uid://c84r2qpik2bti" path="res://assets_collected/Overlays/10.png" id="22_wb1pc"]
+[ext_resource type="Texture2D" uid="uid://c54ocwxyjl5et" path="res://assets_collected/Icons/Icon_24.png" id="23_yuvn6"]
+[ext_resource type="Texture2D" uid="uid://cobp0vowivesi" path="res://assets_collected/Icons/Icon_14.png" id="24_00ohd"]
+[ext_resource type="Texture2D" uid="uid://b44jbkxmnn7d6" path="res://assets_collected/Icons/Icon_05.png" id="28_p4syo"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ve7hb"]
 
@@ -282,20 +292,32 @@ uppercase = true
 
 [node name="start_button" type="Button" parent="Main Menu/MarginContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_styles/normal = ExtResource("13_4kot4")
 text = "Start"
+icon = ExtResource("14_mqldd")
+expand_icon = true
 
 [node name="load_button" parent="Main Menu/MarginContainer/VBoxContainer" instance=ExtResource("9_ijoqn")]
 layout_mode = 2
 size_flags_vertical = 1
+theme_override_styles/normal = ExtResource("13_4kot4")
 text = "Continue"
+icon = ExtResource("16_t8nun")
+expand_icon = true
 
 [node name="settings_button" type="Button" parent="Main Menu/MarginContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_styles/normal = ExtResource("13_4kot4")
 text = "Settings"
+icon = ExtResource("17_7ofq0")
+expand_icon = true
 
 [node name="exit_button" type="Button" parent="Main Menu/MarginContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_styles/normal = ExtResource("13_4kot4")
 text = "Exit"
+icon = ExtResource("18_wlgkm")
+expand_icon = true
 
 [node name="Panel-settings" type="Panel" parent="."]
 layout_mode = 1
@@ -356,21 +378,33 @@ vertical_alignment = 1
 
 [node name="Save" type="Button" parent="Settings Menu/MarginContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_styles/normal = ExtResource("13_4kot4")
 text = "Audio"
+icon = ExtResource("21_yvxkg")
+expand_icon = true
 
 [node name="Video" type="Button" parent="Settings Menu/MarginContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_styles/normal = ExtResource("13_4kot4")
 text = "Video"
+icon = ExtResource("22_j3tko")
+expand_icon = true
 
 [node name="Credits" type="Button" parent="Settings Menu/MarginContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_styles/normal = ExtResource("13_4kot4")
 text = "Credits
 "
+icon = ExtResource("23_yuvn6")
+expand_icon = true
 
 [node name="Back" type="Button" parent="Settings Menu/MarginContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_styles/normal = ExtResource("13_4kot4")
 text = "Back
 "
+icon = ExtResource("24_00ohd")
+expand_icon = true
 
 [node name="Panel-audio_settings" type="Panel" parent="."]
 layout_mode = 1
@@ -494,12 +528,18 @@ step = 0.01
 
 [node name="Save" type="Button" parent="Settings Menu2/MarginContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_styles/normal = ExtResource("13_4kot4")
 text = "Save"
+icon = ExtResource("28_p4syo")
+expand_icon = true
 
 [node name="Return" type="Button" parent="Settings Menu2/MarginContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_styles/normal = ExtResource("13_4kot4")
 text = "Back
 "
+icon = ExtResource("24_00ohd")
+expand_icon = true
 
 [node name="Panel-videosettings" type="Panel" parent="."]
 layout_mode = 1
@@ -625,11 +665,17 @@ step = 0.01
 
 [node name="Save" type="Button" parent="Settings Menu3/MarginContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_styles/normal = ExtResource("13_4kot4")
 text = "Save"
+icon = ExtResource("28_p4syo")
+expand_icon = true
 
 [node name="Return" type="Button" parent="Settings Menu3/MarginContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_styles/normal = ExtResource("13_4kot4")
 text = "Back"
+icon = ExtResource("24_00ohd")
+expand_icon = true
 
 [node name="Panel-credits" type="Panel" parent="."]
 layout_mode = 1
@@ -673,12 +719,9 @@ offset_right = 5776.0
 offset_bottom = 648.0
 script = ExtResource("6_8dq4u")
 
-[node name="Audio Control" type="Control" parent="Settings Menu4" node_paths=PackedStringArray("master_slider", "music_slider", "sfx_slider")]
+[node name="Audio Control" type="Control" parent="Settings Menu4"]
 layout_mode = 2
 script = ExtResource("4_mjs4o")
-master_slider = NodePath("")
-music_slider = NodePath("")
-sfx_slider = NodePath("")
 
 [node name="MarginContainer" type="MarginContainer" parent="Settings Menu4"]
 layout_mode = 2
@@ -703,11 +746,12 @@ layout_direction = 2
 layout_mode = 2
 size_flags_horizontal = 3
 bbcode_enabled = true
-text = "Jesse
-Joe
-Javier
-Andres
-Jordan"
+text = "Jesse Mauritz
+Joe Patterson
+Javier King
+Andres Mosquera
+Jordan Burgher
+Kaitlyn Furister"
 fit_content = true
 scroll_active = false
 autowrap_mode = 0
@@ -715,7 +759,10 @@ tab_size = 24
 
 [node name="Return" type="Button" parent="Settings Menu4/MarginContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_styles/normal = ExtResource("13_4kot4")
 text = "Back"
+icon = ExtResource("24_00ohd")
+expand_icon = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
