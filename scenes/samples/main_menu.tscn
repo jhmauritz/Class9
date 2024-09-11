@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://chee17ae0u5op"]
+[gd_scene load_steps=40 format=3 uid="uid://chee17ae0u5op"]
 
 [ext_resource type="Theme" uid="uid://byds11vsd6ber" path="res://themes/pixelart/pixelart.tres" id="1_0bcbq"]
 [ext_resource type="Script" path="res://scripts/ui/main_menu.gd" id="1_7gw0o"]
@@ -9,8 +9,19 @@
 [ext_resource type="StyleBox" uid="uid://dj0ib6qvmygdj" path="res://themes/pixelart/button_pressed_style.tres" id="3_u8ajb"]
 [ext_resource type="Texture2D" uid="uid://c8yfrjpm5qqjt" path="res://sprites/ui/ui-tileset.png" id="4_05n6c"]
 [ext_resource type="Script" path="res://scripts/ui/audio_menu.gd" id="4_mjs4o"]
+[ext_resource type="Texture2D" uid="uid://dhlwjr6orkwv7" path="res://assets_collected/Backdrops/background 4/4.png" id="6_4l6by"]
 [ext_resource type="Script" path="res://scripts/ui/viewport_container.gd" id="6_8dq4u"]
+[ext_resource type="Texture2D" uid="uid://bdngpidsrxxhc" path="res://assets_collected/Overlays/11.png" id="7_yniyi"]
+[ext_resource type="Script" path="res://scripts/ui/viewport_texture_rect.gd" id="8_hr3wm"]
 [ext_resource type="PackedScene" path="res://scenes/common/ui/load_button.tscn" id="9_ijoqn"]
+[ext_resource type="Texture2D" uid="uid://df1kj4ykh362u" path="res://assets_collected/Backdrops/background 3/2.png" id="12_7o0yf"]
+[ext_resource type="Texture2D" uid="uid://3anj7nbdnu0" path="res://assets_collected/Backdrops/background 1/4.png" id="13_ainpi"]
+[ext_resource type="Texture2D" uid="uid://3edsg7ewo3ha" path="res://assets_collected/Backdrops/2 Background/5.png" id="15_8k2h3"]
+[ext_resource type="Texture2D" uid="uid://eixynkl1up2x" path="res://assets_collected/Overlays/13.png" id="15_ds4m2"]
+[ext_resource type="Texture2D" uid="uid://mnt1j7etd40y" path="res://assets_collected/Backdrops/1 Backgrounds/4/Night/5.png" id="16_ub5ri"]
+[ext_resource type="Texture2D" uid="uid://dvdv7hepv24db" path="res://assets_collected/Overlays/19.png" id="17_hr4pb"]
+[ext_resource type="Texture2D" uid="uid://23gcynqbkr4s" path="res://assets_collected/Overlays/8.png" id="20_hlwwr"]
+[ext_resource type="Texture2D" uid="uid://c84r2qpik2bti" path="res://assets_collected/Overlays/10.png" id="22_wb1pc"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ve7hb"]
 
@@ -52,8 +63,12 @@ Panel/styles/panel = SubResource("StyleBoxTexture_rbmb2")
 [sub_resource type="LabelSettings" id="LabelSettings_utnyj"]
 font_size = 100
 
-[sub_resource type="LabelSettings" id="LabelSettings_0qyyl"]
-font_size = 100
+[sub_resource type="LabelSettings" id="LabelSettings_5bj3n"]
+font_size = 55
+font_color = Color(0.22148, 0.575142, 0.148872, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_uxp60"]
+font_size = 80
 
 [sub_resource type="Animation" id="Animation_ro8gj"]
 length = 0.001
@@ -183,14 +198,43 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 theme = SubResource("Theme_un6xn")
 
-[node name="Panel" type="Panel" parent="."]
+[node name="Panel-mainmenu" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 2.0
+offset_bottom = 2.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_0bcbq")
+
+[node name="TextureRect" type="TextureRect" parent="Panel-mainmenu"]
+light_mask = 2
+clip_contents = true
+layout_direction = 1
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource("1_0bcbq")
+texture = ExtResource("6_4l6by")
+flip_v = true
+
+[node name="ViewportTextureRect" type="TextureRect" parent="Panel-mainmenu/TextureRect"]
+modulate = Color(0.215183, 0.654102, 0.537414, 1)
+self_modulate = Color(0.972556, 0.908295, 0.910046, 1)
+show_behind_parent = true
+light_mask = 2
+visibility_layer = 8
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(0.639907, 0.539684)
+texture = ExtResource("7_yniyi")
+flip_h = true
+script = ExtResource("8_hr3wm")
 
 [node name="Main Menu" type="AspectRatioContainer" parent="."]
 layout_mode = 1
@@ -219,9 +263,18 @@ alignment = 1
 
 [node name="title" type="Label" parent="Main Menu/MarginContainer/VBoxContainer"]
 layout_mode = 2
-text = "The Mad
-Scientist"
+text = "Beaker 
+Breakers"
 label_settings = SubResource("LabelSettings_utnyj")
+horizontal_alignment = 1
+vertical_alignment = 1
+clip_text = true
+uppercase = true
+
+[node name="subtitle" type="Label" parent="Main Menu/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "The Mad Scientist"
+label_settings = SubResource("LabelSettings_5bj3n")
 horizontal_alignment = 1
 vertical_alignment = 1
 clip_text = true
@@ -244,19 +297,48 @@ text = "Settings"
 layout_mode = 2
 text = "Exit"
 
+[node name="Panel-settings" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1151.0
+offset_right = 1151.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_0bcbq")
+
+[node name="TextureRect" type="TextureRect" parent="Panel-settings"]
+clip_contents = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("12_7o0yf")
+flip_v = true
+
+[node name="ViewportTextureRect" type="TextureRect" parent="Panel-settings/TextureRect"]
+modulate = Color(0.385049, 0.593791, 0.449396, 1)
+self_modulate = Color(0.481789, 0.481789, 0.481789, 1)
+show_behind_parent = true
+clip_children = 2
+light_mask = 2
+visibility_layer = 4
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(0.642278, 0.545639)
+texture = ExtResource("15_ds4m2")
+script = ExtResource("8_hr3wm")
+
 [node name="Settings Menu" type="AspectRatioContainer" parent="."]
 layout_mode = 0
 offset_left = 1152.0
 offset_right = 2304.0
 offset_bottom = 648.0
 script = ExtResource("6_8dq4u")
-
-[node name="Audio Control" type="Control" parent="Settings Menu" node_paths=PackedStringArray("master_slider", "music_slider", "sfx_slider")]
-layout_mode = 2
-script = ExtResource("4_mjs4o")
-master_slider = NodePath("../MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2/HSlider")
-music_slider = NodePath("../MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2/HSlider2")
-sfx_slider = NodePath("../MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2/HSlider3")
 
 [node name="MarginContainer" type="MarginContainer" parent="Settings Menu"]
 layout_mode = 2
@@ -268,24 +350,105 @@ alignment = 1
 [node name="Label" type="Label" parent="Settings Menu/MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "Settings"
-label_settings = SubResource("LabelSettings_0qyyl")
+label_settings = SubResource("LabelSettings_uxp60")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Settings Menu/MarginContainer/VBoxContainer"]
+[node name="Save" type="Button" parent="Settings Menu/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Audio"
+
+[node name="Video" type="Button" parent="Settings Menu/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Video"
+
+[node name="Credits" type="Button" parent="Settings Menu/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Credits
+"
+
+[node name="Back" type="Button" parent="Settings Menu/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Back
+"
+
+[node name="Panel-audio_settings" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 2302.0
+offset_right = 2302.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_0bcbq")
+
+[node name="TextureRect" type="TextureRect" parent="Panel-audio_settings"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("13_ainpi")
+flip_v = true
+
+[node name="ViewportTextureRect" type="TextureRect" parent="Panel-audio_settings/TextureRect"]
+modulate = Color(0.517184, 0.517184, 0.517184, 1)
+self_modulate = Color(0.283248, 0.565354, 0.619384, 1)
+show_behind_parent = true
+light_mask = 128
+visibility_layer = 8
+clip_contents = true
+layout_mode = 0
+offset_right = 1800.0
+offset_bottom = 1200.0
+scale = Vector2(0.641013, 0.545477)
+texture = ExtResource("17_hr4pb")
+script = ExtResource("8_hr3wm")
+
+[node name="Settings Menu2" type="AspectRatioContainer" parent="."]
+layout_mode = 0
+offset_left = 2303.0
+offset_right = 3455.0
+offset_bottom = 648.0
+script = ExtResource("6_8dq4u")
+
+[node name="Audio Control" type="Control" parent="Settings Menu2" node_paths=PackedStringArray("master_slider", "music_slider", "sfx_slider")]
+layout_mode = 2
+script = ExtResource("4_mjs4o")
+master_slider = NodePath("../MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2/HSlider")
+music_slider = NodePath("../MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2/HSlider2")
+sfx_slider = NodePath("../MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2/HSlider3")
+
+[node name="MarginContainer" type="MarginContainer" parent="Settings Menu2"]
 layout_mode = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Settings Menu/MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Settings Menu2/MarginContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="Settings Menu2/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Audio Settings"
+label_settings = SubResource("LabelSettings_uxp60")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Settings Menu2/MarginContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="Settings Menu/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Settings Menu2/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Settings Menu2/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 theme = ExtResource("1_0bcbq")
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 text = "Master"
 vertical_alignment = 1
 
-[node name="Label2" type="Label" parent="Settings Menu/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+[node name="Label2" type="Label" parent="Settings Menu2/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 theme = ExtResource("1_0bcbq")
 theme_override_colors/font_color = Color(1, 1, 1, 1)
@@ -293,19 +456,19 @@ text = "Music
 "
 vertical_alignment = 1
 
-[node name="Label3" type="Label" parent="Settings Menu/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+[node name="Label3" type="Label" parent="Settings Menu2/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 text = "SFX
 "
 vertical_alignment = 1
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="Settings Menu/MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="VBoxContainer2" type="VBoxContainer" parent="Settings Menu2/MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 alignment = 1
 
-[node name="HSlider" type="HSlider" parent="Settings Menu/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2"]
+[node name="HSlider" type="HSlider" parent="Settings Menu2/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
@@ -313,7 +476,7 @@ theme = ExtResource("1_0bcbq")
 max_value = 1.0
 step = 0.01
 
-[node name="HSlider2" type="HSlider" parent="Settings Menu/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2"]
+[node name="HSlider2" type="HSlider" parent="Settings Menu2/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
@@ -321,7 +484,7 @@ theme = ExtResource("1_0bcbq")
 max_value = 1.0
 step = 0.01
 
-[node name="HSlider3" type="HSlider" parent="Settings Menu/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2"]
+[node name="HSlider3" type="HSlider" parent="Settings Menu2/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
@@ -329,13 +492,230 @@ theme = ExtResource("1_0bcbq")
 max_value = 1.0
 step = 0.01
 
-[node name="Save" type="Button" parent="Settings Menu/MarginContainer/VBoxContainer"]
+[node name="Save" type="Button" parent="Settings Menu2/MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "Save"
 
-[node name="Return" type="Button" parent="Settings Menu/MarginContainer/VBoxContainer"]
+[node name="Return" type="Button" parent="Settings Menu2/MarginContainer/VBoxContainer"]
 layout_mode = 2
-text = "Return"
+text = "Back
+"
+
+[node name="Panel-videosettings" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 3453.0
+offset_top = 2.0
+offset_right = 3453.0
+offset_bottom = 2.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_0bcbq")
+
+[node name="TextureRect" type="TextureRect" parent="Panel-videosettings"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("15_8k2h3")
+flip_v = true
+
+[node name="ViewportTextureRect" type="TextureRect" parent="Panel-videosettings/TextureRect"]
+modulate = Color(0.92038, 0.514664, 0.162383, 1)
+self_modulate = Color(0.860369, 0.860369, 0.860369, 1)
+show_behind_parent = true
+light_mask = 4
+visibility_layer = 8
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(0.638037, 0.545036)
+texture = ExtResource("20_hlwwr")
+script = ExtResource("8_hr3wm")
+
+[node name="Settings Menu3" type="AspectRatioContainer" parent="."]
+layout_mode = 0
+offset_left = 3473.0
+offset_right = 4625.0
+offset_bottom = 648.0
+script = ExtResource("6_8dq4u")
+
+[node name="Audio Control" type="Control" parent="Settings Menu3" node_paths=PackedStringArray("master_slider", "music_slider", "sfx_slider")]
+layout_mode = 2
+script = ExtResource("4_mjs4o")
+master_slider = NodePath("../MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2/HSlider")
+music_slider = NodePath("../MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2/HSlider2")
+sfx_slider = NodePath("../MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2/HSlider3")
+
+[node name="MarginContainer" type="MarginContainer" parent="Settings Menu3"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Settings Menu3/MarginContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="Settings Menu3/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Video Settings"
+label_settings = SubResource("LabelSettings_uxp60")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Settings Menu3/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Settings Menu3/MarginContainer/VBoxContainer/HBoxContainer"]
+visible = false
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Settings Menu3/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_0bcbq")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+text = "Master"
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="Settings Menu3/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_0bcbq")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+text = "Music
+"
+vertical_alignment = 1
+
+[node name="Label3" type="Label" parent="Settings Menu3/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+text = "SFX
+"
+vertical_alignment = 1
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="Settings Menu3/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="HSlider" type="HSlider" parent="Settings Menu3/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme = ExtResource("1_0bcbq")
+max_value = 1.0
+step = 0.01
+
+[node name="HSlider2" type="HSlider" parent="Settings Menu3/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme = ExtResource("1_0bcbq")
+max_value = 1.0
+step = 0.01
+
+[node name="HSlider3" type="HSlider" parent="Settings Menu3/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme = ExtResource("1_0bcbq")
+max_value = 1.0
+step = 0.01
+
+[node name="Save" type="Button" parent="Settings Menu3/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Save"
+
+[node name="Return" type="Button" parent="Settings Menu3/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Back"
+
+[node name="Panel-credits" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 4604.0
+offset_right = 4604.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_0bcbq")
+
+[node name="TextureRect" type="TextureRect" parent="Panel-credits"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("16_ub5ri")
+flip_h = true
+flip_v = true
+
+[node name="ViewportTextureRect" type="TextureRect" parent="Panel-credits/TextureRect"]
+modulate = Color(0.55615, 0.646402, 0.610033, 1)
+self_modulate = Color(0.744613, 0.636146, 0.83897, 1)
+show_behind_parent = true
+light_mask = 4
+visibility_layer = 16
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(0.639992, 0.541128)
+texture = ExtResource("22_wb1pc")
+script = ExtResource("8_hr3wm")
+
+[node name="Settings Menu4" type="AspectRatioContainer" parent="."]
+layout_mode = 0
+offset_left = 4624.0
+offset_right = 5776.0
+offset_bottom = 648.0
+script = ExtResource("6_8dq4u")
+
+[node name="Audio Control" type="Control" parent="Settings Menu4" node_paths=PackedStringArray("master_slider", "music_slider", "sfx_slider")]
+layout_mode = 2
+script = ExtResource("4_mjs4o")
+master_slider = NodePath("")
+music_slider = NodePath("")
+sfx_slider = NodePath("")
+
+[node name="MarginContainer" type="MarginContainer" parent="Settings Menu4"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Settings Menu4/MarginContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="Settings Menu4/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Credits"
+label_settings = SubResource("LabelSettings_uxp60")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Settings Menu4/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextEdit" type="RichTextLabel" parent="Settings Menu4/MarginContainer/VBoxContainer/HBoxContainer"]
+clip_contents = false
+layout_direction = 2
+layout_mode = 2
+size_flags_horizontal = 3
+bbcode_enabled = true
+text = "Jesse
+Joe
+Javier
+Andres
+Jordan"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+tab_size = 24
+
+[node name="Return" type="Button" parent="Settings Menu4/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Back"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -348,4 +728,11 @@ advance_expression_base_node = NodePath("../Main Menu/Menu Control")
 anim_player = NodePath("../AnimationPlayer")
 
 [connection signal="pressed" from="Settings Menu/MarginContainer/VBoxContainer/Save" to="Main Menu/Menu Control" method="_on_return_main_menu_button_pressed"]
-[connection signal="pressed" from="Settings Menu/MarginContainer/VBoxContainer/Return" to="Main Menu/Menu Control" method="_on_return_main_menu_button_pressed"]
+[connection signal="pressed" from="Settings Menu/MarginContainer/VBoxContainer/Video" to="Main Menu/Menu Control" method="_on_return_main_menu_button_pressed"]
+[connection signal="pressed" from="Settings Menu/MarginContainer/VBoxContainer/Credits" to="Main Menu/Menu Control" method="_on_return_main_menu_button_pressed"]
+[connection signal="pressed" from="Settings Menu/MarginContainer/VBoxContainer/Back" to="Main Menu/Menu Control" method="_on_return_main_menu_button_pressed"]
+[connection signal="pressed" from="Settings Menu2/MarginContainer/VBoxContainer/Save" to="Main Menu/Menu Control" method="_on_return_main_menu_button_pressed"]
+[connection signal="pressed" from="Settings Menu2/MarginContainer/VBoxContainer/Return" to="Main Menu/Menu Control" method="_on_return_main_menu_button_pressed"]
+[connection signal="pressed" from="Settings Menu3/MarginContainer/VBoxContainer/Save" to="Main Menu/Menu Control" method="_on_return_main_menu_button_pressed"]
+[connection signal="pressed" from="Settings Menu3/MarginContainer/VBoxContainer/Return" to="Main Menu/Menu Control" method="_on_return_main_menu_button_pressed"]
+[connection signal="pressed" from="Settings Menu4/MarginContainer/VBoxContainer/Return" to="Main Menu/Menu Control" method="_on_return_main_menu_button_pressed"]
