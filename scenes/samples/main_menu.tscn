@@ -15,7 +15,7 @@
 [ext_resource type="Script" path="res://scripts/ui/viewport_texture_rect.gd" id="8_hr3wm"]
 [ext_resource type="PackedScene" path="res://scenes/common/ui/load_button.tscn" id="9_ijoqn"]
 [ext_resource type="Texture2D" uid="uid://df1kj4ykh362u" path="res://assets_collected/Backdrops/background 3/2.png" id="12_7o0yf"]
-[ext_resource type="StyleBox" path="res://textures/Button_1.tres" id="13_4kot4"]
+[ext_resource type="StyleBox" uid="uid://bc1isjuwygmdl" path="res://textures/Button_1.tres" id="13_4kot4"]
 [ext_resource type="Texture2D" uid="uid://3anj7nbdnu0" path="res://assets_collected/Backdrops/background 1/4.png" id="13_ainpi"]
 [ext_resource type="Texture2D" uid="uid://d0bygl2qq3qk8" path="res://assets_collected/Icons/Icon_34.png" id="14_mqldd"]
 [ext_resource type="Texture2D" uid="uid://3edsg7ewo3ha" path="res://assets_collected/Backdrops/2 Background/5.png" id="15_8k2h3"]

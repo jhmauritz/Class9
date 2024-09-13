@@ -29,9 +29,11 @@ CameraShakeManager="*res://scenes/preloads/camera_shake_manager.tscn"
 
 [display]
 
+window/size/viewport_width=1280
+window/size/viewport_height=720
 window/size/mode=2
 window/size/resizable=false
-window/stretch/mode="canvas_items"
+window/stretch/mode="viewport"
 
 [dotnet]
 
@@ -87,3 +89,4 @@ use={
 textures/canvas_textures/default_texture_filter=0
 environment/volumetric_fog/use_filter=0
 environment/defaults/default_clear_color=Color(0.788235, 0.8, 0.631373, 1)
+2d/snap/snap_2d_transforms_to_pixel=true
