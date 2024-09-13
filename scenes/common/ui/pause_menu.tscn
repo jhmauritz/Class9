@@ -1,11 +1,21 @@
-[gd_scene load_steps=8 format=3 uid="uid://djujqcbughbl"]
+[gd_scene load_steps=18 format=3 uid="uid://djujqcbughbl"]
 
 [ext_resource type="Script" path="res://scripts/ui/pause_menu.gd" id="1_kcrr8"]
 [ext_resource type="Theme" uid="uid://byds11vsd6ber" path="res://themes/pixelart/pixelart.tres" id="2_807cf"]
 [ext_resource type="Resource" path="res://game_resources/is_paused_reference.tres" id="3_ahtvt"]
-[ext_resource type="PackedScene" path="res://scenes/common/ui/mute_button.tscn" id="3_gjyvc"]
-[ext_resource type="PackedScene" path="res://scenes/common/ui/save_button.tscn" id="4_hed7j"]
-[ext_resource type="PackedScene" path="res://scenes/common/ui/load_button.tscn" id="5_mxgd3"]
+[ext_resource type="PackedScene" uid="uid://t5qrpvb58j7" path="res://scenes/common/ui/mute_button.tscn" id="3_gjyvc"]
+[ext_resource type="PackedScene" uid="uid://btptar8g7v0lg" path="res://scenes/common/ui/save_button.tscn" id="4_hed7j"]
+[ext_resource type="Texture2D" uid="uid://bdpmfchb4u3qk" path="res://assets_collected/Backdrops/1 Backgrounds/8/Night/5.png" id="5_apw38"]
+[ext_resource type="PackedScene" uid="uid://dhl2s7a33d1qg" path="res://scenes/common/ui/load_button.tscn" id="5_mxgd3"]
+[ext_resource type="Texture2D" uid="uid://h2se2lqosqgo" path="res://assets_collected/Overlays/24.png" id="6_y06xg"]
+[ext_resource type="Script" path="res://scripts/ui/viewport_texture_rect.gd" id="7_4eqlv"]
+[ext_resource type="Texture2D" uid="uid://b44jbkxmnn7d6" path="res://assets_collected/Icons/Icon_05.png" id="9_0a3xs"]
+[ext_resource type="StyleBox" uid="uid://bc1isjuwygmdl" path="res://textures/Button_1.tres" id="9_5pjas"]
+[ext_resource type="Texture2D" uid="uid://c1gblu2ig6hnv" path="res://assets_collected/Icons/Icon_18.png" id="11_ykn0f"]
+[ext_resource type="Texture2D" uid="uid://dh8w4dim3ncse" path="res://assets_collected/Icons/Icon_26.png" id="12_c7ev5"]
+[ext_resource type="Script" path="res://scenes/common/ui/Settings.gd" id="14_4kff4"]
+[ext_resource type="Texture2D" uid="uid://cw2hitg0pr62e" path="res://assets_collected/Icons/Icon_35.png" id="14_sk68w"]
+[ext_resource type="Script" path="res://scenes/common/ui/quit_button.gd" id="16_4bkfw"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_j07ig"]
 font_size = 141
@@ -25,6 +35,30 @@ is_paused = ExtResource("3_ahtvt")
 
 [node name="mute_button" parent="." instance=ExtResource("3_gjyvc")]
 layout_mode = 0
+
+[node name="TextureRect" type="TextureRect" parent="."]
+clip_contents = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_apw38")
+flip_v = true
+
+[node name="ViewportTextureRect" type="TextureRect" parent="TextureRect"]
+modulate = Color(0.47788, 0.47788, 0.47788, 1)
+self_modulate = Color(0.800491, 0.800491, 0.800491, 1)
+show_behind_parent = true
+light_mask = 4
+visibility_layer = 4
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("6_y06xg")
+flip_h = true
+script = ExtResource("7_4eqlv")
 
 [node name="AspectRatioContainer" type="AspectRatioContainer" parent="."]
 layout_mode = 1
@@ -53,6 +87,28 @@ vertical_alignment = 1
 
 [node name="save_button" parent="AspectRatioContainer/MarginContainer/VBoxContainer" instance=ExtResource("4_hed7j")]
 layout_mode = 2
+theme_override_styles/normal = ExtResource("9_5pjas")
+icon = ExtResource("9_0a3xs")
+expand_icon = true
 
 [node name="load_button" parent="AspectRatioContainer/MarginContainer/VBoxContainer" instance=ExtResource("5_mxgd3")]
 layout_mode = 2
+theme_override_styles/normal = ExtResource("9_5pjas")
+icon = ExtResource("11_ykn0f")
+expand_icon = true
+
+[node name="settings_button" parent="AspectRatioContainer/MarginContainer/VBoxContainer" instance=ExtResource("5_mxgd3")]
+layout_mode = 2
+theme_override_styles/normal = ExtResource("9_5pjas")
+text = "SETTINGS"
+icon = ExtResource("12_c7ev5")
+expand_icon = true
+script = ExtResource("14_4kff4")
+
+[node name="quit_button" parent="AspectRatioContainer/MarginContainer/VBoxContainer" instance=ExtResource("5_mxgd3")]
+layout_mode = 2
+theme_override_styles/normal = ExtResource("9_5pjas")
+text = "QUIT"
+icon = ExtResource("14_sk68w")
+expand_icon = true
+script = ExtResource("16_4bkfw")

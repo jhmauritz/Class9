@@ -1,7 +1,8 @@
-[gd_scene load_steps=13 format=3 uid="uid://ds4pyjrrj8npy"]
+[gd_scene load_steps=14 format=3 uid="uid://ds4pyjrrj8npy"]
 
 [ext_resource type="Theme" uid="uid://byds11vsd6ber" path="res://themes/pixelart/pixelart.tres" id="1_j5voe"]
 [ext_resource type="Script" path="res://scripts/ui/dialog_box.gd" id="2_4j5tl"]
+[ext_resource type="StyleBox" uid="uid://bc1isjuwygmdl" path="res://textures/Button_1.tres" id="3_lf5cp"]
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_63611"]
 animation = &"off"
@@ -117,6 +118,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_styles/normal = ExtResource("3_lf5cp")
 text = "Hey, I am some text yo"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -125,9 +127,8 @@ visible_ratio = 0.0
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
 tree_root = SubResource("AnimationNodeStateMachine_8gm7i")
-anim_player = NodePath("../AnimationPlayer")
 advance_expression_base_node = NodePath("..")
-active = true
+anim_player = NodePath("../AnimationPlayer")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
