@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://brapie80x4blg"]
+
+[ext_resource type="PackedScene" uid="uid://dhl2s7a33d1qg" path="res://scenes/common/ui/load_button.tscn" id="1_osj1e"]
+[ext_resource type="Script" path="res://scenes/common/ui/load_button.gd" id="2_xsmha"]
+
+[node name="SettingsPaused" type="Node"]
+
+[node name="settings_button" parent="." instance=ExtResource("1_osj1e")]
+offset_left = 3.0
+offset_top = 1.0
+offset_right = 55.0
+offset_bottom = 32.0
+text = "SETTINGS"
+script = ExtResource("2_xsmha")
