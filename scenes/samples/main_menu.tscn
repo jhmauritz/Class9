@@ -1,4 +1,4 @@
-[gd_scene load_steps=55 format=3 uid="uid://chee17ae0u5op"]
+[gd_scene load_steps=56 format=3 uid="uid://chee17ae0u5op"]
 
 [ext_resource type="Theme" uid="uid://byds11vsd6ber" path="res://themes/pixelart/pixelart.tres" id="1_0bcbq"]
 [ext_resource type="Script" path="res://scripts/ui/main_menu.gd" id="1_7gw0o"]
@@ -24,6 +24,7 @@
 [ext_resource type="Texture2D" uid="uid://mnt1j7etd40y" path="res://assets_collected/Backdrops/1 Backgrounds/4/Night/5.png" id="16_ub5ri"]
 [ext_resource type="Texture2D" uid="uid://dh8w4dim3ncse" path="res://assets_collected/Icons/Icon_26.png" id="17_7ofq0"]
 [ext_resource type="Texture2D" uid="uid://dvdv7hepv24db" path="res://assets_collected/Overlays/19.png" id="17_hr4pb"]
+[ext_resource type="Script" path="res://scenes/common/ui/Settings.gd" id="18_8emf2"]
 [ext_resource type="Texture2D" uid="uid://cw2hitg0pr62e" path="res://assets_collected/Icons/Icon_35.png" id="18_wlgkm"]
 [ext_resource type="Texture2D" uid="uid://23gcynqbkr4s" path="res://assets_collected/Overlays/8.png" id="20_hlwwr"]
 [ext_resource type="Texture2D" uid="uid://dyoy1lym2sxi2" path="res://assets_collected/Icons/Icon_37.png" id="21_yvxkg"]
@@ -298,7 +299,6 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("6_8dq4u")
@@ -361,6 +361,7 @@ theme_override_styles/normal = ExtResource("13_4kot4")
 text = "SETTINGS"
 icon = ExtResource("17_7ofq0")
 expand_icon = true
+script = ExtResource("18_8emf2")
 
 [node name="exit_button" type="Button" parent="Main Menu/MarginContainer/VBoxContainer"]
 layout_mode = 2
@@ -409,7 +410,7 @@ script = ExtResource("8_hr3wm")
 layout_mode = 0
 offset_left = 1152.0
 offset_right = 2432.0
-offset_bottom = 719.0
+offset_bottom = 720.0
 script = ExtResource("6_8dq4u")
 
 [node name="MarginContainer" type="MarginContainer" parent="Settings Menu"]
@@ -781,7 +782,7 @@ layout_mode = 0
 offset_left = 4606.0
 offset_top = 2.0
 offset_right = 5886.0
-offset_bottom = 722.0
+offset_bottom = 724.0
 script = ExtResource("6_8dq4u")
 
 [node name="Audio Control" type="Control" parent="Settings credits"]
@@ -812,16 +813,20 @@ layout_direction = 2
 layout_mode = 2
 size_flags_horizontal = 6
 bbcode_enabled = true
-text = "Jesse Mauritz ------ 
-Joe Patterson ------ 
-Javier King ------ 
-Andres Mosquera ------ 
-Jordan Burgher ------ 
-Kaitlyn Furister ------ "
+text = "Jesse Mauritz ------ Design and Programming
+Joe Patterson ------ Assets and UI
+Javier King ------ Character Design and Documentation
+Andres Mosquera ------ UI and Documentation
+Jordan Burgher ------ Level Design and Documentation
+Kaitlyn Furister ------ Audio and Documetnation"
 fit_content = true
-scroll_active = false
+scroll_following = true
 autowrap_mode = 0
-tab_size = 24
+meta_underlined = false
+hint_underlined = false
+deselect_on_focus_loss_enabled = false
+drag_and_drop_selection_enabled = false
+visible_characters_behavior = 2
 
 [node name="Return" type="Button" parent="Settings credits/MarginContainer/VBoxContainer"]
 layout_mode = 2
@@ -947,6 +952,13 @@ item_count = 1
 popup/item_0/text = "English"
 popup/item_0/separator = true
 
+[node name="Save" type="Button" parent="Settings access/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/normal = ExtResource("13_4kot4")
+text = "SAVE"
+icon = ExtResource("28_p4syo")
+expand_icon = true
+
 [node name="Return" type="Button" parent="Settings access/MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_styles/normal = ExtResource("13_4kot4")
@@ -964,14 +976,15 @@ tree_root = SubResource("AnimationNodeStateMachine_6w8s2")
 advance_expression_base_node = NodePath("../Main Menu/Menu Control")
 anim_player = NodePath("../AnimationPlayer")
 
-[connection signal="pressed" from="Settings Menu/MarginContainer/VBoxContainer/Save" to="Main Menu/Menu Control" method="_on_return_main_menu_button_pressed"]
-[connection signal="pressed" from="Settings Menu/MarginContainer/VBoxContainer/Video" to="Main Menu/Menu Control" method="_on_return_main_menu_button_pressed"]
-[connection signal="pressed" from="Settings Menu/MarginContainer/VBoxContainer/Credits" to="Main Menu/Menu Control" method="_on_return_main_menu_button_pressed"]
-[connection signal="pressed" from="Settings Menu/MarginContainer/VBoxContainer/Accessibility" to="Main Menu/Menu Control" method="_on_return_main_menu_button_pressed"]
-[connection signal="pressed" from="Settings Menu/MarginContainer/VBoxContainer/Back" to="Main Menu/Menu Control" method="_on_return_main_menu_button_pressed"]
+[connection signal="pressed" from="Settings Menu/MarginContainer/VBoxContainer/Save" to="Settings Menu-Audio" method="_on_return_main_menu_button_pressed"]
+[connection signal="pressed" from="Settings Menu/MarginContainer/VBoxContainer/Video" to="Settings video_settings" method="_on_return_main_menu_button_pressed"]
+[connection signal="pressed" from="Settings Menu/MarginContainer/VBoxContainer/Credits" to="Settings credits" method="_on_return_main_menu_button_pressed"]
+[connection signal="pressed" from="Settings Menu/MarginContainer/VBoxContainer/Accessibility" to="Settings access" method="_on_return_main_menu_button_pressed"]
+[connection signal="pressed" from="Settings Menu/MarginContainer/VBoxContainer/Back" to="Main Menu" method="_on_return_main_menu_button_pressed"]
 [connection signal="pressed" from="Settings Menu-Audio/MarginContainer/VBoxContainer/Save" to="Main Menu/Menu Control" method="_on_return_main_menu_button_pressed"]
 [connection signal="pressed" from="Settings Menu-Audio/MarginContainer/VBoxContainer/Return" to="Main Menu/Menu Control" method="_on_return_main_menu_button_pressed"]
 [connection signal="pressed" from="Settings video_settings/MarginContainer/VBoxContainer/Save" to="Main Menu/Menu Control" method="_on_return_main_menu_button_pressed"]
 [connection signal="pressed" from="Settings video_settings/MarginContainer/VBoxContainer/Return" to="Main Menu/Menu Control" method="_on_return_main_menu_button_pressed"]
 [connection signal="pressed" from="Settings credits/MarginContainer/VBoxContainer/Return" to="Main Menu/Menu Control" method="_on_return_main_menu_button_pressed"]
+[connection signal="pressed" from="Settings access/MarginContainer/VBoxContainer/Save" to="Main Menu/Menu Control" method="_on_return_main_menu_button_pressed"]
 [connection signal="pressed" from="Settings access/MarginContainer/VBoxContainer/Return" to="Main Menu/Menu Control" method="_on_return_main_menu_button_pressed"]
