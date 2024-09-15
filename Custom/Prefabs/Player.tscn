@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://c72jkuqqvpqrw"]
+[gd_scene load_steps=31 format=3 uid="uid://c72jkuqqvpqrw"]
 
 [ext_resource type="Texture2D" uid="uid://dfivl1t233cm" path="res://assets_collected/Characters/Humans/City_men_1/Idle.png" id="1_b3hgy"]
 [ext_resource type="Script" path="res://Custom/Scripts/player.gd" id="1_jlfog"]
@@ -9,6 +9,8 @@
 [ext_resource type="PackedScene" uid="uid://d4awl56vgd08c" path="res://Custom/Prefabs/components/movement_component.tscn" id="6_kjqdt"]
 [ext_resource type="PackedScene" uid="uid://4kkrkdsstvil" path="res://Custom/Prefabs/components/animation_component.tscn" id="7_nxvqn"]
 [ext_resource type="PackedScene" uid="uid://cqqi56xq2150h" path="res://Custom/Prefabs/components/jump_component.tscn" id="8_yp1eu"]
+[ext_resource type="AudioStream" uid="uid://bevredamm3swd" path="res://audio/audio-assets/Class9_SFX_Footstep_2.mp3" id="10_wa0qi"]
+[ext_resource type="AudioStream" uid="uid://xb2dgiprsx47" path="res://audio/audio-assets/Class9_SFX_Footstep_3.mp3" id="11_d4qni"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_15ml8"]
 atlas = ExtResource("1_b3hgy")
@@ -144,6 +146,12 @@ animations = [{
 radius = 14.0
 height = 72.0
 
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_bbkl2"]
+streams_count = 3
+stream_0/stream = ExtResource("6_c0ike")
+stream_1/stream = ExtResource("10_wa0qi")
+stream_2/stream = ExtResource("11_d4qni")
+
 [node name="CharacterBody2D" type="CharacterBody2D" node_paths=PackedStringArray("gravity_component", "input_component", "movement_component", "animation_component", "jump_component")]
 disable_mode = 2
 collision_mask = 3
@@ -181,5 +189,6 @@ sprite = NodePath("../AnimatedSprite2D")
 [node name="JumpComponent" parent="." instance=ExtResource("8_yp1eu")]
 
 [node name="Footstep" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("6_c0ike")
+stream = SubResource("AudioStreamRandomizer_bbkl2")
 autoplay = true
+bus = &"SFX"
