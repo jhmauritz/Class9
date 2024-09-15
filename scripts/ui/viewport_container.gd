@@ -7,3 +7,7 @@ func _ready() -> void:
 	var viewport_height = ProjectSettings.get_setting("display/window/size/viewport_height")
 	
 	size = Vector2(viewport_width, viewport_height)
+
+
+func _on_return_main_menu_button_pressed() -> void:
+	pass # Replace with function body.
