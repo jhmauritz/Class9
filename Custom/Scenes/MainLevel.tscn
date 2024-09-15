@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=4 uid="uid://cp2py8bnulkt"]
+[gd_scene load_steps=6 format=4 uid="uid://cp2py8bnulkt"]
 
 [ext_resource type="PackedScene" uid="uid://c72jkuqqvpqrw" path="res://Custom/Prefabs/Player.tscn" id="2_833s2"]
 [ext_resource type="Texture2D" uid="uid://bs5ru4bg8n3bj" path="res://sprites/tilesets/test-tileset.png" id="2_o1tgu"]
+[ext_resource type="AudioStream" uid="uid://bejwgmkl11lm" path="res://audio/audio-assets/Class9_AMB.wav" id="3_oq0cw"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_bwonh"]
 texture = ExtResource("2_o1tgu")
@@ -23,3 +24,8 @@ tile_set = SubResource("TileSet_ymqvt")
 
 [node name="Player" parent="." instance=ExtResource("2_833s2")]
 position = Vector2(-19, 5)
+
+[node name="AudioStreamPlayer-Ambience" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_oq0cw")
+volume_db = -7.0
+autoplay = true
