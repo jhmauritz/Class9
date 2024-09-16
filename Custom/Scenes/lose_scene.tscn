@@ -1,0 +1,79 @@
+[gd_scene load_steps=11 format=3 uid="uid://x4tq1gyf7uts"]
+
+[ext_resource type="Script" path="res://Custom/Scripts/lose_scene.gd" id="1_xm4iu"]
+[ext_resource type="Theme" uid="uid://byds11vsd6ber" path="res://themes/pixelart/pixelart.tres" id="2_5pbpp"]
+[ext_resource type="Texture2D" uid="uid://dt02fv6b1f53r" path="res://assets_collected/Overlays/28.png" id="3_dmgfa"]
+[ext_resource type="Texture2D" uid="uid://c7jsks1v1nvpp" path="res://assets_collected/Backdrops/1 Backgrounds/5/Night/5.png" id="4_tjmff"]
+[ext_resource type="FontFile" uid="uid://07yvi11ui7vg" path="res://fonts/Peaberry/PeaberryMono.ttf" id="5_xp85d"]
+[ext_resource type="FontFile" uid="uid://gw131jxas0sc" path="res://fonts/Peaberry/PeaberryBase.ttf" id="6_v2r3k"]
+[ext_resource type="StyleBox" uid="uid://bc1isjuwygmdl" path="res://textures/Button_1.tres" id="7_6yev3"]
+[ext_resource type="Texture2D" uid="uid://2basarbk0om4" path="res://assets_collected/Icons/Icon_11.png" id="8_jpdwk"]
+[ext_resource type="Texture2D" uid="uid://cp58pbfod7to" path="res://assets_collected/Icons/Icon_36.png" id="9_yl5ht"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_cbimk"]
+texture = ExtResource("3_dmgfa")
+modulate_color = Color(0.50992, 0.0171851, 0.495316, 1)
+
+[node name="Lose Control" type="Control" node_paths=PackedStringArray("retry")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_xm4iu")
+retry = NodePath("Panel/AspectRatioContainer/VBoxContainer/Retry")
+
+[node name="Panel" type="Panel" parent="."]
+offset_right = 1280.0
+offset_bottom = 706.0
+theme = ExtResource("2_5pbpp")
+theme_override_styles/panel = SubResource("StyleBoxTexture_cbimk")
+
+[node name="TextureRect" type="TextureRect" parent="Panel"]
+modulate = Color(0.925353, 0.925353, 0.925353, 1)
+self_modulate = Color(0.788334, 0.667525, 0.988624, 1)
+layout_mode = 0
+offset_right = 1282.0
+offset_bottom = 705.0
+texture = ExtResource("4_tjmff")
+flip_v = true
+
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -489.0
+offset_right = 489.0
+offset_bottom = 709.0
+grow_horizontal = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/AspectRatioContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="Label" type="Label" parent="Panel/AspectRatioContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_xp85d")
+theme_override_font_sizes/font_size = 111
+text = "YOU LOSE!"
+horizontal_alignment = 1
+
+[node name="Retry" type="Button" parent="Panel/AspectRatioContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_5pbpp")
+theme_override_fonts/font = ExtResource("6_v2r3k")
+theme_override_styles/normal = ExtResource("7_6yev3")
+text = "CONTINUE"
+icon = ExtResource("8_jpdwk")
+expand_icon = true
+
+[node name="Quit" type="Button" parent="Panel/AspectRatioContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_5pbpp")
+theme_override_styles/normal = ExtResource("7_6yev3")
+text = "MENU
+"
+icon = ExtResource("9_yl5ht")
+expand_icon = true

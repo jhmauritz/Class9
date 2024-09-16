@@ -1,4 +1,7 @@
-extends Button
+extends Control
+
+@export var menu : Button
+@export var retry : Button
 
 
 # Called when the node enters the scene tree for the first time.
