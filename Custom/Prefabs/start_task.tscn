@@ -1,0 +1,24 @@
+[gd_scene load_steps=6 format=3 uid="uid://df0upf04sgspd"]
+
+[ext_resource type="Texture2D" uid="uid://dysx4mbegwimn" path="res://assets_collected/Home-Decor/Kitchen (46)/Kitchen_01.png" id="1_m7r5p"]
+[ext_resource type="Script" path="res://Custom/Scripts/starttask_prefab.gd" id="1_qq74p"]
+[ext_resource type="PackedScene" uid="uid://dr08qns7tedkf" path="res://Custom/interaction/InteractionManager.tscn" id="2_agmty"]
+[ext_resource type="PackedScene" uid="uid://brb5susakhh0l" path="res://Custom/interaction/interaction area/interaction_bound.tscn" id="4_vqaty"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ppssh"]
+
+[node name="StartTask" type="Node2D"]
+script = ExtResource("1_qq74p")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_m7r5p")
+
+[node name="InteractionManager" parent="." instance=ExtResource("2_agmty")]
+
+[node name="InteractionBound" parent="." instance=ExtResource("4_vqaty")]
+action_name = "Start Task"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionBound"]
+scale = Vector2(10.79, 10.79)
+shape = SubResource("CircleShape2D_ppssh")
+one_way_collision_margin = 0.0
