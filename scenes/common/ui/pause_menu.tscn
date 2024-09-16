@@ -13,12 +13,25 @@
 [ext_resource type="StyleBox" uid="uid://bc1isjuwygmdl" path="res://textures/Button_1.tres" id="9_5pjas"]
 [ext_resource type="Texture2D" uid="uid://c1gblu2ig6hnv" path="res://assets_collected/Icons/Icon_18.png" id="11_ykn0f"]
 [ext_resource type="Texture2D" uid="uid://dh8w4dim3ncse" path="res://assets_collected/Icons/Icon_26.png" id="12_c7ev5"]
-[ext_resource type="Script" path="res://scenes/common/ui/Settings.gd" id="14_4kff4"]
 [ext_resource type="Texture2D" uid="uid://cw2hitg0pr62e" path="res://assets_collected/Icons/Icon_35.png" id="14_sk68w"]
 [ext_resource type="Script" path="res://scenes/common/ui/quit_button.gd" id="16_4bkfw"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_j07ig"]
 font_size = 141
+
+[sub_resource type="GDScript" id="GDScript_tqmb7"]
+script/source = "extends Button
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+# func _process(delta: float) -> void:
+	pass
+"
 
 [node name="pause_menu" type="Control"]
 process_mode = 3
@@ -46,6 +59,7 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("5_apw38")
 flip_v = true
+script = ExtResource("7_4eqlv")
 
 [node name="ViewportTextureRect" type="TextureRect" parent="TextureRect"]
 modulate = Color(0.47788, 0.47788, 0.47788, 1)
@@ -85,16 +99,16 @@ label_settings = SubResource("LabelSettings_j07ig")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="save_button" parent="AspectRatioContainer/MarginContainer/VBoxContainer" instance=ExtResource("4_hed7j")]
-layout_mode = 2
-theme_override_styles/normal = ExtResource("9_5pjas")
-icon = ExtResource("9_0a3xs")
-expand_icon = true
-
 [node name="load_button" parent="AspectRatioContainer/MarginContainer/VBoxContainer" instance=ExtResource("5_mxgd3")]
 layout_mode = 2
 theme_override_styles/normal = ExtResource("9_5pjas")
 icon = ExtResource("11_ykn0f")
+expand_icon = true
+
+[node name="save_button" parent="AspectRatioContainer/MarginContainer/VBoxContainer" instance=ExtResource("4_hed7j")]
+layout_mode = 2
+theme_override_styles/normal = ExtResource("9_5pjas")
+icon = ExtResource("9_0a3xs")
 expand_icon = true
 
 [node name="settings_button" parent="AspectRatioContainer/MarginContainer/VBoxContainer" instance=ExtResource("5_mxgd3")]
@@ -103,7 +117,7 @@ theme_override_styles/normal = ExtResource("9_5pjas")
 text = "SETTINGS"
 icon = ExtResource("12_c7ev5")
 expand_icon = true
-script = ExtResource("14_4kff4")
+script = SubResource("GDScript_tqmb7")
 
 [node name="quit_button" parent="AspectRatioContainer/MarginContainer/VBoxContainer" instance=ExtResource("5_mxgd3")]
 layout_mode = 2

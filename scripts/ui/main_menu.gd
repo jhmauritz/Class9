@@ -1,8 +1,9 @@
 extends Control
 
-enum Menu { MAIN_MENU, SETTINGS_MENU }
+enum Menu { MAIN_MENU, LOAD_MENU , SETTINGS_MENU, AUDIO_SETTINGS, VIDEO_SETTINGS, CREDITS, ACCESSIBILITY }
 
 @export var start_button : Button
+@export var load_button : Button
 @export var settings_button : Button
 @export var exit_button : Button
 
@@ -13,11 +14,13 @@ var current_menu : Menu = Menu.MAIN_MENU
 
 func _enter_tree():
 	start_button.pressed.connect(_on_start_button_pressed)
+	# load_button.pressed.connect(_on_load_pressed)
 	settings_button.pressed.connect(_on_settings_pressed)
 	exit_button.pressed.connect(_on_exit_pressed)
 	
 func _exit_tree():
 	start_button.pressed.disconnect(_on_start_button_pressed)
+	# load_button.pressed.disconnect(_on_load_pressed)
 	settings_button.pressed.disconnect(_on_settings_pressed)
 	exit_button.pressed.disconnect(_on_exit_pressed)
 
@@ -28,12 +31,22 @@ func _on_start_button_pressed():
 	)
 
 func _on_exit_pressed():
-	get_tree().quit()
+	get_tree().exit()
 
+func on_load_pressed():
+	current_menu = Menu.LOAD_MENU
 
 func _on_settings_pressed():
 	current_menu = Menu.SETTINGS_MENU
+	
+func _on_video_pressed():
+	current_menu = Menu.VIDEO_SETTINGS
+	
+func _on_credits_pressed():
+	current_menu = Menu.CREDITS
 
+func _on_access_pressed():
+	current_menu = Menu.ACCESSIBILITY
 
-func _on_return_main_menu_button_pressed():
-	current_menu = Menu.MAIN_MENU
+#func _on_return_main_menu_button_pressed():
+#	current_menu = Menu.MAIN_MENU

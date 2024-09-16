@@ -1,0 +1,80 @@
+[gd_scene load_steps=11 format=3 uid="uid://civu7ckaghge4"]
+
+[ext_resource type="Script" path="res://Custom/Scripts/win_scene.gd" id="1_l6pch"]
+[ext_resource type="FontFile" uid="uid://07yvi11ui7vg" path="res://fonts/Peaberry/PeaberryMono.ttf" id="2_ijp6i"]
+[ext_resource type="Theme" uid="uid://byds11vsd6ber" path="res://themes/pixelart/pixelart.tres" id="3_2cdw5"]
+[ext_resource type="FontFile" uid="uid://gw131jxas0sc" path="res://fonts/Peaberry/PeaberryBase.ttf" id="3_7gy63"]
+[ext_resource type="Texture2D" uid="uid://kt1eaqqyaudy" path="res://assets_collected/Overlays/27.png" id="3_y0pug"]
+[ext_resource type="StyleBox" uid="uid://bc1isjuwygmdl" path="res://textures/Button_1.tres" id="4_akf60"]
+[ext_resource type="Texture2D" uid="uid://bdpmfchb4u3qk" path="res://assets_collected/Backdrops/1 Backgrounds/8/Night/5.png" id="4_ta0g7"]
+[ext_resource type="Texture2D" uid="uid://2basarbk0om4" path="res://assets_collected/Icons/Icon_11.png" id="8_lavhc"]
+[ext_resource type="Texture2D" uid="uid://cp58pbfod7to" path="res://assets_collected/Icons/Icon_36.png" id="9_d3nuj"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_l61c7"]
+texture = ExtResource("3_y0pug")
+modulate_color = Color(0.481322, 0.754087, 0.695407, 1)
+
+[node name="Win Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_l6pch")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_right = 1280.0
+offset_bottom = 706.0
+theme = ExtResource("3_2cdw5")
+theme_override_styles/panel = SubResource("StyleBoxTexture_l61c7")
+
+[node name="TextureRect" type="TextureRect" parent="Panel"]
+modulate = Color(0.925353, 0.925353, 0.925353, 1)
+self_modulate = Color(0.788334, 0.667525, 0.988624, 1)
+layout_mode = 0
+offset_right = 1282.0
+offset_bottom = 705.0
+texture = ExtResource("4_ta0g7")
+flip_v = true
+
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -489.0
+offset_right = 489.0
+offset_bottom = 709.0
+grow_horizontal = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/AspectRatioContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+size_flags_stretch_ratio = 7.86
+
+[node name="Label" type="Label" parent="Panel/AspectRatioContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_ijp6i")
+theme_override_font_sizes/font_size = 111
+text = "YOU WIN!"
+horizontal_alignment = 1
+
+[node name="Retry" type="Button" parent="Panel/AspectRatioContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("3_2cdw5")
+theme_override_fonts/font = ExtResource("3_7gy63")
+theme_override_styles/normal = ExtResource("4_akf60")
+text = "RETRY"
+icon = ExtResource("8_lavhc")
+expand_icon = true
+
+[node name="Quit" type="Button" parent="Panel/AspectRatioContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("3_2cdw5")
+theme_override_styles/normal = ExtResource("4_akf60")
+text = "MENU
+"
+icon = ExtResource("9_d3nuj")
+expand_icon = true

@@ -1,4 +1,4 @@
-[gd_scene load_steps=76 format=3 uid="uid://chee17ae0u5op"]
+[gd_scene load_steps=59 format=3 uid="uid://chee17ae0u5op"]
 
 [ext_resource type="Theme" uid="uid://byds11vsd6ber" path="res://themes/pixelart/pixelart.tres" id="1_0bcbq"]
 [ext_resource type="Script" path="res://scripts/ui/main_menu.gd" id="1_7gw0o"]
@@ -137,7 +137,7 @@ tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(3453, 0)]
+"values": [Vector2(3453, 2)]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
@@ -149,7 +149,7 @@ tracks/4/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(4606, 0)]
+"values": [Vector2(4606, 2)]
 }
 tracks/5/type = "value"
 tracks/5/imported = false
@@ -161,7 +161,7 @@ tracks/5/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(5899, 0)]
+"values": [Vector2(5899, -3)]
 }
 
 [sub_resource type="Animation" id="Animation_u1ere"]
@@ -218,36 +218,12 @@ tracks/1/keys = {
 "values": [Vector2(0, 0)]
 }
 
-[sub_resource type="Animation" id="Animation_b3mid"]
-
-[sub_resource type="Animation" id="Animation_ob48y"]
-
-[sub_resource type="Animation" id="Animation_sblop"]
-
-[sub_resource type="Animation" id="Animation_wit5k"]
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_xq8ga"]
 _data = {
 "RESET": SubResource("Animation_ro8gj"),
-"access_menu": SubResource("Animation_wit5k"),
-"audio_menu": SubResource("Animation_ob48y"),
-"credits_menu": SubResource("Animation_sblop"),
 "main_menu": SubResource("Animation_u1ere"),
-"settings_menu": SubResource("Animation_ns3jf"),
-"video_menu": SubResource("Animation_b3mid")
+"settings_menu": SubResource("Animation_ns3jf")
 }
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_5umwu"]
-animation = &"RESET"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_dycrc"]
-animation = &"access_menu"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_bs7so"]
-animation = &"audio_menu"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_6g1np"]
-animation = &"credits_menu"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_h0fc5"]
 animation = &"main_menu"
@@ -259,9 +235,6 @@ loop_mode = 0
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_cmvsc"]
 animation = &"settings_menu"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ld1il"]
-animation = &"video_menu"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ckc0g"]
 advance_mode = 2
@@ -276,53 +249,30 @@ xfade_time = 1.0
 advance_mode = 2
 advance_expression = "current_menu == Menu.MAIN_MENU"
 
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_y3qis"]
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_svvwq"]
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_1t8jm"]
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_j8k0f"]
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_cej46"]
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_krif7"]
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_pktgg"]
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_purjt"]
-
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_6w8s2"]
-allow_transition_to_self = true
-states/End/position = Vector2(1956, 172)
-states/RESET/node = SubResource("AnimationNodeAnimation_5umwu")
-states/RESET/position = Vector2(165, 375)
-states/Start/position = Vector2(200, 69)
-states/access_menu/node = SubResource("AnimationNodeAnimation_dycrc")
-states/access_menu/position = Vector2(357, 264)
-states/audio_menu/node = SubResource("AnimationNodeAnimation_bs7so")
-states/audio_menu/position = Vector2(744, 91)
-states/credits_menu/node = SubResource("AnimationNodeAnimation_6g1np")
-states/credits_menu/position = Vector2(560, 448)
+states/End/position = Vector2(1428, 179)
+states/Start/position = Vector2(225, 179)
 states/main_menu/node = SubResource("AnimationNodeAnimation_h0fc5")
-states/main_menu/position = Vector2(433, 69)
+states/main_menu/position = Vector2(431, 179)
 states/settings_menu/node = SubResource("AnimationNodeAnimation_cmvsc")
-states/settings_menu/position = Vector2(586, 264)
-states/video_menu/node = SubResource("AnimationNodeAnimation_ld1il")
-states/video_menu/position = Vector2(830, 264)
-transitions = ["Start", "main_menu", SubResource("AnimationNodeStateMachineTransition_ckc0g"), "main_menu", "settings_menu", SubResource("AnimationNodeStateMachineTransition_huiay"), "settings_menu", "main_menu", SubResource("AnimationNodeStateMachineTransition_b8jnv"), "settings_menu", "audio_menu", SubResource("AnimationNodeStateMachineTransition_y3qis"), "audio_menu", "settings_menu", SubResource("AnimationNodeStateMachineTransition_svvwq"), "settings_menu", "video_menu", SubResource("AnimationNodeStateMachineTransition_1t8jm"), "video_menu", "settings_menu", SubResource("AnimationNodeStateMachineTransition_j8k0f"), "credits_menu", "settings_menu", SubResource("AnimationNodeStateMachineTransition_cej46"), "settings_menu", "credits_menu", SubResource("AnimationNodeStateMachineTransition_krif7"), "settings_menu", "access_menu", SubResource("AnimationNodeStateMachineTransition_pktgg"), "access_menu", "settings_menu", SubResource("AnimationNodeStateMachineTransition_purjt")]
-graph_offset = Vector2(-113, 25)
+states/settings_menu/position = Vector2(658, 179)
+transitions = ["Start", "main_menu", SubResource("AnimationNodeStateMachineTransition_ckc0g"), "main_menu", "settings_menu", SubResource("AnimationNodeStateMachineTransition_huiay"), "settings_menu", "main_menu", SubResource("AnimationNodeStateMachineTransition_b8jnv")]
+graph_offset = Vector2(-143, 94)
 
 [node name="menu" type="Control"]
 layout_mode = 3
 anchors_preset = 0
+offset_left = 280.0
+offset_right = 1000.0
+offset_bottom = 720.0
+grow_horizontal = 2
+grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme = SubResource("Theme_un6xn")
-metadata/_edit_vertical_guides_ = [1280.0, 0.0, 2432.0, 3584.0, 4736.0, 5888.0, 7176.0]
-metadata/_edit_horizontal_guides_ = [720.0, 0.0]
 
 [node name="Panel-mainmenu" type="Panel" parent="."]
+clip_contents = true
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -335,13 +285,12 @@ theme = ExtResource("1_0bcbq")
 
 [node name="TextureRect" type="TextureRect" parent="Panel-mainmenu"]
 light_mask = 2
+clip_contents = true
+layout_direction = 1
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 3.0
-offset_right = 1284.0
-offset_bottom = 720.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("6_4l6by")
@@ -353,16 +302,9 @@ self_modulate = Color(0.972556, 0.908295, 0.910046, 1)
 show_behind_parent = true
 light_mask = 2
 visibility_layer = 8
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.5
-anchor_top = 0.502
-anchor_right = 0.5
-anchor_bottom = 0.502
-offset_left = -659.5
-offset_top = -369.44
-offset_right = 1390.5
-offset_bottom = 989.56
+layout_mode = 0
+offset_right = 1800.0
+offset_bottom = 1327.0
 scale = Vector2(0.639907, 0.539684)
 texture = ExtResource("7_yniyi")
 flip_h = true
@@ -373,8 +315,6 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_right = 1280.0
-offset_bottom = 720.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("6_8dq4u")
@@ -447,18 +387,24 @@ icon = ExtResource("18_wlgkm")
 expand_icon = true
 
 [node name="Panel-settings" type="Panel" parent="."]
-visible = false
-layout_mode = 0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1151.0
+offset_right = 1151.0
+grow_horizontal = 2
+grow_vertical = 2
 theme = ExtResource("1_0bcbq")
-metadata/_edit_lock_ = true
 
 [node name="TextureRect" type="TextureRect" parent="Panel-settings"]
 clip_contents = true
 layout_mode = 1
-offset_left = 1277.0
-offset_top = -1.0
-offset_right = 1853.0
-offset_bottom = 323.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 texture = ExtResource("12_7o0yf")
 flip_v = true
 
@@ -469,16 +415,9 @@ show_behind_parent = true
 clip_children = 2
 light_mask = 2
 visibility_layer = 4
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.729
-anchor_top = 0.5
-anchor_right = 0.729
-anchor_bottom = 0.5
-offset_left = -1.90411
-offset_top = -10.0
-offset_right = 1798.1
-offset_bottom = 1319.0
+layout_mode = 0
+offset_right = 1800.0
+offset_bottom = 1329.0
 scale = Vector2(0.642278, 0.545639)
 texture = ExtResource("15_ds4m2")
 script = ExtResource("8_hr3wm")
@@ -550,7 +489,6 @@ icon = ExtResource("24_00ohd")
 expand_icon = true
 
 [node name="Panel-audio_settings" type="Panel" parent="."]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -560,17 +498,13 @@ offset_right = 2302.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_0bcbq")
-metadata/_edit_lock_ = true
 
 [node name="TextureRect" type="TextureRect" parent="Panel-audio_settings"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 6.0
-offset_top = 5.0
-offset_right = 1289.0
-offset_bottom = 672.0
+offset_bottom = 2.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("13_ainpi")
@@ -584,10 +518,8 @@ light_mask = 128
 visibility_layer = 8
 clip_contents = true
 layout_mode = 0
-offset_left = -5.0
-offset_top = -2.0
-offset_right = 1795.0
-offset_bottom = 1306.0
+offset_right = 1800.0
+offset_bottom = 1324.0
 scale = Vector2(0.641013, 0.545477)
 texture = ExtResource("17_hr4pb")
 flip_h = true
@@ -701,7 +633,6 @@ icon = ExtResource("24_00ohd")
 expand_icon = true
 
 [node name="Panel-videosettings" type="Panel" parent="."]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -713,7 +644,6 @@ offset_bottom = 2.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_0bcbq")
-metadata/_edit_lock_ = true
 
 [node name="TextureRect" type="TextureRect" parent="Panel-videosettings"]
 layout_mode = 1
@@ -741,8 +671,9 @@ script = ExtResource("8_hr3wm")
 [node name="Settings video_settings" type="AspectRatioContainer" parent="."]
 layout_mode = 0
 offset_left = 3453.0
+offset_top = 2.0
 offset_right = 4733.0
-offset_bottom = 720.0
+offset_bottom = 722.0
 script = ExtResource("6_8dq4u")
 
 [node name="Video Control" type="Control" parent="Settings video_settings" node_paths=PackedStringArray("savesettings", "back", "brightness_slider", "video1_slider", "video2_slider")]
@@ -845,7 +776,6 @@ icon = ExtResource("24_00ohd")
 expand_icon = true
 
 [node name="Panel-credits" type="Panel" parent="."]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -857,7 +787,6 @@ offset_bottom = 2.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_0bcbq")
-metadata/_edit_lock_ = true
 
 [node name="TextureRect" type="TextureRect" parent="Panel-credits"]
 layout_mode = 1
@@ -887,8 +816,9 @@ script = ExtResource("8_hr3wm")
 [node name="Settings credits" type="AspectRatioContainer" parent="."]
 layout_mode = 0
 offset_left = 4606.0
+offset_top = 2.0
 offset_right = 5886.0
-offset_bottom = 720.0
+offset_bottom = 722.0
 script = ExtResource("6_8dq4u")
 
 [node name="Credits Control" type="Control" parent="Settings credits" node_paths=PackedStringArray("Back")]
@@ -943,7 +873,6 @@ icon = ExtResource("24_00ohd")
 expand_icon = true
 
 [node name="Panel-Access" type="Panel" parent="."]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -955,7 +884,6 @@ offset_bottom = 2.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_0bcbq")
-metadata/_edit_lock_ = true
 
 [node name="TextureRect" type="TextureRect" parent="Panel-Access"]
 modulate = Color(0.646653, 0.902139, 0.954952, 1)
@@ -987,8 +915,9 @@ script = ExtResource("8_hr3wm")
 [node name="Settings access" type="AspectRatioContainer" parent="."]
 layout_mode = 0
 offset_left = 5899.0
+offset_top = -3.0
 offset_right = 7179.0
-offset_bottom = 720.0
+offset_bottom = 717.0
 script = ExtResource("6_8dq4u")
 
 [node name="Access Control" type="Control" parent="Settings access" node_paths=PackedStringArray("savesettings", "back", "captions", "language")]
