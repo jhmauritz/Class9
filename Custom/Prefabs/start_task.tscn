@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://brb5susakhh0l" path="res://Custom/interaction/interaction area/interaction_bound.tscn" id="4_vqaty"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ppssh"]
+radius = 5.19743
 
 [node name="StartTask" type="Node2D"]
 script = ExtResource("1_qq74p")

@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://brb5susakhh0l" path="res://Custom/interaction/interaction area/interaction_bound.tscn" id="2_wrxxj"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_x8vmh"]
-radius = 100.02
+radius = 47.0
 
 [node name="Collect" type="Node2D"]
 script = ExtResource("1_07rb5")
