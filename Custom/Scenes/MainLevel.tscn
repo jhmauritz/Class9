@@ -1,8 +1,10 @@
-[gd_scene load_steps=6 format=4 uid="uid://cp2py8bnulkt"]
+[gd_scene load_steps=8 format=4 uid="uid://cp2py8bnulkt"]
 
 [ext_resource type="PackedScene" uid="uid://c72jkuqqvpqrw" path="res://Custom/Prefabs/Player.tscn" id="2_833s2"]
 [ext_resource type="Texture2D" uid="uid://bs5ru4bg8n3bj" path="res://sprites/tilesets/test-tileset.png" id="2_o1tgu"]
 [ext_resource type="AudioStream" uid="uid://bejwgmkl11lm" path="res://audio/audio-assets/Class9_AMB.wav" id="3_oq0cw"]
+[ext_resource type="PackedScene" uid="uid://bu6blyo0ol21c" path="res://Custom/Prefabs/Collect.tscn" id="4_lxnp1"]
+[ext_resource type="PackedScene" uid="uid://df0upf04sgspd" path="res://Custom/Prefabs/start_task.tscn" id="5_fsnn6"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_bwonh"]
 texture = ExtResource("2_o1tgu")
@@ -15,17 +17,30 @@ texture = ExtResource("2_o1tgu")
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_bwonh")
 
-[node name="MainLevel" type="Node2D"]
+[node name="MainLevel" type="Node2D" groups=["gamemanager"]]
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 position = Vector2(14, 0)
-tile_map_data = PackedByteArray("AAD3/wUAAAAAAAAAAAD4/wUAAAAAAAAAAAD5/wUAAAAAAAAAAAD6/wUAAAAAAAAAAAD7/wUAAAAAAAAAAAD8/wUAAAAAAAAAAAD9/wUAAAAAAAAAAAD+/wUAAAAAAAAAAAD//wUAAAAAAAAAAAAAAAUAAAAAAAAAAAABAAUAAAAAAAAAAAACAAUAAAAAAAAAAAADAAUAAAAAAAAAAAAEAAUAAAAAAAAAAAAFAAUAAAAAAAAAAAAGAAUAAAAAAAAAAAAHAAUAAAAAAAAAAAA=")
+tile_map_data = PackedByteArray("AAD3/wUAAAAAAAAAAAD4/wUAAAAAAAAAAAD5/wUAAAAAAAAAAAD6/wUAAAAAAAAAAAD7/wUAAAAAAAAAAAD8/wUAAAAAAAAAAAD9/wUAAAAAAAAAAAD+/wUAAAAAAAAAAAD//wUAAAAAAAAAAAAAAAUAAAAAAAAAAAABAAUAAAAAAAAAAAACAAUAAAAAAAAAAAADAAUAAAAAAAAAAAAEAAUAAAAAAAAAAAAFAAUAAAAAAAAAAAAGAAUAAAAAAAAAAAAHAAUAAAAAAAAAAAD2/wUAAAAAAAAAAAD1/wUAAAAAAAAAAAD0/wUAAAAAAAAAAADz/wUAAAAAAAAAAADy/wUAAAAAAAAAAADx/wUAAAAAAAAAAADw/wUAAAAAAAAAAADv/wUAAAAAAAAAAADu/wUAAAAAAAAAAADt/wUAAAAAAAAAAADs/wUAAAAAAAAAAADr/wUAAAAAAAAAAADq/wUAAAAAAAAAAADp/wUAAAAAAAAAAADo/wUAAAAAAAAAAADn/wUAAAAAAAAAAADm/wUAAAAAAAAAAADl/wUAAAAAAAAAAAAIAAUAAAAAAAAAAAAJAAUAAAAAAAAAAAAKAAUAAAAAAAAAAAALAAUAAAAAAAAAAAAMAAUAAAAAAAAAAAAMAAYAAAAAAAAAAAANAAYAAAAAAAAAAAANAAcAAAAAAAAAAAAOAAcAAAAAAAAAAAAOAAgAAAAAAAAAAAAPAAgAAAAAAAAAAAAQAAgAAAAAAAAAAAAQAAkAAAAAAAAAAAARAAkAAAAAAAAAAAASAAkAAAAAAAAAAAATAAkAAAAAAAAAAAATAAoAAAAAAAAAAAAUAAoAAAAAAAAAAAAVAAoAAAAAAAAAAAAWAAoAAAAAAAAAAAAXAAoAAAAAAAAAAAAYAAoAAAAAAAAAAAAZAAoAAAAAAAAAAAAaAAoAAAAAAAAAAAAbAAoAAAAAAAAAAAA=")
 tile_set = SubResource("TileSet_ymqvt")
 
 [node name="Player" parent="." instance=ExtResource("2_833s2")]
-position = Vector2(-19, 5)
+position = Vector2(3, 58)
 
 [node name="AudioStreamPlayer-Ambience" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_oq0cw")
 autoplay = true
 bus = &"SFX"
+
+[node name="Collect" parent="." instance=ExtResource("4_lxnp1")]
+position = Vector2(-315, 54)
+
+[node name="StartTask" parent="." node_paths=PackedStringArray("death_timer") instance=ExtResource("5_fsnn6")]
+position = Vector2(403, 138)
+death_timer = NodePath("../Timer")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="StartTask" method="_on_timer_timeout"]
