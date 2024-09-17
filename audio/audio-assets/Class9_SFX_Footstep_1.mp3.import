@@ -13,7 +13,7 @@ dest_files=["res://.godot/imported/Class9_SFX_Footstep_1.mp3-fe8588b23f6e2fd4e41
 [params]
 
 loop=false
-loop_offset=0
-bpm=0
+loop_offset=0.0
+bpm=0.0
 beat_count=0
 bar_beats=4

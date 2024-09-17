@@ -1,6 +1,10 @@
 class_name PauseMenu extends Control
 
+enum PausedMenus { PAUSED_SCREEN, SETTING_SCREEN, AUDIO_SCREEN, VIDEO_SCREEN, CREDITS_SCREEN, ASSCESS_SCREEN, SAVE_SCREEN }
+
 @export var is_paused : BoolReference
+
+var current_menu : PausedMenus = PausedMenus.PAUSED_SCREEN
 
 func _enter_tree():
 	is_paused.on_value_changed.connect(_on_pause_changed)

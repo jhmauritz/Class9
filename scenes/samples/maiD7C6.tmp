@@ -1,4 +1,4 @@
-[gd_scene load_steps=82 format=3 uid="uid://chee17ae0u5op"]
+[gd_scene load_steps=76 format=3 uid="uid://chee17ae0u5op"]
 
 [ext_resource type="Theme" uid="uid://byds11vsd6ber" path="res://themes/pixelart/pixelart.tres" id="1_0bcbq"]
 [ext_resource type="Script" path="res://scripts/ui/main_menu.gd" id="1_7gw0o"]
@@ -41,8 +41,6 @@
 [ext_resource type="Script" path="res://scripts/ui/credits_control.gd" id="37_bccmd"]
 [ext_resource type="StyleBox" uid="uid://i1yrv604rfv5" path="res://textures/Flatstyle_1_pressed.tres" id="37_gbku2"]
 [ext_resource type="Script" path="res://scripts/ui/access_control.gd" id="39_yngsx"]
-[ext_resource type="FontFile" uid="uid://gw131jxas0sc" path="res://fonts/Peaberry/PeaberryBase.ttf" id="42_0yqdp"]
-[ext_resource type="Script" path="res://scripts/ui/load_control.gd" id="42_5glqo"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ve7hb"]
 
@@ -103,351 +101,6 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(1304, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Settings access:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(7203, 0)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Settings video_settings:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(4757, 0)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Settings Menu:position")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(2456, 0)]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("Settings audio_settings:position")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(3607, 0)]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("Settings credits:position")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(5910, 0)]
-}
-tracks/6/type = "value"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("Settings loadmenu:position")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(8480, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_wit5k"]
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Settings access:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(-16, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Settings Menu:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(-5192, 0)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Main Menu:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(-6360, 0)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Settings audio_settings:position")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(-3744, 0)]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("Settings video_settings:position")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(-2448, 0)]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("Settings credits:position")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(-1160, 0)]
-}
-tracks/6/type = "value"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("Settings loadmenu:position")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(992, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_ob48y"]
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Settings Menu:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(-1296, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Settings audio_settings:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, 0)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Main Menu:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(-2616, 0)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Settings video_settings:position")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(1280, 0)]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("Settings credits:position")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(2432, 0)]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("Settings access:position")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(3584, 0)]
-}
-tracks/6/type = "value"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("Settings loadmenu:position")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(4736, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_sblop"]
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Settings credits:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(32, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Settings Menu:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(-3920, 0)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Settings loadmenu:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(2184, 0)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Settings access:position")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(1032, 0)]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("Settings video_settings:position")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(-1256, 0)]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("Settings audio_settings:position")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(-2552, 0)]
-}
-tracks/6/type = "value"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("Main Menu:position")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(-5168, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_u1ere"]
-resource_name = "main_menu"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Main Menu:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
 "values": [Vector2(0, 0)]
 }
 tracks/1/type = "value"
@@ -477,50 +130,71 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Settings loadmenu:position")
+tracks/3/path = NodePath("Settings video_settings:position")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(7176, 0)]
+"values": [Vector2(3453, 0)]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("Settings access:position")
+tracks/4/path = NodePath("Settings credits:position")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(5899, 0)]
+"values": [Vector2(4606, 0)]
 }
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("Settings credits:position")
+tracks/5/path = NodePath("Settings access:position")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(4606, 0)]
+"values": [Vector2(5899, 0)]
 }
-tracks/6/type = "value"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("Settings video_settings:position")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
+
+[sub_resource type="Animation" id="Animation_wit5k"]
+
+[sub_resource type="Animation" id="Animation_ob48y"]
+
+[sub_resource type="Animation" id="Animation_sblop"]
+
+[sub_resource type="Animation" id="Animation_u1ere"]
+resource_name = "main_menu"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Main Menu:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(3453, 0)]
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Settings Menu:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1152, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_ns3jf"]
@@ -549,238 +223,8 @@ tracks/1/keys = {
 "update": 0,
 "values": [Vector2(0, 0)]
 }
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Settings audio_settings:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(1288, 0)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Settings video_settings:position")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(2432, 0)]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("Settings loadmenu:position")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(5889, 0)]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("Settings access:position")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(4736, 0)]
-}
-tracks/6/type = "value"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("Settings credits:position")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(3453, 0)]
-}
 
 [sub_resource type="Animation" id="Animation_b3mid"]
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Settings video_settings:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Settings Menu:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(-2752, 0)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Settings audio_settings:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(-1296, 0)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Main Menu:position")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(-3912, 0)]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("Settings credits:position")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(1136, 0)]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("Settings access:position")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(2288, 0)]
-}
-tracks/6/type = "value"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("Settings loadmenu:position")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(3440, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_noaac"]
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Settings loadmenu:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(-16, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Settings Menu:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(-6336, 0)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Settings access:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(-1216, 0)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Settings credits:position")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(-2360, 0)]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("Settings video_settings:position")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(-3648, 0)]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("Settings audio_settings:position")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(-4944, 0)]
-}
-tracks/6/type = "value"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("Main Menu:position")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(-7560, 0)]
-}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_xq8ga"]
 _data = {
@@ -788,7 +232,6 @@ _data = {
 "access_menu": SubResource("Animation_wit5k"),
 "audio_menu": SubResource("Animation_ob48y"),
 "credits_menu": SubResource("Animation_sblop"),
-"load_menu": SubResource("Animation_noaac"),
 "main_menu": SubResource("Animation_u1ere"),
 "settings_menu": SubResource("Animation_ns3jf"),
 "video_menu": SubResource("Animation_b3mid")
@@ -799,35 +242,12 @@ animation = &"RESET"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_dycrc"]
 animation = &"access_menu"
-use_custom_timeline = true
-timeline_length = 1.0
-stretch_time_scale = true
-start_offset = 0.0
-loop_mode = 0
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_bs7so"]
 animation = &"audio_menu"
-use_custom_timeline = true
-timeline_length = 1.0
-stretch_time_scale = true
-start_offset = 0.0
-loop_mode = 0
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_6g1np"]
 animation = &"credits_menu"
-use_custom_timeline = true
-timeline_length = 1.0
-stretch_time_scale = true
-start_offset = 0.0
-loop_mode = 0
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_v1tcb"]
-animation = &"load_menu"
-use_custom_timeline = true
-timeline_length = 1.0
-stretch_time_scale = true
-start_offset = 0.0
-loop_mode = 0
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_h0fc5"]
 animation = &"main_menu"
@@ -839,19 +259,9 @@ loop_mode = 0
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_cmvsc"]
 animation = &"settings_menu"
-use_custom_timeline = true
-timeline_length = 1.0
-stretch_time_scale = true
-start_offset = 0.0
-loop_mode = 0
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ld1il"]
 animation = &"video_menu"
-use_custom_timeline = true
-timeline_length = 1.0
-stretch_time_scale = true
-start_offset = 0.0
-loop_mode = 0
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ckc0g"]
 advance_mode = 2
@@ -867,36 +277,20 @@ advance_mode = 2
 advance_expression = "current_menu == Menu.MAIN_MENU"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_y3qis"]
-advance_expression = "self.current_menu == Menu.AUDIO_SETTINGS"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_svvwq"]
-advance_expression = "self.current_menu == Menu.SETTINGS_MENU"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_1t8jm"]
-advance_expression = "self.current_menu == Menu.VIDEO_SETTINGS"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_j8k0f"]
-advance_expression = "self.current_menu == Menu.SETTINGS_MENU"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_cej46"]
-advance_expression = "self.current_menu == Menu.SETTINGS_MENU"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_krif7"]
-advance_expression = "self.current_menu == Menu.CREDITS"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_pktgg"]
-advance_expression = "self.current_menu == Menu.ACCESSIBILITY"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_purjt"]
-advance_expression = "self.current_menu == Menu.SETTINGS_MENU"
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_sh0md"]
-advance_mode = 2
-advance_expression = "self.current_menu == Menu.SETTINGS_MENU"
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_evsjh"]
-advance_mode = 2
-advance_expression = "self.current_menu == Menu.LOAD_MENU"
 
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_6w8s2"]
 allow_transition_to_self = true
@@ -905,21 +299,19 @@ states/RESET/node = SubResource("AnimationNodeAnimation_5umwu")
 states/RESET/position = Vector2(165, 375)
 states/Start/position = Vector2(200, 69)
 states/access_menu/node = SubResource("AnimationNodeAnimation_dycrc")
-states/access_menu/position = Vector2(441, 423)
+states/access_menu/position = Vector2(357, 264)
 states/audio_menu/node = SubResource("AnimationNodeAnimation_bs7so")
 states/audio_menu/position = Vector2(744, 91)
 states/credits_menu/node = SubResource("AnimationNodeAnimation_6g1np")
-states/credits_menu/position = Vector2(744, 431)
-states/load_menu/node = SubResource("AnimationNodeAnimation_v1tcb")
-states/load_menu/position = Vector2(355, 264)
+states/credits_menu/position = Vector2(560, 448)
 states/main_menu/node = SubResource("AnimationNodeAnimation_h0fc5")
 states/main_menu/position = Vector2(433, 69)
 states/settings_menu/node = SubResource("AnimationNodeAnimation_cmvsc")
 states/settings_menu/position = Vector2(586, 264)
 states/video_menu/node = SubResource("AnimationNodeAnimation_ld1il")
 states/video_menu/position = Vector2(830, 264)
-transitions = ["Start", "main_menu", SubResource("AnimationNodeStateMachineTransition_ckc0g"), "main_menu", "settings_menu", SubResource("AnimationNodeStateMachineTransition_huiay"), "settings_menu", "main_menu", SubResource("AnimationNodeStateMachineTransition_b8jnv"), "settings_menu", "audio_menu", SubResource("AnimationNodeStateMachineTransition_y3qis"), "audio_menu", "settings_menu", SubResource("AnimationNodeStateMachineTransition_svvwq"), "settings_menu", "video_menu", SubResource("AnimationNodeStateMachineTransition_1t8jm"), "video_menu", "settings_menu", SubResource("AnimationNodeStateMachineTransition_j8k0f"), "credits_menu", "settings_menu", SubResource("AnimationNodeStateMachineTransition_cej46"), "settings_menu", "credits_menu", SubResource("AnimationNodeStateMachineTransition_krif7"), "settings_menu", "access_menu", SubResource("AnimationNodeStateMachineTransition_pktgg"), "access_menu", "settings_menu", SubResource("AnimationNodeStateMachineTransition_purjt"), "load_menu", "settings_menu", SubResource("AnimationNodeStateMachineTransition_sh0md"), "settings_menu", "load_menu", SubResource("AnimationNodeStateMachineTransition_evsjh")]
-graph_offset = Vector2(-221, 25)
+transitions = ["Start", "main_menu", SubResource("AnimationNodeStateMachineTransition_ckc0g"), "main_menu", "settings_menu", SubResource("AnimationNodeStateMachineTransition_huiay"), "settings_menu", "main_menu", SubResource("AnimationNodeStateMachineTransition_b8jnv"), "settings_menu", "audio_menu", SubResource("AnimationNodeStateMachineTransition_y3qis"), "audio_menu", "settings_menu", SubResource("AnimationNodeStateMachineTransition_svvwq"), "settings_menu", "video_menu", SubResource("AnimationNodeStateMachineTransition_1t8jm"), "video_menu", "settings_menu", SubResource("AnimationNodeStateMachineTransition_j8k0f"), "credits_menu", "settings_menu", SubResource("AnimationNodeStateMachineTransition_cej46"), "settings_menu", "credits_menu", SubResource("AnimationNodeStateMachineTransition_krif7"), "settings_menu", "access_menu", SubResource("AnimationNodeStateMachineTransition_pktgg"), "access_menu", "settings_menu", SubResource("AnimationNodeStateMachineTransition_purjt")]
+graph_offset = Vector2(-113, 25)
 
 [node name="menu" type="Control"]
 layout_mode = 3
@@ -927,7 +319,7 @@ anchors_preset = 0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme = SubResource("Theme_un6xn")
-metadata/_edit_vertical_guides_ = [1288.0, 0.0, 2432.0, 3584.0, 4736.0, 5888.0, 7176.0, 8456.0]
+metadata/_edit_vertical_guides_ = [1280.0, 0.0, 2432.0, 3584.0, 4736.0, 5888.0, 7176.0]
 metadata/_edit_horizontal_guides_ = [720.0, 0.0]
 
 [node name="Panel-mainmenu" type="Panel" parent="."]
@@ -948,9 +340,8 @@ anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 3.0
-offset_top = -8.0
 offset_right = 1284.0
-offset_bottom = 728.0
+offset_bottom = 720.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("6_4l6by")
@@ -982,8 +373,7 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 1304.0
-offset_right = 2584.0
+offset_right = 1280.0
 offset_bottom = 720.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -1060,6 +450,7 @@ expand_icon = true
 visible = false
 layout_mode = 0
 theme = ExtResource("1_0bcbq")
+metadata/_edit_lock_ = true
 
 [node name="TextureRect" type="TextureRect" parent="Panel-settings"]
 clip_contents = true
@@ -1094,8 +485,8 @@ script = ExtResource("8_hr3wm")
 
 [node name="Settings Menu" type="AspectRatioContainer" parent="."]
 layout_mode = 0
-offset_left = 2456.0
-offset_right = 3736.0
+offset_left = 1152.0
+offset_right = 2432.0
 offset_bottom = 720.0
 script = ExtResource("6_8dq4u")
 
@@ -1169,6 +560,7 @@ offset_right = 2302.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_0bcbq")
+metadata/_edit_lock_ = true
 
 [node name="TextureRect" type="TextureRect" parent="Panel-audiosettings"]
 layout_mode = 1
@@ -1203,8 +595,8 @@ script = ExtResource("8_hr3wm")
 
 [node name="Settings audio_settings" type="AspectRatioContainer" parent="."]
 layout_mode = 0
-offset_left = 3607.0
-offset_right = 4887.0
+offset_left = 2303.0
+offset_right = 3583.0
 offset_bottom = 720.0
 script = ExtResource("6_8dq4u")
 
@@ -1321,6 +713,7 @@ offset_bottom = 2.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_0bcbq")
+metadata/_edit_lock_ = true
 
 [node name="TextureRect" type="TextureRect" parent="Panel-videosettings"]
 layout_mode = 1
@@ -1347,8 +740,8 @@ script = ExtResource("8_hr3wm")
 
 [node name="Settings video_settings" type="AspectRatioContainer" parent="."]
 layout_mode = 0
-offset_left = 4757.0
-offset_right = 6037.0
+offset_left = 3453.0
+offset_right = 4733.0
 offset_bottom = 720.0
 script = ExtResource("6_8dq4u")
 
@@ -1464,6 +857,7 @@ offset_bottom = 2.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_0bcbq")
+metadata/_edit_lock_ = true
 
 [node name="TextureRect" type="TextureRect" parent="Panel-credits"]
 layout_mode = 1
@@ -1492,8 +886,8 @@ script = ExtResource("8_hr3wm")
 
 [node name="Settings credits" type="AspectRatioContainer" parent="."]
 layout_mode = 0
-offset_left = 5910.0
-offset_right = 7190.0
+offset_left = 4606.0
+offset_right = 5886.0
 offset_bottom = 720.0
 script = ExtResource("6_8dq4u")
 
@@ -1561,6 +955,7 @@ offset_bottom = 2.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_0bcbq")
+metadata/_edit_lock_ = true
 
 [node name="TextureRect" type="TextureRect" parent="Panel-Access"]
 modulate = Color(0.646653, 0.902139, 0.954952, 1)
@@ -1591,8 +986,8 @@ script = ExtResource("8_hr3wm")
 
 [node name="Settings access" type="AspectRatioContainer" parent="."]
 layout_mode = 0
-offset_left = 7203.0
-offset_right = 8483.0
+offset_left = 5899.0
+offset_right = 7179.0
 offset_bottom = 720.0
 script = ExtResource("6_8dq4u")
 
@@ -1683,94 +1078,6 @@ text = "BACK"
 icon = ExtResource("24_00ohd")
 expand_icon = true
 
-[node name="Settings loadmenu" type="AspectRatioContainer" parent="."]
-layout_mode = 0
-offset_left = 8480.0
-offset_right = 9760.0
-offset_bottom = 720.0
-script = ExtResource("6_8dq4u")
-
-[node name="Load Control" type="Control" parent="Settings loadmenu" node_paths=PackedStringArray("loadbutton", "menubutton")]
-layout_mode = 2
-script = ExtResource("42_5glqo")
-loadbutton = NodePath("../MarginContainer/VBoxContainer/Load")
-menubutton = NodePath("../MarginContainer/VBoxContainer/Return")
-transition_path = ExtResource("3_lqaap")
-
-[node name="MarginContainer" type="MarginContainer" parent="Settings loadmenu"]
-layout_mode = 2
-
-[node name="VBoxContainer" type="VBoxContainer" parent="Settings loadmenu/MarginContainer"]
-layout_mode = 2
-alignment = 1
-
-[node name="Label" type="Label" parent="Settings loadmenu/MarginContainer/VBoxContainer"]
-layout_mode = 2
-text = "LOAD GAME"
-label_settings = SubResource("LabelSettings_uxp60")
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="VBoxContainer" type="VBoxContainer" parent="Settings loadmenu/MarginContainer/VBoxContainer"]
-layout_mode = 2
-
-[node name="HBoxContainer" type="HBoxContainer" parent="Settings loadmenu/MarginContainer/VBoxContainer/VBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="Label" type="Label" parent="Settings loadmenu/MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-theme = ExtResource("1_0bcbq")
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_fonts/font = ExtResource("42_0yqdp")
-text = "Captions"
-vertical_alignment = 1
-
-[node name="CheckButton" type="CheckButton" parent="Settings loadmenu/MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer"]
-clip_contents = true
-layout_mode = 2
-theme_override_styles/pressed = ExtResource("37_gbku2")
-theme_override_styles/normal = ExtResource("37_gbku2")
-button_pressed = true
-
-[node name="HBoxContainer2" type="HBoxContainer" parent="Settings loadmenu/MarginContainer/VBoxContainer/VBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="Label" type="Label" parent="Settings loadmenu/MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer2"]
-layout_mode = 2
-size_flags_horizontal = 3
-theme = ExtResource("1_0bcbq")
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_fonts/font = ExtResource("42_0yqdp")
-text = "Language"
-vertical_alignment = 1
-
-[node name="OptionsButton" type="OptionButton" parent="Settings loadmenu/MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer2"]
-clip_contents = true
-layout_mode = 2
-theme_override_styles/pressed = ExtResource("37_gbku2")
-theme_override_styles/normal = ExtResource("37_gbku2")
-button_pressed = true
-item_count = 1
-popup/item_0/text = "English"
-popup/item_0/separator = true
-
-[node name="Load" type="Button" parent="Settings loadmenu/MarginContainer/VBoxContainer"]
-layout_mode = 2
-theme_override_styles/normal = ExtResource("13_4kot4")
-text = "SAVE"
-icon = ExtResource("28_p4syo")
-expand_icon = true
-
-[node name="Return" type="Button" parent="Settings loadmenu/MarginContainer/VBoxContainer"]
-layout_mode = 2
-theme_override_styles/normal = ExtResource("13_4kot4")
-text = "BACK"
-icon = ExtResource("24_00ohd")
-expand_icon = true
-
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_xq8ga")
@@ -1793,5 +1100,3 @@ anim_player = NodePath("../AnimationPlayer")
 [connection signal="pressed" from="Settings credits/MarginContainer/VBoxContainer/Return" to="Settings Menu" method="_on_back_button_pressed"]
 [connection signal="pressed" from="Settings access/MarginContainer/VBoxContainer/Save" to="Main Menu" method="_on_save_button_pressed"]
 [connection signal="pressed" from="Settings access/MarginContainer/VBoxContainer/Return" to="Main Menu" method="_on_back_button_pressed"]
-[connection signal="pressed" from="Settings loadmenu/MarginContainer/VBoxContainer/Load" to="Main Menu" method="_on_save_button_pressed"]
-[connection signal="pressed" from="Settings loadmenu/MarginContainer/VBoxContainer/Return" to="Main Menu" method="_on_back_button_pressed"]
