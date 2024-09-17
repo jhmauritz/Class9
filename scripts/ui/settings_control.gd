@@ -1,34 +1,34 @@
 extends Control
 
-enum Menu { MAIN_MENU, LOAD_MENU , SETTINGS_MENU, AUDIO_SETTINGS, VIDEO_SETTINGS, CREDITS, ACCESSIBILITY }
-
-@export var Audio : Button
-@export var Video : Button
-@export var Credits : Button
-@export var Accessibility : Button
-@export var Back : Button
-
+enum Menu { MAIN_MENU, SETTINGS_MENU, AUDIO_SETTINGS, VIDEO_SETTINGS, CREDITS, ACCESSIBILITY, LOAD_MENU }
 @export var transition_path : PackedScene
+
+@export var audio : Button
+@export var video : Button
+@export var credits : Button
+@export var accessibility : Button
+@export var back : Button
+
 
 var current_menu : Menu = Menu.SETTINGS_MENU
 
 func _enter_tree():
-	Audio.pressed.connect(_on_audio_pressed)
-	Video.pressed.connect(_on_video_pressed)
-	Credits.pressed.connect(_on_credits_pressed)
-	Accessibility.pressed.connect(_on_access_pressed)
-	Back.pressed.connect(_on_back_pressed)
+	audio.pressed.connect(_on_audio_pressed)
+	video.pressed.connect(_on_video_pressed)
+	credits.pressed.connect(_on_credits_pressed)
+	accessibility.pressed.connect(_on_access_pressed)
+	back.pressed.connect(_on_back_pressed)
 
 func _exit_tree(): 
-	Audio.pressed.disconnect(_on_audio_pressed)
-	Video.pressed.disconnect(_on_video_pressed)
-	Credits.pressed.disconnect(_on_credits_pressed)
-	Accessibility.pressed.disconnect(_on_access_pressed)
-	Back.pressed.disconnect(_on_back_pressed)
+	audio.pressed.disconnect(_on_audio_pressed)
+	video.pressed.disconnect(_on_video_pressed)
+	credits.pressed.disconnect(_on_credits_pressed)
+	accessibility.pressed.disconnect(_on_access_pressed)
+	back.pressed.disconnect(_on_back_pressed)
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass 
+	pass
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

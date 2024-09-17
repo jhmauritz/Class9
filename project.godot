@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="Game Base 2D"
+config/name="Beaker Breakers"
 run/main_scene="res://Custom/Scenes/MainLevel.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 boot_splash/use_filter=false
@@ -90,6 +90,10 @@ interact_pickup={
 2d_physics/layer_4="Static Object"
 2d_physics/layer_5="Dynamic Object"
 2d_physics/layer_6="Hit Box"
+
+[navigation]
+
+3d/defaults/default_clear_color=Color(0.27451, 0.607843, 0.207843, 1)
 
 [rendering]
 

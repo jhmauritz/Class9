@@ -1,6 +1,6 @@
 extends Control
 
-enum Menu { MAIN_MENU, LOAD_MENU , SETTINGS_MENU, AUDIO_SETTINGS, VIDEO_SETTINGS, CREDITS, ACCESSIBILITY }
+enum Menu { MAIN_MENU, SETTINGS_MENU, AUDIO_SETTINGS, VIDEO_SETTINGS, CREDITS, ACCESSIBILITY, LOAD_MENU }
 
 @export var savesettings : Button
 @export var back : Button
