@@ -55,3 +55,7 @@ func _on_music_audio_value_changed(value):
 		music_bus,
 		linear_to_db(value)
 	)
+
+func _on_audio_pressed():
+	current_menu = Menu.AUDIO_SETTINGS
+	print("audio")

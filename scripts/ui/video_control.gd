@@ -8,9 +8,14 @@ enum Menu { MAIN_MENU, LOAD_MENU, SETTINGS_MENU, AUDIO_SETTINGS, VIDEO_SETTINGS,
 @export var back : Button
 @export var brightness_slider : Slider
 @export var video1_slider : Slider
-@export var video2_slider : Slider
+@export var windowmode : OptionButton
 
 var current_menu : Menu = Menu.VIDEO_SETTINGS
+
+
+
+#func 
+#var  = ProjectSettings.get_setting(display/window/size/borderless)
 
 #@onready var brightness_bus = AudioServer.get_bus_index('Master')
 #@onready var music_bus = AudioServer.get_bus_index('Music')
@@ -51,3 +56,12 @@ var current_menu : Menu = Menu.VIDEO_SETTINGS
 #		music_bus,
 #		linear_to_db(value)
 #	)
+
+
+#func _on_video_pressed():
+#	current_menu = Menu.VIDEO_SETTINGS
+#	print("video")
+
+
+func _on_video_pressed():
+	current_menu = Menu.VIDEO_SETTINGS

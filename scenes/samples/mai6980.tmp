@@ -19,7 +19,7 @@
 [ext_resource type="Texture2D" uid="uid://c1gblu2ig6hnv" path="res://assets_collected/Icons/Icon_18.png" id="16_t8nun"]
 [ext_resource type="Texture2D" uid="uid://dh8w4dim3ncse" path="res://assets_collected/Icons/Icon_26.png" id="17_7ofq0"]
 [ext_resource type="Texture2D" uid="uid://cw2hitg0pr62e" path="res://assets_collected/Icons/Icon_35.png" id="18_wlgkm"]
-[ext_resource type="Script" path="res://scenes/samples/settings_control.gd" id="19_1bh5v"]
+[ext_resource type="Script" path="res://scripts/ui/settings_control.gd" id="21_jbnje"]
 [ext_resource type="Texture2D" uid="uid://dyoy1lym2sxi2" path="res://assets_collected/Icons/Icon_37.png" id="21_yvxkg"]
 [ext_resource type="Texture2D" uid="uid://ba7xgyoyfmna" path="res://assets_collected/Icons/Icon_07.png" id="22_j3tko"]
 [ext_resource type="Texture2D" uid="uid://c54ocwxyjl5et" path="res://assets_collected/Icons/Icon_24.png" id="23_yuvn6"]
@@ -140,10 +140,15 @@ flip_h = true
 script = ExtResource("8_hr3wm")
 
 [node name="Main Menu" type="AspectRatioContainer" parent="."]
-layout_mode = 0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 offset_left = 1304.0
 offset_right = 2584.0
 offset_bottom = 720.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("6_8dq4u")
 
 [node name="Menu Control" type="Control" parent="Main Menu" node_paths=PackedStringArray("start_button", "load_button", "settings_button", "exit_button")]
@@ -222,7 +227,7 @@ script = ExtResource("6_8dq4u")
 
 [node name="Settings Control" type="Control" parent="Settings Menu" node_paths=PackedStringArray("audio", "video", "credits", "accessibility", "back")]
 layout_mode = 2
-script = ExtResource("19_1bh5v")
+script = ExtResource("21_jbnje")
 transition_path = ExtResource("3_lqaap")
 audio = NodePath("../MarginContainer/VBoxContainer/Audio")
 video = NodePath("../MarginContainer/VBoxContainer/Video")
@@ -763,12 +768,4 @@ advance_expression_base_node = NodePath("../Main Menu/Menu Control")
 anim_player = NodePath("../AnimationPlayer")
 
 [connection signal="pressed" from="Settings Menu/MarginContainer/VBoxContainer/Audio" to="Settings audio_settings/Audio Control" method="_on_audio_pressed"]
-[connection signal="pressed" from="Settings Menu/MarginContainer/VBoxContainer/Video" to="Settings video_settings/Video Control" method="_on_video_pressed"]
-[connection signal="pressed" from="Settings Menu/MarginContainer/VBoxContainer/Credits" to="Settings credits/Credits Control" method="_on_credits_pressed"]
-[connection signal="pressed" from="Settings Menu/MarginContainer/VBoxContainer/Accessibility" to="Settings access/Access Control" method="_on_accessibility_pressed"]
 [connection signal="pressed" from="Settings Menu/MarginContainer/VBoxContainer/Back" to="Main Menu/Menu Control" method="_on_back_pressed"]
-[connection signal="pressed" from="Settings audio_settings/MarginContainer/VBoxContainer/Return" to="Settings Menu/Settings Control" method="_on_back_pressed"]
-[connection signal="pressed" from="Settings video_settings/MarginContainer/VBoxContainer/Return" to="Settings Menu/Settings Control" method="_on_back_pressed"]
-[connection signal="pressed" from="Settings credits/MarginContainer/VBoxContainer/Return" to="Settings Menu/Settings Control" method="_on_back_pressed"]
-[connection signal="pressed" from="Settings access/MarginContainer/VBoxContainer/Return" to="Settings Menu/Settings Control" method="_on_back_pressed"]
-[connection signal="pressed" from="Settings loadmenu/MarginContainer/VBoxContainer/Return" to="Settings Menu/Settings Control" method="_on_back_pressed"]
