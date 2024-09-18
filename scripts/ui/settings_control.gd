@@ -1,6 +1,7 @@
 extends Control
 
 enum Menu { MAIN_MENU, SETTINGS_MENU, AUDIO_SETTINGS, VIDEO_SETTINGS, CREDITS, ACCESSIBILITY, LOAD_MENU }
+
 @export var transition_path : PackedScene
 
 @export var audio : Button
@@ -25,15 +26,6 @@ func _exit_tree():
 	credits.pressed.disconnect(_on_credits_pressed)
 	accessibility.pressed.disconnect(_on_access_pressed)
 	back.pressed.disconnect(_on_back_pressed)
-
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
 
 
 func _on_audio_pressed():
