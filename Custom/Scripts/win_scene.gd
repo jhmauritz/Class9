@@ -16,8 +16,6 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 
-
-
 func _enter_tree():
 	menu.pressed.connect(_on_menu_pressed)
 	retry.pressed.connect(_on_retry_pressed)
