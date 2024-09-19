@@ -12,7 +12,6 @@
 [ext_resource type="Texture2D" uid="uid://dhlwjr6orkwv7" path="res://assets_collected/Backdrops/background 4/4.png" id="6_4l6by"]
 [ext_resource type="Script" path="res://scripts/ui/viewport_container.gd" id="6_8dq4u"]
 [ext_resource type="Texture2D" uid="uid://bdngpidsrxxhc" path="res://assets_collected/Overlays/11.png" id="7_yniyi"]
-[ext_resource type="Script" path="res://scripts/ui/viewport_texture_rect.gd" id="8_hr3wm"]
 [ext_resource type="PackedScene" uid="uid://dhl2s7a33d1qg" path="res://scenes/common/ui/load_button.tscn" id="9_ijoqn"]
 [ext_resource type="StyleBox" uid="uid://bc1isjuwygmdl" path="res://textures/Button_1.tres" id="13_4kot4"]
 [ext_resource type="Texture2D" uid="uid://d0bygl2qq3qk8" path="res://assets_collected/Icons/Icon_34.png" id="14_mqldd"]
@@ -73,6 +72,10 @@ Label/fonts/font = ExtResource("1_i2dk5")
 Label/styles/normal = SubResource("StyleBoxEmpty_n3wa8")
 Panel/styles/panel = SubResource("StyleBoxTexture_rbmb2")
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_rxygd"]
+texture = ExtResource("7_yniyi")
+modulate_color = Color(0.235523, 0.483133, 0.477483, 1)
+
 [sub_resource type="LabelSettings" id="LabelSettings_utnyj"]
 font_size = 100
 
@@ -85,7 +88,11 @@ font_size = 80
 
 [node name="menu" type="Control"]
 layout_mode = 3
-anchors_preset = 0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme = SubResource("Theme_un6xn")
@@ -97,11 +104,13 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = 2.0
-offset_bottom = -1.0
+offset_left = -8.0
+offset_right = 8.0
+offset_bottom = 8.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_0bcbq")
+theme_override_styles/panel = SubResource("StyleBoxTexture_rxygd")
 
 [node name="TextureRect" type="TextureRect" parent="Panel-mainmenu"]
 light_mask = 2
@@ -111,39 +120,22 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 3.0
 offset_top = -8.0
-offset_right = 1284.0
-offset_bottom = 728.0
+offset_right = -11.0
+offset_bottom = -7.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("6_4l6by")
 flip_v = true
 
-[node name="ViewportTextureRect" type="TextureRect" parent="Panel-mainmenu/TextureRect"]
-modulate = Color(0.215183, 0.654102, 0.537414, 1)
-self_modulate = Color(0.972556, 0.908295, 0.910046, 1)
-show_behind_parent = true
-light_mask = 2
-visibility_layer = 8
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.5
-anchor_top = 0.502
-anchor_right = 0.5
-anchor_bottom = 0.502
-offset_left = -659.5
-offset_top = -369.44
-offset_right = 1390.5
-offset_bottom = 989.56
-scale = Vector2(0.639907, 0.539684)
-texture = ExtResource("7_yniyi")
-flip_h = true
-script = ExtResource("8_hr3wm")
-
 [node name="Main Menu" type="AspectRatioContainer" parent="."]
-layout_mode = 0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 offset_left = 1304.0
-offset_right = 2584.0
-offset_bottom = 720.0
+offset_right = 1304.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("6_8dq4u")
 
 [node name="Menu Control" type="Control" parent="Main Menu" node_paths=PackedStringArray("start_button", "load_button", "settings_button", "exit_button")]
