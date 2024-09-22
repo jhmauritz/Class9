@@ -1,0 +1,779 @@
+[gd_scene load_steps=48 format=3 uid="uid://bjs4cmo8sww8m"]
+
+[ext_resource type="FontFile" uid="uid://07yvi11ui7vg" path="res://fonts/Peaberry/PeaberryMono.ttf" id="1_jqtok"]
+[ext_resource type="StyleBox" uid="uid://b6h4sqok6xlxy" path="res://themes/pixelart/button_normal_style.tres" id="2_grwhg"]
+[ext_resource type="StyleBox" uid="uid://dj0ib6qvmygdj" path="res://themes/pixelart/button_pressed_style.tres" id="3_fbxby"]
+[ext_resource type="Texture2D" uid="uid://c8yfrjpm5qqjt" path="res://sprites/ui/ui-tileset.png" id="4_vcmoa"]
+[ext_resource type="Theme" uid="uid://byds11vsd6ber" path="res://themes/pixelart/pixelart.tres" id="5_7avhv"]
+[ext_resource type="Texture2D" uid="uid://bdngpidsrxxhc" path="res://assets_collected/Overlays/11.png" id="6_th3m8"]
+[ext_resource type="Texture2D" uid="uid://dhlwjr6orkwv7" path="res://assets_collected/Backdrops/background 4/4.png" id="7_alaoh"]
+[ext_resource type="Script" path="res://scripts/ui/viewport_container.gd" id="8_asdpd"]
+[ext_resource type="Script" path="res://scripts/ui/menu_control.gd" id="9_1p7le"]
+[ext_resource type="PackedScene" uid="uid://tqr8mcs2r0kr" path="res://scenes/samples/platformer_sample.tscn" id="10_vciff"]
+[ext_resource type="PackedScene" uid="uid://cpxbfthcvg7q5" path="res://scenes/scene_transitions/circle_transition.tscn" id="11_wl0lj"]
+[ext_resource type="StyleBox" uid="uid://bc1isjuwygmdl" path="res://textures/Button_1.tres" id="12_3n3wl"]
+[ext_resource type="Texture2D" uid="uid://d0bygl2qq3qk8" path="res://assets_collected/Icons/Icon_34.png" id="13_332gq"]
+[ext_resource type="PackedScene" uid="uid://dhl2s7a33d1qg" path="res://scenes/common/ui/load_button.tscn" id="14_1al5m"]
+[ext_resource type="Texture2D" uid="uid://c1gblu2ig6hnv" path="res://assets_collected/Icons/Icon_18.png" id="15_ukpas"]
+[ext_resource type="Texture2D" uid="uid://dh8w4dim3ncse" path="res://assets_collected/Icons/Icon_26.png" id="16_7wqmw"]
+[ext_resource type="Texture2D" uid="uid://cw2hitg0pr62e" path="res://assets_collected/Icons/Icon_35.png" id="17_pkhe7"]
+[ext_resource type="Script" path="res://scripts/ui/settings_control.gd" id="18_58iem"]
+[ext_resource type="Texture2D" uid="uid://dyoy1lym2sxi2" path="res://assets_collected/Icons/Icon_37.png" id="19_npt6y"]
+[ext_resource type="Texture2D" uid="uid://ba7xgyoyfmna" path="res://assets_collected/Icons/Icon_07.png" id="20_vw0sv"]
+[ext_resource type="Texture2D" uid="uid://c54ocwxyjl5et" path="res://assets_collected/Icons/Icon_24.png" id="21_8afxb"]
+[ext_resource type="Texture2D" uid="uid://dbjo2i4nmyjuf" path="res://assets_collected/Icons/Icon_25.png" id="22_k7v40"]
+[ext_resource type="Texture2D" uid="uid://cobp0vowivesi" path="res://assets_collected/Icons/Icon_14.png" id="23_n7d2r"]
+[ext_resource type="Script" path="res://scripts/ui/audio_menu.gd" id="24_6m5ku"]
+[ext_resource type="AnimationLibrary" uid="uid://brthgkicteytb" path="res://video/animations/AnamationTree.res" id="24_ecufa"]
+[ext_resource type="AnimationNodeStateMachine" uid="uid://b1ikverytiinx" path="res://scripts/ui/Mainmenus.tres" id="25_4q3t3"]
+[ext_resource type="StyleBox" uid="uid://cefnhxxovol5q" path="res://textures/Slider.tres" id="25_yegv6"]
+[ext_resource type="Texture2D" uid="uid://b44jbkxmnn7d6" path="res://assets_collected/Icons/Icon_05.png" id="26_ugkil"]
+[ext_resource type="Script" path="res://scripts/ui/video_control.gd" id="27_uawk7"]
+[ext_resource type="Script" path="res://scripts/ui/credits_control.gd" id="28_duk5k"]
+[ext_resource type="Script" path="res://scripts/ui/access_control.gd" id="29_dokx3"]
+[ext_resource type="StyleBox" uid="uid://i1yrv604rfv5" path="res://textures/Flatstyle_1_pressed.tres" id="30_nr5mk"]
+[ext_resource type="Script" path="res://scripts/ui/load_control.gd" id="31_ucwy8"]
+[ext_resource type="FontFile" uid="uid://gw131jxas0sc" path="res://fonts/Peaberry/PeaberryBase.ttf" id="32_5iwkf"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ve7hb"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_n3wa8"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_rbmb2"]
+texture = ExtResource("4_vcmoa")
+texture_margin_left = 7.0
+texture_margin_top = 7.0
+texture_margin_right = 7.0
+texture_margin_bottom = 7.16192
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+region_rect = Rect2(0, 0, 48, 48)
+
+[sub_resource type="Theme" id="Theme_un6xn"]
+default_font = ExtResource("1_jqtok")
+Button/constants/h_separation = 0
+Button/constants/icon_max_width = 0
+Button/constants/outline_size = 0
+Button/font_sizes/font_size = 30
+Button/fonts/font = ExtResource("1_jqtok")
+Button/styles/disabled = null
+Button/styles/focus = SubResource("StyleBoxEmpty_ve7hb")
+Button/styles/hover = ExtResource("2_grwhg")
+Button/styles/normal = ExtResource("2_grwhg")
+Button/styles/pressed = ExtResource("3_fbxby")
+Label/colors/font_color = Color(0.317647, 0.321569, 0.384314, 1)
+Label/constants/line_spacing = 3
+Label/constants/outline_size = 0
+Label/constants/shadow_offset_x = 1
+Label/constants/shadow_offset_y = 1
+Label/constants/shadow_outline_size = 1
+Label/font_sizes/font_size = 16
+Label/fonts/font = ExtResource("1_jqtok")
+Label/styles/normal = SubResource("StyleBoxEmpty_n3wa8")
+Panel/styles/panel = SubResource("StyleBoxTexture_rbmb2")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_rxygd"]
+texture = ExtResource("6_th3m8")
+modulate_color = Color(0.235523, 0.483133, 0.477483, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_utnyj"]
+font_size = 100
+
+[sub_resource type="LabelSettings" id="LabelSettings_5bj3n"]
+font_size = 51
+font_color = Color(0.22148, 0.575142, 0.148872, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_uxp60"]
+font_size = 80
+
+[sub_resource type="LabelSettings" id="LabelSettings_e0hwf"]
+font_size = 80
+
+[sub_resource type="LabelSettings" id="LabelSettings_3ec8y"]
+font_size = 80
+
+[sub_resource type="LabelSettings" id="LabelSettings_hu37d"]
+font_size = 80
+
+[sub_resource type="LabelSettings" id="LabelSettings_358a1"]
+font_size = 80
+
+[sub_resource type="LabelSettings" id="LabelSettings_ap6cg"]
+font_size = 80
+
+[node name="menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = SubResource("Theme_un6xn")
+metadata/_edit_vertical_guides_ = [1288.0, 0.0, 2560.0, 3840.0, 5120.0, 6400.0, 7680.0, 8960.0]
+metadata/_edit_horizontal_guides_ = [720.0, 0.0]
+
+[node name="Panel-mainmenu" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -8.0
+offset_right = 8.0
+offset_bottom = 8.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("5_7avhv")
+theme_override_styles/panel = SubResource("StyleBoxTexture_rxygd")
+
+[node name="TextureRect" type="TextureRect" parent="Panel-mainmenu"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 3.0
+offset_top = -8.0
+offset_right = -11.0
+offset_bottom = -7.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("7_alaoh")
+flip_v = true
+
+[node name="Main Menu" type="AspectRatioContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1304.0
+offset_right = 1304.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("8_asdpd")
+
+[node name="Menu Control" type="Control" parent="Main Menu" node_paths=PackedStringArray("start_button", "load_button", "settings_button", "exit_button")]
+layout_mode = 2
+script = ExtResource("9_1p7le")
+start_button = NodePath("../MarginContainer/VBoxContainer/start_button")
+load_button = NodePath("../MarginContainer/VBoxContainer/load_button")
+settings_button = NodePath("../MarginContainer/VBoxContainer/settings_button")
+exit_button = NodePath("../MarginContainer/VBoxContainer/exit_button")
+start_scene_path = ExtResource("10_vciff")
+transition_path = ExtResource("11_wl0lj")
+
+[node name="MarginContainer" type="MarginContainer" parent="Main Menu"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Main Menu/MarginContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="title" type="Label" parent="Main Menu/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Beaker 
+Breakers"
+label_settings = SubResource("LabelSettings_utnyj")
+horizontal_alignment = 1
+vertical_alignment = 1
+clip_text = true
+uppercase = true
+
+[node name="subtitle" type="Label" parent="Main Menu/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "-The Mad Scientist-"
+label_settings = SubResource("LabelSettings_5bj3n")
+horizontal_alignment = 1
+vertical_alignment = 1
+clip_text = true
+uppercase = true
+
+[node name="start_button" type="Button" parent="Main Menu/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_pressed_color = Color(0.223068, 0.306558, 0.229419, 1)
+theme_override_colors/icon_pressed_color = Color(0.223068, 0.306558, 0.229419, 1)
+theme_override_styles/normal = ExtResource("12_3n3wl")
+text = "START"
+icon = ExtResource("13_332gq")
+expand_icon = true
+
+[node name="load_button" parent="Main Menu/MarginContainer/VBoxContainer" instance=ExtResource("14_1al5m")]
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_styles/normal = ExtResource("12_3n3wl")
+text = "CONTINUE"
+icon = ExtResource("15_ukpas")
+expand_icon = true
+
+[node name="settings_button" type="Button" parent="Main Menu/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/normal = ExtResource("12_3n3wl")
+text = "SETTINGS"
+icon = ExtResource("16_7wqmw")
+expand_icon = true
+
+[node name="exit_button" type="Button" parent="Main Menu/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/normal = ExtResource("12_3n3wl")
+text = "EXIT"
+icon = ExtResource("17_pkhe7")
+expand_icon = true
+
+[node name="Settings Menu" type="AspectRatioContainer" parent="."]
+layout_mode = 0
+offset_left = 2456.0
+offset_right = 3736.0
+offset_bottom = 720.0
+script = ExtResource("8_asdpd")
+
+[node name="Settings Control" type="Control" parent="Settings Menu" node_paths=PackedStringArray("audio", "video", "credits", "accessibility", "back")]
+layout_mode = 2
+script = ExtResource("18_58iem")
+transition_path = ExtResource("11_wl0lj")
+audio = NodePath("../MarginContainer/VBoxContainer/Audio_button")
+video = NodePath("../MarginContainer/VBoxContainer/Video")
+credits = NodePath("../MarginContainer/VBoxContainer/Credits")
+accessibility = NodePath("../MarginContainer/VBoxContainer/Accessibility")
+back = NodePath("../MarginContainer/VBoxContainer/Back")
+
+[node name="MarginContainer" type="MarginContainer" parent="Settings Menu"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Settings Menu/MarginContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="Settings Menu/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "SETTINGS"
+label_settings = SubResource("LabelSettings_uxp60")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Audio_button" type="Button" parent="Settings Menu/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/normal = ExtResource("12_3n3wl")
+text = "AUDIO"
+icon = ExtResource("19_npt6y")
+expand_icon = true
+language = "en_US"
+
+[node name="Video" type="Button" parent="Settings Menu/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/normal = ExtResource("12_3n3wl")
+text = "VIDEO"
+icon = ExtResource("20_vw0sv")
+expand_icon = true
+language = "en_US"
+
+[node name="Credits" type="Button" parent="Settings Menu/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/normal = ExtResource("12_3n3wl")
+text = "CREDITS"
+icon = ExtResource("21_8afxb")
+expand_icon = true
+language = "en_US"
+
+[node name="Accessibility" type="Button" parent="Settings Menu/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/normal = ExtResource("12_3n3wl")
+text = "ACCESSIBILITY"
+icon = ExtResource("22_k7v40")
+expand_icon = true
+language = "en_US"
+
+[node name="Back" type="Button" parent="Settings Menu/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/normal = ExtResource("12_3n3wl")
+text = "BACK"
+icon = ExtResource("23_n7d2r")
+expand_icon = true
+language = "en_US"
+
+[node name="Audio Settings" type="AspectRatioContainer" parent="."]
+layout_mode = 0
+offset_left = 3607.0
+offset_right = 4887.0
+offset_bottom = 720.0
+script = ExtResource("8_asdpd")
+
+[node name="Audio Control" type="Control" parent="Audio Settings" node_paths=PackedStringArray("savesettings", "back", "master_slider", "music_slider", "sfx_slider")]
+layout_mode = 2
+script = ExtResource("24_6m5ku")
+savesettings = NodePath("../MarginContainer/VBoxContainer/Save")
+back = NodePath("../MarginContainer/VBoxContainer/Return")
+transition_path = ExtResource("11_wl0lj")
+master_slider = NodePath("../MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2/HSlider")
+music_slider = NodePath("../MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2/HSlider2")
+sfx_slider = NodePath("../MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2/HSlider3")
+
+[node name="MarginContainer" type="MarginContainer" parent="Audio Settings"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Audio Settings/MarginContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="Audio Settings/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "AUDIO SETTINGS"
+label_settings = SubResource("LabelSettings_e0hwf")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Audio Settings/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Audio Settings/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Audio Settings/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("5_7avhv")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+text = "Master"
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="Audio Settings/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("5_7avhv")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+text = "Music
+"
+vertical_alignment = 1
+
+[node name="Label3" type="Label" parent="Audio Settings/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+text = "SFX
+"
+vertical_alignment = 1
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="Audio Settings/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="HSlider" type="HSlider" parent="Audio Settings/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme = ExtResource("5_7avhv")
+theme_override_styles/slider = ExtResource("25_yegv6")
+max_value = 1.0
+step = 0.01
+
+[node name="HSlider2" type="HSlider" parent="Audio Settings/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme = ExtResource("5_7avhv")
+theme_override_styles/slider = ExtResource("25_yegv6")
+max_value = 1.0
+step = 0.01
+
+[node name="HSlider3" type="HSlider" parent="Audio Settings/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme = ExtResource("5_7avhv")
+theme_override_styles/slider = ExtResource("25_yegv6")
+max_value = 1.0
+step = 0.01
+
+[node name="Save" type="Button" parent="Audio Settings/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/normal = ExtResource("12_3n3wl")
+text = "SAVE
+"
+icon = ExtResource("26_ugkil")
+expand_icon = true
+
+[node name="Return" type="Button" parent="Audio Settings/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/normal = ExtResource("12_3n3wl")
+text = "BACK
+"
+icon = ExtResource("23_n7d2r")
+expand_icon = true
+
+[node name="Video Settings" type="AspectRatioContainer" parent="."]
+layout_mode = 0
+offset_left = 4757.0
+offset_right = 6037.0
+offset_bottom = 720.0
+script = ExtResource("8_asdpd")
+
+[node name="Video Control" type="Control" parent="Video Settings" node_paths=PackedStringArray("savesettings", "back", "brightness_slider", "video1_slider", "windowmode")]
+layout_mode = 2
+script = ExtResource("27_uawk7")
+transition_path = ExtResource("11_wl0lj")
+savesettings = NodePath("../MarginContainer/VBoxContainer/Save")
+back = NodePath("../MarginContainer/VBoxContainer/Return")
+brightness_slider = NodePath("../MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2/HSlider")
+video1_slider = NodePath("../MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2/HSlider2")
+windowmode = NodePath("../MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2/OptionButton")
+
+[node name="MarginContainer" type="MarginContainer" parent="Video Settings"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Video Settings/MarginContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="Video Settings/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "VIDEO SETTINGS"
+label_settings = SubResource("LabelSettings_3ec8y")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Video Settings/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Video Settings/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Video Settings/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("5_7avhv")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+text = "Brightness"
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="Video Settings/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("5_7avhv")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+text = "Video 1"
+vertical_alignment = 1
+
+[node name="Label3" type="Label" parent="Video Settings/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+text = "Video 2
+"
+vertical_alignment = 1
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="Video Settings/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="HSlider" type="HSlider" parent="Video Settings/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme = ExtResource("5_7avhv")
+theme_override_styles/slider = ExtResource("25_yegv6")
+max_value = 1.0
+step = 0.01
+
+[node name="HSlider2" type="HSlider" parent="Video Settings/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme = ExtResource("5_7avhv")
+theme_override_styles/slider = ExtResource("25_yegv6")
+max_value = 1.0
+step = 0.01
+
+[node name="OptionButton" type="OptionButton" parent="Video Settings/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+
+[node name="Save" type="Button" parent="Video Settings/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/normal = ExtResource("12_3n3wl")
+text = "SAVE
+"
+icon = ExtResource("26_ugkil")
+expand_icon = true
+
+[node name="Return" type="Button" parent="Video Settings/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/normal = ExtResource("12_3n3wl")
+text = "BACK
+"
+icon = ExtResource("23_n7d2r")
+expand_icon = true
+
+[node name="Credits" type="AspectRatioContainer" parent="."]
+layout_mode = 0
+offset_left = 5910.0
+offset_right = 7190.0
+offset_bottom = 720.0
+script = ExtResource("8_asdpd")
+
+[node name="Credits Control" type="Control" parent="Credits" node_paths=PackedStringArray("Back")]
+layout_mode = 2
+script = ExtResource("28_duk5k")
+Back = NodePath("../MarginContainer/VBoxContainer/Return")
+transition_path = ExtResource("11_wl0lj")
+
+[node name="MarginContainer" type="MarginContainer" parent="Credits"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Credits/MarginContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="Credits/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "CREDITS"
+label_settings = SubResource("LabelSettings_hu37d")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Credits/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Credits/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="TextEdit" type="RichTextLabel" parent="Credits/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+clip_contents = false
+layout_direction = 2
+layout_mode = 2
+size_flags_horizontal = 6
+bbcode_enabled = true
+text = "Jesse Mauritz
+Joe Patterson
+Javier King
+Andres Mosquera
+Jordan Burgher
+Kaitlyn Furister"
+fit_content = true
+scroll_following = true
+autowrap_mode = 0
+meta_underlined = false
+hint_underlined = false
+deselect_on_focus_loss_enabled = false
+drag_and_drop_selection_enabled = false
+visible_characters_behavior = 2
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="Credits/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="TextEdit2" type="RichTextLabel" parent="Credits/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2"]
+clip_contents = false
+layout_direction = 2
+layout_mode = 2
+size_flags_horizontal = 6
+bbcode_enabled = true
+text = "------ Design and Programming
+------ Assets and UI
+------ Character Design and Documentation
+------ UI and Documentation
+------- Level Design and Documentation
+------- Audio and Documetnation"
+fit_content = true
+scroll_following = true
+autowrap_mode = 0
+meta_underlined = false
+hint_underlined = false
+deselect_on_focus_loss_enabled = false
+drag_and_drop_selection_enabled = false
+visible_characters_behavior = 2
+
+[node name="Return" type="Button" parent="Credits/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/normal = ExtResource("12_3n3wl")
+text = "BACK"
+icon = ExtResource("23_n7d2r")
+expand_icon = true
+
+[node name="Accessibility" type="AspectRatioContainer" parent="."]
+layout_mode = 0
+offset_left = 7203.0
+offset_right = 8483.0
+offset_bottom = 720.0
+script = ExtResource("8_asdpd")
+
+[node name="Access Control" type="Control" parent="Accessibility" node_paths=PackedStringArray("savesettings", "back", "captions", "language")]
+layout_mode = 2
+script = ExtResource("29_dokx3")
+savesettings = NodePath("../MarginContainer/VBoxContainer/Save")
+back = NodePath("../MarginContainer/VBoxContainer/Return")
+captions = NodePath("../MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/CheckButton")
+language = NodePath("../MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/OptionsButton")
+transition_path = ExtResource("11_wl0lj")
+
+[node name="MarginContainer" type="MarginContainer" parent="Accessibility"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Accessibility/MarginContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="Accessibility/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "ACCESSIBILITY"
+label_settings = SubResource("LabelSettings_358a1")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Accessibility/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="Accessibility/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="Label4" type="Label" parent="Accessibility/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+theme = ExtResource("5_7avhv")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+text = "Captions"
+vertical_alignment = 1
+
+[node name="Label5" type="Label" parent="Accessibility/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+theme = ExtResource("5_7avhv")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+text = "Language"
+vertical_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Accessibility/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="CheckButton" type="CheckButton" parent="Accessibility/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+clip_contents = true
+layout_mode = 2
+theme_override_styles/pressed = ExtResource("30_nr5mk")
+theme_override_styles/normal = ExtResource("30_nr5mk")
+button_pressed = true
+
+[node name="OptionsButton" type="OptionButton" parent="Accessibility/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+clip_contents = true
+layout_mode = 2
+theme_override_styles/pressed = ExtResource("30_nr5mk")
+theme_override_styles/normal = ExtResource("30_nr5mk")
+button_pressed = true
+item_count = 1
+popup/item_0/text = "English"
+popup/item_0/separator = true
+
+[node name="Save" type="Button" parent="Accessibility/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/normal = ExtResource("12_3n3wl")
+text = "SAVE"
+icon = ExtResource("26_ugkil")
+expand_icon = true
+
+[node name="Return" type="Button" parent="Accessibility/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/normal = ExtResource("12_3n3wl")
+text = "BACK"
+icon = ExtResource("23_n7d2r")
+expand_icon = true
+
+[node name="Load Menu" type="AspectRatioContainer" parent="."]
+layout_mode = 0
+offset_left = 8480.0
+offset_right = 9760.0
+offset_bottom = 720.0
+script = ExtResource("8_asdpd")
+
+[node name="Load Control" type="Control" parent="Load Menu" node_paths=PackedStringArray("loadbutton", "back")]
+layout_mode = 2
+script = ExtResource("31_ucwy8")
+loadbutton = NodePath("../MarginContainer/VBoxContainer/Load")
+back = NodePath("../MarginContainer/VBoxContainer/Return")
+
+[node name="MarginContainer" type="MarginContainer" parent="Load Menu"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Load Menu/MarginContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="Load Menu/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "LOAD GAME"
+label_settings = SubResource("LabelSettings_ap6cg")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Load Menu/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Load Menu/MarginContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="Load Menu/MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("5_7avhv")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("32_5iwkf")
+text = "Captions"
+vertical_alignment = 1
+
+[node name="CheckButton" type="CheckButton" parent="Load Menu/MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer"]
+clip_contents = true
+layout_mode = 2
+theme_override_styles/pressed = ExtResource("30_nr5mk")
+theme_override_styles/normal = ExtResource("30_nr5mk")
+button_pressed = true
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Load Menu/MarginContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="Load Menu/MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("5_7avhv")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("32_5iwkf")
+text = "Language"
+vertical_alignment = 1
+
+[node name="OptionsButton" type="OptionButton" parent="Load Menu/MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer2"]
+clip_contents = true
+layout_mode = 2
+theme_override_styles/pressed = ExtResource("30_nr5mk")
+theme_override_styles/normal = ExtResource("30_nr5mk")
+button_pressed = true
+item_count = 1
+popup/item_0/text = "English"
+popup/item_0/separator = true
+
+[node name="Load" type="Button" parent="Load Menu/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/normal = ExtResource("12_3n3wl")
+text = "SAVE"
+icon = ExtResource("26_ugkil")
+expand_icon = true
+
+[node name="Return" type="Button" parent="Load Menu/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/normal = ExtResource("12_3n3wl")
+text = "BACK"
+icon = ExtResource("23_n7d2r")
+expand_icon = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": ExtResource("24_ecufa")
+}
+next/audio_settings = &"audio_settings"
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+tree_root = ExtResource("25_4q3t3")
+advance_expression_base_node = NodePath("../Main Menu/Menu Control")
+anim_player = NodePath("../AnimationPlayer")
+
+[connection signal="pressed" from="Main Menu/MarginContainer/VBoxContainer/settings_button" to="Main Menu/Menu Control" method="_on_settings_pressed"]
+[connection signal="pressed" from="Settings Menu/MarginContainer/VBoxContainer/Audio_button" to="Audio Settings/Audio Control" method="_on_audio_pressed"]
+[connection signal="pressed" from="Settings Menu/MarginContainer/VBoxContainer/Back" to="Main Menu/Menu Control" method="_on_back_pressed"]

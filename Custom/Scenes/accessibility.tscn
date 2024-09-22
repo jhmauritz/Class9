@@ -1,0 +1,101 @@
+[gd_scene load_steps=10 format=3 uid="uid://byblibhkqilkv"]
+
+[ext_resource type="Script" path="res://scripts/ui/viewport_container.gd" id="1_caj0u"]
+[ext_resource type="Script" path="res://scripts/ui/access_control.gd" id="2_xiqva"]
+[ext_resource type="PackedScene" uid="uid://cpxbfthcvg7q5" path="res://scenes/scene_transitions/circle_transition.tscn" id="3_efx53"]
+[ext_resource type="Theme" uid="uid://byds11vsd6ber" path="res://themes/pixelart/pixelart.tres" id="4_p6rlp"]
+[ext_resource type="StyleBox" uid="uid://i1yrv604rfv5" path="res://textures/Flatstyle_1_pressed.tres" id="5_psoer"]
+[ext_resource type="StyleBox" uid="uid://bc1isjuwygmdl" path="res://textures/Button_1.tres" id="6_hcrkb"]
+[ext_resource type="Texture2D" uid="uid://b44jbkxmnn7d6" path="res://assets_collected/Icons/Icon_05.png" id="7_8rlsp"]
+[ext_resource type="Texture2D" uid="uid://cobp0vowivesi" path="res://assets_collected/Icons/Icon_14.png" id="8_lglgl"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_uxp60"]
+font_size = 80
+
+[node name="Accessibility" type="AspectRatioContainer"]
+offset_left = 3840.0
+offset_right = 5120.0
+offset_bottom = 720.0
+script = ExtResource("1_caj0u")
+
+[node name="Access Control" type="Control" parent="." node_paths=PackedStringArray("savesettings", "back", "captions", "language")]
+layout_mode = 2
+script = ExtResource("2_xiqva")
+savesettings = NodePath("../MarginContainer/VBoxContainer/Save")
+back = NodePath("../MarginContainer/VBoxContainer/Return")
+captions = NodePath("../MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/CheckButton")
+language = NodePath("../MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/OptionsButton")
+transition_path = ExtResource("3_efx53")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "ACCESSIBILITY"
+label_settings = SubResource("LabelSettings_uxp60")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="Label4" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+theme = ExtResource("4_p6rlp")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+text = "Captions"
+vertical_alignment = 1
+
+[node name="Label5" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+theme = ExtResource("4_p6rlp")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+text = "Language"
+vertical_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="CheckButton" type="CheckButton" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+clip_contents = true
+layout_mode = 2
+theme_override_styles/pressed = ExtResource("5_psoer")
+theme_override_styles/normal = ExtResource("5_psoer")
+button_pressed = true
+
+[node name="OptionsButton" type="OptionButton" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+clip_contents = true
+layout_mode = 2
+theme_override_styles/pressed = ExtResource("5_psoer")
+theme_override_styles/normal = ExtResource("5_psoer")
+button_pressed = true
+item_count = 1
+popup/item_0/text = "English"
+popup/item_0/separator = true
+
+[node name="Save" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/normal = ExtResource("6_hcrkb")
+text = "SAVE"
+icon = ExtResource("7_8rlsp")
+expand_icon = true
+
+[node name="Return" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/normal = ExtResource("6_hcrkb")
+text = "BACK"
+icon = ExtResource("8_lglgl")
+expand_icon = true

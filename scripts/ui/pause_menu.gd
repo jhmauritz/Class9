@@ -4,6 +4,8 @@ enum PausedMenus { PAUSED_SCREEN, SETTING_SCREEN, AUDIO_SCREEN, VIDEO_SCREEN, CR
 
 @export var is_paused : BoolReference
 
+
+
 var current_menu : PausedMenus = PausedMenus.PAUSED_SCREEN
 
 func _enter_tree():
@@ -32,3 +34,11 @@ func pause():
 func resume():
 	get_tree().paused = false
 	visible = false
+
+func _pause_game():
+	if (Input.is_action_just_pressed("Pause")):
+		pause()
+	else:
+		resume()
+		
+	

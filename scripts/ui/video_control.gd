@@ -13,7 +13,6 @@ enum Menu { MAIN_MENU, LOAD_MENU, SETTINGS_MENU, AUDIO_SETTINGS, VIDEO_SETTINGS,
 var current_menu : Menu = Menu.VIDEO_SETTINGS
 
 
-
 #func 
 #var  = ProjectSettings.get_setting(display/window/size/borderless)
 
@@ -21,15 +20,19 @@ var current_menu : Menu = Menu.VIDEO_SETTINGS
 #@onready var music_bus = AudioServer.get_bus_index('Music')
 #@onready var sfx_bus = AudioServer.get_bus_index('SFX')
 
-#func _enter_tree():
+func _enter_tree():
 #	brightness_slider_slider.value_changed.connect(_on_brightness_value_changed)
 #	video1_slider_slider.value_changed.connect(_on_music_audio_value_changed)
 #	video2_slider_slider.value_changed.connect(_on_sfx_audio_value_changed)
+	savesettings.pressed.connect(_save_video_settings)
+	back.pressed.connect(_back_to_settings)
 
-#func _exit_tree():
+func _exit_tree():
 #	brightness_slider_slider.value_changed.disconnect(_on_master_audio_value_changed)
 #	video1_slider_slider.value_changed.disconnect(_on_music_audio_value_changed)
 #	video2_slider_slider.value_changed.disconnect(_on_sfx_audio_value_changed)
+	savesettings.pressed.disconnect(_save_video_settings)
+	back.pressed.disconnect(_back_to_settings)
 
 #func _ready():
 #	brightness_slider_slider.value = db_to_linear(AudioServer.get_bus_volume_db(master_bus))
@@ -57,11 +60,12 @@ var current_menu : Menu = Menu.VIDEO_SETTINGS
 #		linear_to_db(value)
 #	)
 
+func _save_video_settings() -> void:
+	pass
 
-#func _on_video_pressed():
-#	current_menu = Menu.VIDEO_SETTINGS
-#	print("video")
-
+func _back_to_settings() -> void:
+	current_menu = Menu.SETTINGS_MENU
 
 func _on_video_pressed():
 	current_menu = Menu.VIDEO_SETTINGS
+	print("video")

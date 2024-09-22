@@ -46,9 +46,6 @@ theme = ExtResource("2_807cf")
 script = ExtResource("1_kcrr8")
 is_paused = ExtResource("3_ahtvt")
 
-[node name="mute_button" parent="." instance=ExtResource("3_gjyvc")]
-layout_mode = 0
-
 [node name="TextureRect" type="TextureRect" parent="."]
 clip_contents = true
 layout_mode = 1
@@ -73,6 +70,9 @@ offset_bottom = 40.0
 texture = ExtResource("6_y06xg")
 flip_h = true
 script = ExtResource("7_4eqlv")
+
+[node name="mute_button" parent="." instance=ExtResource("3_gjyvc")]
+layout_mode = 0
 
 [node name="Paused Menus" type="AspectRatioContainer" parent="."]
 layout_mode = 1
