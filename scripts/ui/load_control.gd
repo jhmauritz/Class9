@@ -5,7 +5,7 @@ enum Menu { MAIN_MENU, SETTINGS_MENU, AUDIO_SETTINGS, VIDEO_SETTINGS, CREDITS, A
 @export var loadbutton : Button
 @export var back : Button
 
-@export var transition_path : PackedScene
+#@export var transition_path : PackedScene
 
 
 var current_menu : Menu = Menu.LOAD_MENU
