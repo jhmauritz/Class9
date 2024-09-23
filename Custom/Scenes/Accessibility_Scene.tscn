@@ -1,0 +1,151 @@
+[gd_scene load_steps=13 format=3 uid="uid://dblpqks84iud5"]
+
+[ext_resource type="Theme" uid="uid://byds11vsd6ber" path="res://themes/pixelart/pixelart.tres" id="1_lwg68"]
+[ext_resource type="Texture2D" uid="uid://1teor1rbrqyo" path="res://assets_collected/Overlays/7.png" id="2_s1tw8"]
+[ext_resource type="Texture2D" uid="uid://3edsg7ewo3ha" path="res://assets_collected/Backdrops/2 Background/5.png" id="3_esv8i"]
+[ext_resource type="Script" path="res://scripts/ui/viewport_container.gd" id="4_3pm6m"]
+[ext_resource type="Script" path="res://scripts/ui/access_control.gd" id="5_kx3vx"]
+[ext_resource type="PackedScene" uid="uid://cpxbfthcvg7q5" path="res://scenes/scene_transitions/circle_transition.tscn" id="6_djehk"]
+[ext_resource type="StyleBox" uid="uid://i1yrv604rfv5" path="res://textures/Flatstyle_1_pressed.tres" id="7_5teey"]
+[ext_resource type="StyleBox" uid="uid://bc1isjuwygmdl" path="res://textures/Button_1.tres" id="8_l03ym"]
+[ext_resource type="Texture2D" uid="uid://b44jbkxmnn7d6" path="res://assets_collected/Icons/Icon_05.png" id="9_qhc65"]
+[ext_resource type="Texture2D" uid="uid://cobp0vowivesi" path="res://assets_collected/Icons/Icon_14.png" id="10_275gs"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_h31k6"]
+texture = ExtResource("2_s1tw8")
+modulate_color = Color(0.235523, 0.483133, 0.477483, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_358a1"]
+font_size = 80
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel-mainmenu" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -8.0
+offset_right = 8.0
+offset_bottom = 8.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_lwg68")
+theme_override_styles/panel = SubResource("StyleBoxTexture_h31k6")
+
+[node name="TextureRect" type="TextureRect" parent="Panel-mainmenu"]
+modulate = Color(0.890268, 0.626827, 0.400782, 1)
+self_modulate = Color(0.574894, 0.601657, 0.352467, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 3.0
+offset_top = -8.0
+offset_right = -11.0
+offset_bottom = -7.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_esv8i")
+flip_v = true
+
+[node name="Accessibility" type="AspectRatioContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("4_3pm6m")
+
+[node name="Access Control" type="Control" parent="Accessibility" node_paths=PackedStringArray("savesettings", "back", "captions", "language")]
+layout_mode = 2
+script = ExtResource("5_kx3vx")
+savesettings = NodePath("../MarginContainer/VBoxContainer/Save")
+back = NodePath("../MarginContainer/VBoxContainer/Return")
+captions = NodePath("../MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/CheckButton")
+language = NodePath("../MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/OptionsButton")
+transition_path = ExtResource("6_djehk")
+
+[node name="MarginContainer" type="MarginContainer" parent="Accessibility"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Accessibility/MarginContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="Accessibility/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_lwg68")
+text = "ACCESSIBILITY"
+label_settings = SubResource("LabelSettings_358a1")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Accessibility/MarginContainer/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="Accessibility/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="Label4" type="Label" parent="Accessibility/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 6
+theme = ExtResource("1_lwg68")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+text = "Captions"
+vertical_alignment = 1
+
+[node name="Label5" type="Label" parent="Accessibility/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 6
+theme = ExtResource("1_lwg68")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+text = "Language"
+vertical_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Accessibility/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="CheckButton" type="CheckButton" parent="Accessibility/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+clip_contents = true
+layout_mode = 2
+theme_override_styles/pressed = ExtResource("7_5teey")
+theme_override_styles/normal = ExtResource("7_5teey")
+button_pressed = true
+
+[node name="OptionsButton" type="OptionButton" parent="Accessibility/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+clip_contents = true
+layout_mode = 2
+theme_override_styles/pressed = ExtResource("7_5teey")
+theme_override_styles/normal = ExtResource("7_5teey")
+button_pressed = true
+item_count = 1
+popup/item_0/text = "English"
+popup/item_0/separator = true
+
+[node name="Save" type="Button" parent="Accessibility/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_lwg68")
+theme_override_styles/normal = ExtResource("8_l03ym")
+text = "SAVE"
+icon = ExtResource("9_qhc65")
+expand_icon = true
+
+[node name="Return" type="Button" parent="Accessibility/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_lwg68")
+theme_override_styles/normal = ExtResource("8_l03ym")
+text = "BACK"
+icon = ExtResource("10_275gs")
+expand_icon = true

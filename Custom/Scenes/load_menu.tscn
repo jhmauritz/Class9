@@ -13,8 +13,8 @@
 font_size = 80
 
 [node name="Load Menu" type="AspectRatioContainer"]
-offset_left = 5120.0
-offset_right = 6400.0
+offset_left = 7680.0
+offset_right = 8960.0
 offset_bottom = 720.0
 script = ExtResource("1_cq2q8")
 

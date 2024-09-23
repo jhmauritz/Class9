@@ -1,6 +1,5 @@
 extends Control
 
-enum Menu { MAIN_MENU, LOAD_MENU, SETTINGS_MENU, AUDIO_SETTINGS, VIDEO_SETTINGS, CREDITS, ACCESSIBILITY }
 
 @export var transition_path : PackedScene
 
@@ -10,7 +9,7 @@ enum Menu { MAIN_MENU, LOAD_MENU, SETTINGS_MENU, AUDIO_SETTINGS, VIDEO_SETTINGS,
 @export var video1_slider : Slider
 @export var windowmode : OptionButton
 
-var current_menu : Menu = Menu.VIDEO_SETTINGS
+var current_menu = MenuEnums.Menu.VIDEO
 
 
 #func 
@@ -64,8 +63,8 @@ func _save_video_settings() -> void:
 	pass
 
 func _back_to_settings() -> void:
-	current_menu = Menu.SETTINGS_MENU
+	current_menu = MenuEnums.Menu.SETTINGS
 
 func _on_video_pressed():
-	current_menu = Menu.VIDEO_SETTINGS
+	current_menu = MenuEnums.Menu.VIDEO
 	print("video")

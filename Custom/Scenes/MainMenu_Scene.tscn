@@ -1,0 +1,146 @@
+[gd_scene load_steps=17 format=3 uid="uid://bi4l8wiru6gcg"]
+
+[ext_resource type="Theme" uid="uid://byds11vsd6ber" path="res://themes/pixelart/pixelart.tres" id="1_12xku"]
+[ext_resource type="Texture2D" uid="uid://bdngpidsrxxhc" path="res://assets_collected/Overlays/11.png" id="2_unkr0"]
+[ext_resource type="Texture2D" uid="uid://dhlwjr6orkwv7" path="res://assets_collected/Backdrops/background 4/4.png" id="3_cn58y"]
+[ext_resource type="Script" path="res://scripts/ui/viewport_container.gd" id="4_sw4au"]
+[ext_resource type="Script" path="res://scripts/ui/menu_control.gd" id="5_ccab8"]
+[ext_resource type="PackedScene" uid="uid://tqr8mcs2r0kr" path="res://scenes/samples/platformer_sample.tscn" id="6_0vueu"]
+[ext_resource type="PackedScene" uid="uid://cpxbfthcvg7q5" path="res://scenes/scene_transitions/circle_transition.tscn" id="7_gnfvj"]
+[ext_resource type="StyleBox" uid="uid://bc1isjuwygmdl" path="res://textures/Button_1.tres" id="8_8qmxc"]
+[ext_resource type="Texture2D" uid="uid://d0bygl2qq3qk8" path="res://assets_collected/Icons/Icon_34.png" id="9_a7xqn"]
+[ext_resource type="PackedScene" uid="uid://dhl2s7a33d1qg" path="res://scenes/common/ui/load_button.tscn" id="10_ycdwx"]
+[ext_resource type="Texture2D" uid="uid://c1gblu2ig6hnv" path="res://assets_collected/Icons/Icon_18.png" id="11_vie5p"]
+[ext_resource type="Texture2D" uid="uid://dh8w4dim3ncse" path="res://assets_collected/Icons/Icon_26.png" id="12_5f2d5"]
+[ext_resource type="Texture2D" uid="uid://cw2hitg0pr62e" path="res://assets_collected/Icons/Icon_35.png" id="13_y52tn"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_moxjd"]
+texture = ExtResource("2_unkr0")
+modulate_color = Color(0.235523, 0.483133, 0.477483, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_rxk2x"]
+font_size = 100
+
+[sub_resource type="LabelSettings" id="LabelSettings_pv6bm"]
+font_size = 51
+font_color = Color(0.22148, 0.575142, 0.148872, 1)
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel-mainmenu" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -8.0
+offset_right = 8.0
+offset_bottom = 8.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_12xku")
+theme_override_styles/panel = SubResource("StyleBoxTexture_moxjd")
+
+[node name="TextureRect" type="TextureRect" parent="Panel-mainmenu"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 3.0
+offset_top = -8.0
+offset_right = -11.0
+offset_bottom = -7.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_cn58y")
+flip_v = true
+
+[node name="Main Menu" type="AspectRatioContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("4_sw4au")
+metadata/_edit_lock_ = true
+
+[node name="Menu Control" type="Control" parent="Main Menu" node_paths=PackedStringArray("start_button", "load_button", "settings_button", "exit_button")]
+layout_mode = 2
+script = ExtResource("5_ccab8")
+start_button = NodePath("../MarginContainer/VBoxContainer/start_button")
+load_button = NodePath("../MarginContainer/VBoxContainer/load_button")
+settings_button = NodePath("../MarginContainer/VBoxContainer/settings_button")
+exit_button = NodePath("../MarginContainer/VBoxContainer/exit_button")
+start_scene_path = ExtResource("6_0vueu")
+transition_path = ExtResource("7_gnfvj")
+
+[node name="MarginContainer" type="MarginContainer" parent="Main Menu"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Main Menu/MarginContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="title" type="Label" parent="Main Menu/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_12xku")
+text = "Beaker 
+Breakers"
+label_settings = SubResource("LabelSettings_rxk2x")
+horizontal_alignment = 1
+vertical_alignment = 1
+clip_text = true
+uppercase = true
+
+[node name="subtitle" type="Label" parent="Main Menu/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_12xku")
+text = "-The Mad Scientist-"
+label_settings = SubResource("LabelSettings_pv6bm")
+horizontal_alignment = 1
+vertical_alignment = 1
+clip_text = true
+uppercase = true
+
+[node name="start_button" type="Button" parent="Main Menu/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_12xku")
+theme_override_colors/font_pressed_color = Color(0.223068, 0.306558, 0.229419, 1)
+theme_override_colors/icon_pressed_color = Color(0.223068, 0.306558, 0.229419, 1)
+theme_override_styles/normal = ExtResource("8_8qmxc")
+text = "START"
+icon = ExtResource("9_a7xqn")
+expand_icon = true
+
+[node name="load_button" parent="Main Menu/MarginContainer/VBoxContainer" instance=ExtResource("10_ycdwx")]
+layout_mode = 2
+size_flags_vertical = 1
+theme = ExtResource("1_12xku")
+theme_override_styles/normal = ExtResource("8_8qmxc")
+text = "CONTINUE"
+icon = ExtResource("11_vie5p")
+expand_icon = true
+
+[node name="settings_button" type="Button" parent="Main Menu/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_12xku")
+theme_override_styles/normal = ExtResource("8_8qmxc")
+text = "SETTINGS"
+icon = ExtResource("12_5f2d5")
+expand_icon = true
+
+[node name="exit_button" type="Button" parent="Main Menu/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_12xku")
+theme_override_styles/normal = ExtResource("8_8qmxc")
+text = "EXIT"
+icon = ExtResource("13_y52tn")
+expand_icon = true
+
+[connection signal="pressed" from="Main Menu/MarginContainer/VBoxContainer/settings_button" to="Main Menu/Menu Control" method="_on_settings_pressed"]
