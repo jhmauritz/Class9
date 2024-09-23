@@ -1,0 +1,138 @@
+[gd_scene load_steps=8 format=3 uid="uid://nx1857h124dk"]
+
+[ext_resource type="Theme" uid="uid://byds11vsd6ber" path="res://themes/pixelart/pixelart.tres" id="1_m3ds3"]
+[ext_resource type="Texture2D" uid="uid://wmo2vt1ij5fo" path="res://assets_collected/Overlays/29.png" id="2_pqlnk"]
+[ext_resource type="Texture2D" uid="uid://bb21mhiebf1po" path="res://assets_collected/Backdrops/2 Background/Night/3.png" id="3_3plcg"]
+[ext_resource type="StyleBox" uid="uid://bc1isjuwygmdl" path="res://textures/Button_1.tres" id="4_buf3w"]
+[ext_resource type="Texture2D" uid="uid://cobp0vowivesi" path="res://assets_collected/Icons/Icon_14.png" id="5_t0b2p"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_u68g2"]
+texture = ExtResource("2_pqlnk")
+modulate_color = Color(0.61976, 0.339315, 0.37905, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_jxmvo"]
+font_size = 80
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel-mainmenu" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_m3ds3")
+theme_override_styles/panel = SubResource("StyleBoxTexture_u68g2")
+
+[node name="TextureRect" type="TextureRect" parent="Panel-mainmenu"]
+modulate = Color(0.271729, 0.523192, 0.652406, 1)
+self_modulate = Color(0.206083, 0.605197, 0.523043, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 3.0
+offset_top = -8.0
+offset_right = -11.0
+offset_bottom = -7.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_3plcg")
+flip_v = true
+
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_lock_ = true
+
+[node name="MarginContainer" type="MarginContainer" parent="AspectRatioContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="AspectRatioContainer/MarginContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="AspectRatioContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_m3ds3")
+text = "CREDITS"
+label_settings = SubResource("LabelSettings_jxmvo")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="AspectRatioContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="AspectRatioContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="TextEdit" type="RichTextLabel" parent="AspectRatioContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+clip_contents = false
+layout_direction = 2
+layout_mode = 2
+size_flags_horizontal = 6
+theme = ExtResource("1_m3ds3")
+bbcode_enabled = true
+text = "Jesse Mauritz
+Joe Patterson
+Javier King
+Andres Mosquera
+Jordan Burgher
+Kaitlyn Furister"
+fit_content = true
+scroll_following = true
+autowrap_mode = 0
+meta_underlined = false
+hint_underlined = false
+deselect_on_focus_loss_enabled = false
+drag_and_drop_selection_enabled = false
+visible_characters_behavior = 2
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="AspectRatioContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="TextEdit2" type="RichTextLabel" parent="AspectRatioContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2"]
+clip_contents = false
+layout_direction = 2
+layout_mode = 2
+size_flags_horizontal = 6
+theme = ExtResource("1_m3ds3")
+bbcode_enabled = true
+text = "------ Design and Programming
+------ Assets and UI
+------ Character Design and Documentation
+------ UI and Documentation
+------- Level Design and Documentation
+------- Audio and Documetnation"
+fit_content = true
+scroll_following = true
+autowrap_mode = 0
+meta_underlined = false
+hint_underlined = false
+deselect_on_focus_loss_enabled = false
+drag_and_drop_selection_enabled = false
+visible_characters_behavior = 2
+
+[node name="Return" type="Button" parent="AspectRatioContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_m3ds3")
+theme_override_styles/normal = ExtResource("4_buf3w")
+text = "BACK"
+icon = ExtResource("5_t0b2p")
+expand_icon = true

@@ -1,13 +1,5 @@
 extends Control
 
-enum Menu { MAIN_MENU,
-SETTINGS_MENU,
-AUDIO_SETTINGS,
-VIDEO_SETTINGS,
-CREDITS,
-ACCESSIBILITY,
-LOAD_MENU}
-
 @export var start_button : Button
 @export var load_button : Button
 @export var settings_button : Button
@@ -17,7 +9,7 @@ LOAD_MENU}
 @export var transition_path : PackedScene
 
 
-var current_menu : Menu = Menu.MAIN_MENU
+var current_menu = MenuEnums.Menu.MAIN
 
 func _enter_tree():
 	start_button.pressed.connect(_on_start_button_pressed)
@@ -43,15 +35,15 @@ func _on_exit_pressed():
 	print("bye")
 
 func _on_settings_pressed():
-	current_menu = Menu.SETTINGS_MENU
+	current_menu = MenuEnums.Menu.SETTINGS
 	print("current_menu")
 
 func _on_load_pressed() -> void:
-	get_tree().current_menu = Menu.LOAD_MENU
+	get_tree().current_menu = MenuEnums.Menu.LOAD
 	# Menu.LOAD_MENU
 	print("load")
 
 
 func _on_back_pressed():
-	current_menu = Menu.MAIN_MENU
+	current_menu = MenuEnums.Menu.MAIN
 	print("menu")
