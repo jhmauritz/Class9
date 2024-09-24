@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://bu6blyo0ol21c"]
+[gd_scene load_steps=6 format=3 uid="uid://bu6blyo0ol21c"]
 
 [ext_resource type="Texture2D" uid="uid://ca355gdjub6xi" path="res://assets_collected/Characters/Humans/Homeless_1/Idle.png" id="1_0sl7c"]
 [ext_resource type="Script" path="res://Custom/Scripts/collection_prefab.gd" id="1_07rb5"]
 [ext_resource type="PackedScene" uid="uid://brb5susakhh0l" path="res://Custom/interaction/interaction area/interaction_bound.tscn" id="2_wrxxj"]
+[ext_resource type="PackedScene" uid="uid://dr08qns7tedkf" path="res://Custom/interaction/InteractionManager.tscn" id="4_nwwqi"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_x8vmh"]
 radius = 47.0
@@ -19,5 +20,7 @@ region_rect = Rect2(1, -2, 123, 130)
 [node name="InteractionBound" parent="." instance=ExtResource("2_wrxxj")]
 action_name = "Collect"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionBound"]
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="InteractionBound"]
 shape = SubResource("CircleShape2D_x8vmh")
+
+[node name="InteractionManager" parent="." instance=ExtResource("4_nwwqi")]

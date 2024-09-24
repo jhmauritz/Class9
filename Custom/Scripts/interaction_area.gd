@@ -2,6 +2,7 @@ extends Area2D
 class_name InteractionArea
 
 @export var action_name: String = "interact"
+@onready var im: InteractionManager = $InteractionManager
 
 var interact: Callable = func():
 	pass
@@ -9,8 +10,8 @@ var interact: Callable = func():
 
 
 func _on_body_entered(body: Node2D) -> void:
-	InteractionManager.register_area(self)
+	IM.register_area(self)
 
 
 func _on_body_exited(body: Node2D) -> void:
-	InteractionManager.unregister_area(self)
+	IM.unregister_area(self)

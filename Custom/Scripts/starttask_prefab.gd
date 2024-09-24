@@ -16,8 +16,8 @@ func _process(delta: float) -> void:
 		task_started = false
 	
 func _on_interact():
-	if game_manager_class.has_resource == true:
-		game_manager_class.has_resource = false
+	if GM.has_resource == true:
+		GM.has_resource = false
 		task_started = true
 		print("Has Reouce! Starting Timer")
 	elif task_running == true:
