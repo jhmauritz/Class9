@@ -31,11 +31,6 @@ CameraShakeManager="*res://scenes/preloads/camera_shake_manager.tscn"
 GM="*res://Custom/Scripts/game_manager.gd"
 IM="*res://Custom/interaction/InteractionManager.tscn"
 
-[debug]
-
-settings/stdout/print_fps=true
-settings/stdout/print_gpu_profile=true
-
 [display]
 
 window/size/viewport_width=1280
