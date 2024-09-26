@@ -6,6 +6,7 @@ func _ready() -> void:
 	interaction_area.interact = Callable(self, "_on_interact")
 	
 func _on_interact():
+	print("Calling interact")
 	if GM.has_resource == false:
 		GM.has_resource = true
 		print("Collected Resource!")
