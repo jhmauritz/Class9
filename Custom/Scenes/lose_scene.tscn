@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Custom/Scripts/lose_scene.gd" id="1_xm4iu"]
 [ext_resource type="Theme" uid="uid://byds11vsd6ber" path="res://themes/pixelart/pixelart.tres" id="2_5pbpp"]
-[ext_resource type="PackedScene" uid="uid://chee17ae0u5op" path="res://scenes/samples/main_menu.tscn" id="2_v6cup"]
+[ext_resource type="PackedScene" uid="uid://bjs4cmo8sww8m" path="res://Custom/Scenes/main_menu.tscn" id="2_n4qyp"]
 [ext_resource type="PackedScene" uid="uid://tqr8mcs2r0kr" path="res://scenes/samples/platformer_sample.tscn" id="3_d0d8g"]
 [ext_resource type="Texture2D" uid="uid://dt02fv6b1f53r" path="res://assets_collected/Overlays/28.png" id="3_dmgfa"]
 [ext_resource type="PackedScene" uid="uid://cpxbfthcvg7q5" path="res://scenes/scene_transitions/circle_transition.tscn" id="4_4vpna"]
@@ -27,7 +27,7 @@ grow_vertical = 2
 script = ExtResource("1_xm4iu")
 menu = NodePath("Panel/AspectRatioContainer/VBoxContainer/Quit")
 retry = NodePath("Panel/AspectRatioContainer/VBoxContainer/Retry")
-menu_scene_path = ExtResource("2_v6cup")
+menu_scene_path = ExtResource("2_n4qyp")
 start_scene_path = ExtResource("3_d0d8g")
 transition_path = ExtResource("4_4vpna")
 

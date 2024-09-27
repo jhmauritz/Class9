@@ -14,7 +14,8 @@
 font_size = 80
 
 [node name="Settings Menu" type="AspectRatioContainer"]
-offset_left = -1280.0
+offset_left = 1280.0
+offset_right = 2560.0
 offset_bottom = 720.0
 script = ExtResource("1_ikukl")
 
@@ -81,5 +82,3 @@ text = "BACK"
 icon = ExtResource("9_1h6wp")
 expand_icon = true
 language = "en_US"
-
-[connection signal="pressed" from="MarginContainer/VBoxContainer/Back" to="Settings Control" method="_on_back_pressed"]

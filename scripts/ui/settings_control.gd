@@ -2,7 +2,6 @@ extends Control
 
 class_name MenuSetting
 
-enum Menu { MAIN_MENU, SETTINGS_MENU, AUDIO_SETTINGS, VIDEO_SETTINGS, CREDITS, ACCESSIBILITY, LOAD_MENU }
 
 @export var transition_path : PackedScene
 
@@ -13,7 +12,7 @@ enum Menu { MAIN_MENU, SETTINGS_MENU, AUDIO_SETTINGS, VIDEO_SETTINGS, CREDITS, A
 @export var back : Button
 
 
-var current_menu : Menu = Menu.SETTINGS_MENU
+var current_menu = MenuEnums.Menu.SETTINGS
 
 func _ready():
 	audio.pressed.connect(_on_audio_pressed)
@@ -38,9 +37,9 @@ func _exit_tree():
 
 
 func _on_audio_pressed() -> void:
-	#match current_menu:
-	#	Menu.AUDIO_SETTINGS:
-	#		print_tree()
+	match current_menu:
+		MenuEnums.Menu.AUDIO:
+			print_tree()
 	pass
 	
 func _on_video_pressed() -> void:
@@ -56,4 +55,4 @@ func _on_access_pressed() -> void:
 	#current_menu = Menu.ACCESSIBILITY
 
 func _on_back_pressed() :
-	current_menu = Menu.MAIN_MENU
+	current_menu = MenuEnums.Menu.MAIN

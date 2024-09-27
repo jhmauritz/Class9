@@ -775,5 +775,3 @@ advance_expression_base_node = NodePath("../Main Menu/Menu Control")
 anim_player = NodePath("../AnimationPlayer")
 
 [connection signal="pressed" from="Main Menu/MarginContainer/VBoxContainer/settings_button" to="Main Menu/Menu Control" method="_on_settings_pressed"]
-[connection signal="pressed" from="Settings Menu/MarginContainer/VBoxContainer/Audio_button" to="Audio Settings/Audio Control" method="_on_audio_pressed"]
-[connection signal="pressed" from="Settings Menu/MarginContainer/VBoxContainer/Back" to="Main Menu/Menu Control" method="_on_back_pressed"]

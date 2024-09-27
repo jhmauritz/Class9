@@ -1,6 +1,5 @@
 extends Control
 
-enum Menu { MAIN_MENU, SETTINGS_MENU, AUDIO_SETTINGS, VIDEO_SETTINGS, CREDITS, ACCESSIBILITY, LOAD_MENU }
 
 @export var savesettings : Button
 @export var back : Button
@@ -17,7 +16,7 @@ enum Menu { MAIN_MENU, SETTINGS_MENU, AUDIO_SETTINGS, VIDEO_SETTINGS, CREDITS, A
 
 @onready var audio = Button
 
-var current_menu : Menu = Menu.AUDIO_SETTINGS
+var current_menu = MenuEnums.Menu.AUDIO
 
 
 func _enter_tree():
@@ -64,21 +63,21 @@ func _on_music_audio_value_changed(value):
 	
 func _on_audio_pressed():
 	#if
-	#current_menu = Menu.SETTINGS_MENU
+	#current_menu = MenuEnums.Menu.SETTINGS
 	#else:
-	#get_tree().current_menu = Menu.AUDIO_SETTINGS
+	#get_tree().current_menu = MenuEnums.Menu.AUDIO
 	#get_tree().change_scene_to_file("res://Custom/Scenes/audio_settings.tscn")
-		#Menu.AUDIO_SETTINGS
+		#MenuEnums.Menu.AUDIO
 	match current_menu:
-		Menu.AUDIO_SETTINGS:
+		MenuEnums.Menu.AUDIO:
 			print_tree()
 			print("audio")
 	
 	
 	
 func _save_audio_settings():
-	current_menu = Menu.AUDIO_SETTINGS
+	current_menu = MenuEnums.Menu.AUDIO
 
 func _back_to_settings():
 	pass
-#	current_menu = Menu.SETTINGS_MENU
+#	current_menu = MenuEnums.Menu.SETTINGS
