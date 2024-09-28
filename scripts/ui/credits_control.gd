@@ -24,8 +24,7 @@ func _exit_tree():
 	
 
 func _back_to_setting():
-	current_menu = MenuEnums.Menu.SETTINGS
+	get_tree().change_scene_to_file("res://Custom/Scenes/Settings_Scene.tscn")
 
 func _on_credits_pressed():
-	current_menu = MenuEnums.Menu.CREDITS
-	print("credits")
+	get_tree().change_scene_to_file("res://Custom/Scenes/credits.tscn")

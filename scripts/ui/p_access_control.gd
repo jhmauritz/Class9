@@ -32,10 +32,10 @@ func _languages():
 	pass
 
 func _back_to_settings():
-	get_tree().change_scene_to_file("res://Custom/Scenes/Settings_Scene.tscn")
+	get_tree().change_scene_to_file("res://Custom/Scenes/P_Settings_Scene.tscn")
 
 func _on_accessibility_pressed():
-	get_tree().change_scene_to_file("res://Custom/Scenes/Accessibility_Scene.tscn")
+	get_tree().change_scene_to_file("res://Custom/Scenes/P_Accessibility_Scene.tscn")
 
 
 # Called when the node enters the scene tree for the first time.

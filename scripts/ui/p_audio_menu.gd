@@ -62,7 +62,7 @@ func _on_music_audio_value_changed(value):
 	
 	
 func _on_audio_pressed():
-	get_tree().change_scene_to_file("res://Custom/Scenes/Audio_Scene.tscn")
+	get_tree().change_scene_to_file("res://Custom/Scenes/P_Audio_Scene.tscn")
 	
 	
 	
@@ -70,5 +70,5 @@ func _save_audio_settings():
 	pass
 	
 func _back_to_settings():
-	get_tree().change_scene_to_file("res://Custom/Scenes/Settings_Scene.tscn")
+	get_tree().change_scene_to_file("res://Custom/Scenes/P_Settings_Scene.tscn")
 	

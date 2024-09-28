@@ -63,7 +63,7 @@ func _save_video_settings() -> void:
 	pass
 
 func _back_to_settings() -> void:
-	get_tree().change_scene_to_file("res://Custom/Scenes/Settings_Scene.tscn")
+	get_tree().change_scene_to_file("res://Custom/Scenes/P_Settings_Scene.tscn")
 
 func _on_video_pressed():
-	get_tree().change_scene_to_file("res://Custom/Scenes/Video_scene.tscn")
+	get_tree().change_scene_to_file("res://Custom/Scenes/P_Video_scene.tscn")
