@@ -7,12 +7,11 @@
 [ext_resource type="Texture2D" uid="uid://cobp0vowivesi" path="res://assets_collected/Icons/Icon_14.png" id="5_kfmxr"]
 [ext_resource type="AudioStream" uid="uid://cj4n82xch7naw" path="res://audio/audio-assets/Class9_SFX_UI_Select.wav" id="6_e22f8"]
 
-[sub_resource type="LabelSettings" id="LabelSettings_uxp60"]
+[sub_resource type="LabelSettings" id="LabelSettings_hu37d"]
 font_size = 80
 
 [node name="Credits" type="AspectRatioContainer"]
-offset_left = 2560.0
-offset_right = 3840.0
+offset_right = 1280.0
 offset_bottom = 720.0
 script = ExtResource("1_ro5i1")
 
@@ -32,7 +31,7 @@ alignment = 1
 [node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "CREDITS"
-label_settings = SubResource("LabelSettings_uxp60")
+label_settings = SubResource("LabelSettings_hu37d")
 horizontal_alignment = 1
 vertical_alignment = 1
 

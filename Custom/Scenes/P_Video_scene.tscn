@@ -1,0 +1,165 @@
+[gd_scene load_steps=13 format=3 uid="uid://c001nxwrf6hl"]
+
+[ext_resource type="Theme" uid="uid://byds11vsd6ber" path="res://themes/pixelart/pixelart.tres" id="1_cbiyp"]
+[ext_resource type="Texture2D" uid="uid://r6eptufkhlbc" path="res://assets_collected/Overlays/16.png" id="2_xxl05"]
+[ext_resource type="Texture2D" uid="uid://3anj7nbdnu0" path="res://assets_collected/Backdrops/background 1/4.png" id="3_6shbr"]
+[ext_resource type="Script" path="res://scripts/ui/viewport_container.gd" id="4_ct6wh"]
+[ext_resource type="Script" path="res://scripts/ui/p_video_control.gd" id="5_uvfc2"]
+[ext_resource type="PackedScene" uid="uid://cpxbfthcvg7q5" path="res://scenes/scene_transitions/circle_transition.tscn" id="6_2o3sp"]
+[ext_resource type="StyleBox" uid="uid://cefnhxxovol5q" path="res://textures/Slider.tres" id="7_0o7wm"]
+[ext_resource type="StyleBox" uid="uid://bc1isjuwygmdl" path="res://textures/Button_1.tres" id="8_sfkpm"]
+[ext_resource type="Texture2D" uid="uid://b44jbkxmnn7d6" path="res://assets_collected/Icons/Icon_05.png" id="9_1gfl8"]
+[ext_resource type="Texture2D" uid="uid://cobp0vowivesi" path="res://assets_collected/Icons/Icon_14.png" id="10_p6d77"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8b3f5"]
+texture = ExtResource("2_xxl05")
+modulate_color = Color(0.235523, 0.483133, 0.477483, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_3ec8y"]
+font_size = 80
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel-mainmenu" type="Panel" parent="."]
+modulate = Color(0.993427, 0.795705, 0.845642, 1)
+self_modulate = Color(0.963533, 0.886377, 0.850147, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -8.0
+offset_right = 8.0
+offset_bottom = 8.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_cbiyp")
+theme_override_styles/panel = SubResource("StyleBoxTexture_8b3f5")
+
+[node name="TextureRect" type="TextureRect" parent="Panel-mainmenu"]
+modulate = Color(0.209794, 0.487279, 0.907316, 1)
+self_modulate = Color(0.802483, 0.682658, 0.816978, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 3.0
+offset_top = -8.0
+offset_right = -11.0
+offset_bottom = -7.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_6shbr")
+flip_v = true
+
+[node name="Video Settings" type="AspectRatioContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("4_ct6wh")
+metadata/_edit_lock_ = true
+
+[node name="Video Control" type="Control" parent="Video Settings" node_paths=PackedStringArray("savesettings", "back", "brightness_slider", "video1_slider", "windowmode")]
+layout_mode = 2
+script = ExtResource("5_uvfc2")
+transition_path = ExtResource("6_2o3sp")
+savesettings = NodePath("../MarginContainer/VBoxContainer/Save")
+back = NodePath("../MarginContainer/VBoxContainer/Return")
+brightness_slider = NodePath("../MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2/HSlider")
+video1_slider = NodePath("../MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2/HSlider2")
+windowmode = NodePath("../MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2/OptionButton")
+
+[node name="MarginContainer" type="MarginContainer" parent="Video Settings"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Video Settings/MarginContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="Video Settings/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_cbiyp")
+text = "VIDEO SETTINGS"
+label_settings = SubResource("LabelSettings_3ec8y")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Video Settings/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Video Settings/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Video Settings/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_cbiyp")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+text = "Brightness"
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="Video Settings/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_cbiyp")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+text = "Video 1"
+vertical_alignment = 1
+
+[node name="Label3" type="Label" parent="Video Settings/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_cbiyp")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+text = "Video 2
+"
+vertical_alignment = 1
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="Video Settings/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="HSlider" type="HSlider" parent="Video Settings/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme = ExtResource("1_cbiyp")
+theme_override_styles/slider = ExtResource("7_0o7wm")
+max_value = 1.0
+step = 0.01
+
+[node name="HSlider2" type="HSlider" parent="Video Settings/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme = ExtResource("1_cbiyp")
+theme_override_styles/slider = ExtResource("7_0o7wm")
+max_value = 1.0
+step = 0.01
+
+[node name="OptionButton" type="OptionButton" parent="Video Settings/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+
+[node name="Save" type="Button" parent="Video Settings/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_cbiyp")
+theme_override_styles/normal = ExtResource("8_sfkpm")
+text = "SAVE
+"
+icon = ExtResource("9_1gfl8")
+expand_icon = true
+
+[node name="Return" type="Button" parent="Video Settings/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_cbiyp")
+theme_override_styles/normal = ExtResource("8_sfkpm")
+text = "BACK
+"
+icon = ExtResource("10_p6d77")
+expand_icon = true

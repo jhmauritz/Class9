@@ -14,12 +14,12 @@ script = ExtResource("1_qq74p")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_m7r5p")
 
-[node name="InteractionManager" parent="." instance=ExtResource("2_agmty")]
-
 [node name="InteractionBound" parent="." instance=ExtResource("4_vqaty")]
 action_name = "Start Task"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionBound"]
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="InteractionBound"]
 scale = Vector2(10.79, 10.79)
 shape = SubResource("CircleShape2D_ppssh")
 one_way_collision_margin = 0.0
+
+[node name="InteractionManager" parent="." instance=ExtResource("2_agmty")]

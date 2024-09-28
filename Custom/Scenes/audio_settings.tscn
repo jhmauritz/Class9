@@ -9,11 +9,12 @@
 [ext_resource type="Texture2D" uid="uid://b44jbkxmnn7d6" path="res://assets_collected/Icons/Icon_05.png" id="7_6prx3"]
 [ext_resource type="Texture2D" uid="uid://cobp0vowivesi" path="res://assets_collected/Icons/Icon_14.png" id="8_efa6m"]
 
-[sub_resource type="LabelSettings" id="LabelSettings_uxp60"]
+[sub_resource type="LabelSettings" id="LabelSettings_e0hwf"]
 font_size = 80
 
 [node name="Audio Settings" type="AspectRatioContainer"]
-offset_right = 1280.0
+offset_left = 2560.0
+offset_right = 3840.0
 offset_bottom = 720.0
 script = ExtResource("1_jbr7i")
 
@@ -37,7 +38,7 @@ alignment = 1
 [node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "AUDIO SETTINGS"
-label_settings = SubResource("LabelSettings_uxp60")
+label_settings = SubResource("LabelSettings_e0hwf")
 horizontal_alignment = 1
 vertical_alignment = 1
 

@@ -2,11 +2,10 @@ extends Control
 
 @export var Back : Button
 
-enum Menu { MAIN_MENU, SETTINGS_MENU, AUDIO_SETTINGS, VIDEO_SETTINGS, CREDITS, ACCESSIBILITY, LOAD_MENU }
 
 @export var transition_path : PackedScene
 
-var current_menu : Menu = Menu.CREDITS
+var current_menu = MenuEnums.Menu.CREDITS
 
  #Called when the node enters the scene tree for the first time.
 #func _ready():
@@ -25,8 +24,7 @@ func _exit_tree():
 	
 
 func _back_to_setting():
-	current_menu = Menu.SETTINGS_MENU
+	get_tree().change_scene_to_file("res://Custom/Scenes/Settings_Scene.tscn")
 
 func _on_credits_pressed():
-	current_menu = Menu.CREDITS
-	print("credits")
+	get_tree().change_scene_to_file("res://Custom/Scenes/credits.tscn")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://c2p7u51cnk6w5"]
+[gd_scene load_steps=11 format=3 uid="uid://c2p7u51cnk6w5"]
 
 [ext_resource type="Script" path="res://scripts/ui/viewport_container.gd" id="1_ikukl"]
 [ext_resource type="Script" path="res://scripts/ui/settings_control.gd" id="2_qd21q"]
@@ -6,7 +6,6 @@
 [ext_resource type="StyleBox" uid="uid://bc1isjuwygmdl" path="res://textures/Button_1.tres" id="4_7vk6x"]
 [ext_resource type="Texture2D" uid="uid://dyoy1lym2sxi2" path="res://assets_collected/Icons/Icon_37.png" id="5_gplf0"]
 [ext_resource type="Texture2D" uid="uid://ba7xgyoyfmna" path="res://assets_collected/Icons/Icon_07.png" id="6_qfvmb"]
-[ext_resource type="AudioStream" uid="uid://cj4n82xch7naw" path="res://audio/audio-assets/Class9_SFX_UI_Select.wav" id="6_r8hyw"]
 [ext_resource type="Texture2D" uid="uid://c54ocwxyjl5et" path="res://assets_collected/Icons/Icon_24.png" id="7_0svo0"]
 [ext_resource type="Texture2D" uid="uid://dbjo2i4nmyjuf" path="res://assets_collected/Icons/Icon_25.png" id="8_xoq1w"]
 [ext_resource type="Texture2D" uid="uid://cobp0vowivesi" path="res://assets_collected/Icons/Icon_14.png" id="9_1h6wp"]
@@ -15,7 +14,8 @@
 font_size = 80
 
 [node name="Settings Menu" type="AspectRatioContainer"]
-offset_left = -1280.0
+offset_left = 1280.0
+offset_right = 2560.0
 offset_bottom = 720.0
 script = ExtResource("1_ikukl")
 
@@ -51,9 +51,6 @@ icon = ExtResource("5_gplf0")
 expand_icon = true
 language = "en_US"
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="MarginContainer/VBoxContainer/Audio_button"]
-stream = ExtResource("6_r8hyw")
-
 [node name="Video" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_styles/normal = ExtResource("4_7vk6x")
@@ -61,9 +58,6 @@ text = "VIDEO"
 icon = ExtResource("6_qfvmb")
 expand_icon = true
 language = "en_US"
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="MarginContainer/VBoxContainer/Video"]
-stream = ExtResource("6_r8hyw")
 
 [node name="Credits" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
@@ -73,9 +67,6 @@ icon = ExtResource("7_0svo0")
 expand_icon = true
 language = "en_US"
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="MarginContainer/VBoxContainer/Credits"]
-stream = ExtResource("6_r8hyw")
-
 [node name="Accessibility" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_styles/normal = ExtResource("4_7vk6x")
@@ -84,9 +75,6 @@ icon = ExtResource("8_xoq1w")
 expand_icon = true
 language = "en_US"
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="MarginContainer/VBoxContainer/Accessibility"]
-stream = ExtResource("6_r8hyw")
-
 [node name="Back" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_styles/normal = ExtResource("4_7vk6x")
@@ -94,8 +82,3 @@ text = "BACK"
 icon = ExtResource("9_1h6wp")
 expand_icon = true
 language = "en_US"
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="MarginContainer/VBoxContainer/Back"]
-stream = ExtResource("6_r8hyw")
-
-[connection signal="pressed" from="MarginContainer/VBoxContainer/Back" to="Settings Control" method="_on_back_pressed"]

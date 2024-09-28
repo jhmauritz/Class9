@@ -9,13 +9,15 @@
 [ext_resource type="Texture2D" uid="uid://b44jbkxmnn7d6" path="res://assets_collected/Icons/Icon_05.png" id="7_xwbd0"]
 [ext_resource type="Texture2D" uid="uid://cobp0vowivesi" path="res://assets_collected/Icons/Icon_14.png" id="8_pek08"]
 
-[sub_resource type="LabelSettings" id="LabelSettings_uxp60"]
+[sub_resource type="LabelSettings" id="LabelSettings_3ec8y"]
 font_size = 80
 
 [node name="Video Settings" type="AspectRatioContainer"]
-offset_left = 1280.0
-offset_right = 2560.0
-offset_bottom = 720.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1_jkmqr")
 
 [node name="Video Control" type="Control" parent="." node_paths=PackedStringArray("savesettings", "back", "brightness_slider", "video1_slider", "windowmode")]
@@ -38,7 +40,7 @@ alignment = 1
 [node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "VIDEO SETTINGS"
-label_settings = SubResource("LabelSettings_uxp60")
+label_settings = SubResource("LabelSettings_3ec8y")
 horizontal_alignment = 1
 vertical_alignment = 1
 
