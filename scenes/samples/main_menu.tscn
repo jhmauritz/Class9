@@ -146,8 +146,6 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 1304.0
-offset_right = 1304.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("6_8dq4u")
@@ -221,8 +219,8 @@ expand_icon = true
 
 [node name="Settings Menu" type="AspectRatioContainer" parent="."]
 layout_mode = 0
-offset_left = 2456.0
-offset_right = 3736.0
+offset_left = 1280.0
+offset_right = 2560.0
 offset_bottom = 720.0
 script = ExtResource("6_8dq4u")
 
@@ -292,8 +290,8 @@ language = "en_US"
 
 [node name="Audio Settings" type="AspectRatioContainer" parent="."]
 layout_mode = 0
-offset_left = 3607.0
-offset_right = 4887.0
+offset_left = 2560.0
+offset_right = 3840.0
 offset_bottom = 720.0
 script = ExtResource("6_8dq4u")
 
@@ -399,8 +397,8 @@ expand_icon = true
 
 [node name="Video Settings" type="AspectRatioContainer" parent="."]
 layout_mode = 0
-offset_left = 4757.0
-offset_right = 6037.0
+offset_left = 3840.0
+offset_right = 5120.0
 offset_bottom = 720.0
 script = ExtResource("6_8dq4u")
 
@@ -499,8 +497,8 @@ expand_icon = true
 
 [node name="Credits" type="AspectRatioContainer" parent="."]
 layout_mode = 0
-offset_left = 5910.0
-offset_right = 7190.0
+offset_left = 5120.0
+offset_right = 6400.0
 offset_bottom = 720.0
 script = ExtResource("6_8dq4u")
 
@@ -589,8 +587,8 @@ expand_icon = true
 
 [node name="Accessibility" type="AspectRatioContainer" parent="."]
 layout_mode = 0
-offset_left = 7203.0
-offset_right = 8483.0
+offset_left = 6400.0
+offset_right = 7680.0
 offset_bottom = 720.0
 script = ExtResource("6_8dq4u")
 
@@ -678,8 +676,8 @@ expand_icon = true
 
 [node name="Load Menu" type="AspectRatioContainer" parent="."]
 layout_mode = 0
-offset_left = 8480.0
-offset_right = 9760.0
+offset_left = 7680.0
+offset_right = 8960.0
 offset_bottom = 720.0
 script = ExtResource("6_8dq4u")
 
