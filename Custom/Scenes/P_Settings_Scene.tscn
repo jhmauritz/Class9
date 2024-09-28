@@ -1,0 +1,127 @@
+[gd_scene load_steps=14 format=3 uid="uid://x008d2p7uih0"]
+
+[ext_resource type="Theme" uid="uid://byds11vsd6ber" path="res://themes/pixelart/pixelart.tres" id="1_wmfj6"]
+[ext_resource type="Texture2D" uid="uid://bto18iw78ks85" path="res://assets_collected/Overlays/17.png" id="2_fdths"]
+[ext_resource type="Texture2D" uid="uid://cjlvkxfxflcxd" path="res://assets_collected/Backdrops/background 2/2.png" id="3_1p2nm"]
+[ext_resource type="Script" path="res://scripts/ui/viewport_container.gd" id="4_cbd6r"]
+[ext_resource type="Script" path="res://scripts/ui/p_settings_control.gd" id="5_5xnm1"]
+[ext_resource type="PackedScene" uid="uid://cpxbfthcvg7q5" path="res://scenes/scene_transitions/circle_transition.tscn" id="6_uuf0f"]
+[ext_resource type="StyleBox" uid="uid://bc1isjuwygmdl" path="res://textures/Button_1.tres" id="7_1eaek"]
+[ext_resource type="Texture2D" uid="uid://dyoy1lym2sxi2" path="res://assets_collected/Icons/Icon_37.png" id="8_uthf3"]
+[ext_resource type="Texture2D" uid="uid://ba7xgyoyfmna" path="res://assets_collected/Icons/Icon_07.png" id="9_e0xvu"]
+[ext_resource type="Texture2D" uid="uid://dbjo2i4nmyjuf" path="res://assets_collected/Icons/Icon_25.png" id="11_dkcja"]
+[ext_resource type="Texture2D" uid="uid://cobp0vowivesi" path="res://assets_collected/Icons/Icon_14.png" id="12_583hm"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ycrn7"]
+texture = ExtResource("2_fdths")
+modulate_color = Color(0.601281, 0.414405, 0.354018, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_uxp60"]
+font_size = 80
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel-mainmenu" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -8.0
+offset_right = 8.0
+offset_bottom = 8.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_wmfj6")
+theme_override_styles/panel = SubResource("StyleBoxTexture_ycrn7")
+
+[node name="TextureRect" type="TextureRect" parent="Panel-mainmenu"]
+modulate = Color(0.253495, 0.489672, 0.400244, 1)
+self_modulate = Color(0.385022, 0.713037, 0.644088, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 3.0
+offset_top = -8.0
+offset_right = -11.0
+offset_bottom = -7.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_1p2nm")
+flip_v = true
+
+[node name="Settings Menu" type="AspectRatioContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("4_cbd6r")
+metadata/_edit_lock_ = true
+
+[node name="Settings Control" type="Control" parent="Settings Menu" node_paths=PackedStringArray("audio", "video", "accessibility", "back")]
+layout_mode = 2
+script = ExtResource("5_5xnm1")
+transition_path = ExtResource("6_uuf0f")
+audio = NodePath("../MarginContainer/VBoxContainer/Audio_button")
+video = NodePath("../MarginContainer/VBoxContainer/Video")
+accessibility = NodePath("../MarginContainer/VBoxContainer/Accessibility")
+back = NodePath("../MarginContainer/VBoxContainer/Back")
+
+[node name="MarginContainer" type="MarginContainer" parent="Settings Menu"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Settings Menu/MarginContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="Settings Menu/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_wmfj6")
+text = "SETTINGS"
+label_settings = SubResource("LabelSettings_uxp60")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Audio_button" type="Button" parent="Settings Menu/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_wmfj6")
+theme_override_styles/normal = ExtResource("7_1eaek")
+text = "AUDIO"
+icon = ExtResource("8_uthf3")
+expand_icon = true
+language = "en_US"
+
+[node name="Video" type="Button" parent="Settings Menu/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_wmfj6")
+theme_override_styles/normal = ExtResource("7_1eaek")
+text = "VIDEO"
+icon = ExtResource("9_e0xvu")
+expand_icon = true
+language = "en_US"
+
+[node name="Accessibility" type="Button" parent="Settings Menu/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_wmfj6")
+theme_override_styles/normal = ExtResource("7_1eaek")
+text = "ACCESSIBILITY"
+icon = ExtResource("11_dkcja")
+expand_icon = true
+language = "en_US"
+
+[node name="Back" type="Button" parent="Settings Menu/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_wmfj6")
+theme_override_styles/normal = ExtResource("7_1eaek")
+text = "BACK"
+icon = ExtResource("12_583hm")
+expand_icon = true
+language = "en_US"

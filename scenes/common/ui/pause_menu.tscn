@@ -33,7 +33,7 @@ func _ready() -> void:
 	pass
 "
 
-[node name="pause_menu" type="Control"]
+[node name="pause_menu" type="Control" node_paths=PackedStringArray("settingsbutton", "quitbutton")]
 process_mode = 3
 layout_mode = 3
 anchors_preset = 15
@@ -45,6 +45,8 @@ mouse_filter = 1
 theme = ExtResource("2_807cf")
 script = ExtResource("1_kcrr8")
 is_paused = ExtResource("3_ahtvt")
+settingsbutton = NodePath("Paused Menus/MarginContainer/VBoxContainer/settings_button")
+quitbutton = NodePath("Paused Menus/MarginContainer/VBoxContainer/quit_button")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 clip_contents = true
@@ -128,3 +130,6 @@ text = "QUIT"
 icon = ExtResource("14_sk68w")
 expand_icon = true
 script = ExtResource("16_4bkfw")
+
+[connection signal="pressed" from="Paused Menus/MarginContainer/VBoxContainer/settings_button" to="." method="_on_settings_button_pressed"]
+[connection signal="pressed" from="Paused Menus/MarginContainer/VBoxContainer/quit_button" to="." method="_on_quit_button_pressed"]
