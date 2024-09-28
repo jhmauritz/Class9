@@ -35,15 +35,15 @@ func _on_exit_pressed():
 	print("bye")
 
 func _on_settings_pressed():
-	current_menu = MenuEnums.Menu.SETTINGS
+	get_tree().change_scene_to_file("res://Custom/Scenes/Settings_Scene.tscn")
 	print("current_menu")
 
 func _on_load_pressed() -> void:
-	get_tree().current_menu = MenuEnums.Menu.LOAD
+	get_tree().change_scene_to_file("res://Custom/Scenes/load_menu.tscn")
 	# Menu.LOAD_MENU
 	print("load")
 
 
 func _on_back_pressed():
-	current_menu = MenuEnums.Menu.MAIN
+	get_tree().change_scene_to_file("res://Custom/Scenes/MainMenu_Scene.tscn")
 	print("menu")

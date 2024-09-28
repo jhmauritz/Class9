@@ -63,8 +63,7 @@ func _save_video_settings() -> void:
 	pass
 
 func _back_to_settings() -> void:
-	current_menu = MenuEnums.Menu.SETTINGS
+	get_tree().change_scene_to_file("res://Custom/Scenes/Settings_Scene.tscn")
 
 func _on_video_pressed():
-	current_menu = MenuEnums.Menu.VIDEO
-	print("video")
+	get_tree().change_scene_to_file("res://Custom/Scenes/Video_scene.tscn")

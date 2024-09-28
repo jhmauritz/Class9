@@ -36,23 +36,17 @@ func _exit_tree():
 	back.pressed.disconnect(_on_back_pressed)
 
 
-func _on_audio_pressed() -> void:
-	match current_menu:
-		MenuEnums.Menu.AUDIO:
-			print_tree()
-	pass
+func _on_audio_pressed():
+	get_tree().change_scene_to_file("res://Custom/Scenes/Audio_Scene.tscn")
 	
-func _on_video_pressed() -> void:
-	pass
-	#current_menu = Menu.VIDEO_SETTINGS
+func _on_video_pressed():
+	get_tree().change_scene_to_file("res://Custom/Scenes/Video_scene.tscn")
 
-func _on_credits_pressed() -> void:
-	pass
-	#current_menu = Menu.CREDITS
+func _on_credits_pressed():
+	get_tree().change_scene_to_file("res://Custom/Scenes/credits_Scene.tscn")
 
-func _on_access_pressed() -> void:
-	pass
-	#current_menu = Menu.ACCESSIBILITY
+func _on_access_pressed():
+	get_tree().change_scene_to_file("res://Custom/Scenes/Accessibility_Scene.tscn")
 
 func _on_back_pressed() :
-	current_menu = MenuEnums.Menu.MAIN
+	get_tree().change_scene_to_file("res://Custom/Scenes/MainMenu_Scene.tscn")
