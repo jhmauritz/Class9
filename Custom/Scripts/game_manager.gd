@@ -11,7 +11,7 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if task_completed >= 3:
+	if task_completed >= 1:
 		get_tree().change_scene_to_file("res://Custom/Scenes/win_scene.tscn")
 
 func is_value_true() -> bool:
