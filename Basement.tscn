@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://by104me1m4aka" path="res://assets_collected/Tile-Assets/1 Tiles/IndustrialTile_71.png" id="2_nake1"]
 [ext_resource type="Texture2D" uid="uid://djh7rlbt6l440" path="res://assets_collected/Tile-Assets/1 Tiles/Tile_55.png" id="3_2y6ee"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_a5y7y"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_435ve"]
 texture = ExtResource("1_tp488")
 0:0/0 = 0
 1:0/0 = 0
@@ -260,7 +260,7 @@ texture = ExtResource("1_tp488")
 15:15/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_l7efh"]
-sources/0 = SubResource("TileSetAtlasSource_a5y7y")
+sources/0 = SubResource("TileSetAtlasSource_435ve")
 
 [node name="Node2D" type="Node2D"]
 
