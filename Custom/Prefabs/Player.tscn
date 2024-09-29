@@ -187,6 +187,7 @@ scale = Vector2(0.4, 0.4)
 sprite = NodePath("../AnimatedSprite2D")
 
 [node name="JumpComponent" parent="." instance=ExtResource("8_yp1eu")]
+jump_velocity = -450.0
 
 [node name="Footstep" type="AudioStreamPlayer2D" parent="."]
 stream = SubResource("AudioStreamRandomizer_bbkl2")

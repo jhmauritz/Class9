@@ -22,9 +22,9 @@ func _process(delta: float) -> void:
 		_task_started()
 		task_started = false
 	
-	if death_timer.time_left <= 15 && death_timer.time_left >= 10:
+	if death_timer.time_left <= 30 && death_timer.time_left >= 15:
 		timer_label.modulate = original_color
-	elif death_timer.time_left <= 9 && death_timer.time_left >= 5:
+	elif death_timer.time_left <= 14 && death_timer.time_left >= 6:
 		timer_label.modulate = yellow_color
 	if death_timer.time_left <= 5:
 		timer_label.modulate = red_color
