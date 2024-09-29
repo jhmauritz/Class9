@@ -30,6 +30,19 @@ func _on_retry_pressed():
 	start_scene_path,
 	transition_path
 )
-
+	$"Panel/AspectRatioContainer/On Click".play()
+	
 func _on_menu_pressed():
 	get_tree().change_scene_to_file("res://Custom/Scenes/MainMenu_Scene.tscn")
+
+
+func _on_retry_mouse_entered() -> void:
+	$"Panel/AspectRatioContainer/On Hover".play()
+
+
+func _on_quit_pressed() -> void:
+	$"Panel/AspectRatioContainer/On Click".play()
+
+
+func _on_quit_mouse_entered() -> void:
+	$"Panel/AspectRatioContainer/On Hover".play()

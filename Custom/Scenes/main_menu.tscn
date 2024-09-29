@@ -1,4 +1,4 @@
-[gd_scene load_steps=48 format=3 uid="uid://bjs4cmo8sww8m"]
+[gd_scene load_steps=49 format=3 uid="uid://bjs4cmo8sww8m"]
 
 [ext_resource type="FontFile" uid="uid://07yvi11ui7vg" path="res://fonts/Peaberry/PeaberryMono.ttf" id="1_jqtok"]
 [ext_resource type="StyleBox" uid="uid://b6h4sqok6xlxy" path="res://themes/pixelart/button_normal_style.tres" id="2_grwhg"]
@@ -34,6 +34,7 @@
 [ext_resource type="StyleBox" uid="uid://i1yrv604rfv5" path="res://textures/Flatstyle_1_pressed.tres" id="30_nr5mk"]
 [ext_resource type="Script" path="res://scripts/ui/load_control.gd" id="31_ucwy8"]
 [ext_resource type="FontFile" uid="uid://gw131jxas0sc" path="res://fonts/Peaberry/PeaberryBase.ttf" id="32_5iwkf"]
+[ext_resource type="AudioStream" uid="uid://d2v70qn820lcd" path="res://audio/audio-assets/BeakerBreakersMenuMusic.wav" id="35_uc52p"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ve7hb"]
 
@@ -771,5 +772,12 @@ next/audio_settings = &"audio_settings"
 tree_root = ExtResource("25_4q3t3")
 advance_expression_base_node = NodePath("../Main Menu/Menu Control")
 anim_player = NodePath("../AnimationPlayer")
+
+[node name="Main Menu Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("35_uc52p")
+
+[node name="On Hover Audio" type="AudioStreamPlayer" parent="."]
+
+[node name="On Click Audio" type="AudioStreamPlayer" parent="."]
 
 [connection signal="pressed" from="Main Menu/MarginContainer/VBoxContainer/settings_button" to="Main Menu/Menu Control" method="_on_settings_pressed"]

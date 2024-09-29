@@ -47,3 +47,7 @@ func _on_load_pressed() -> void:
 func _on_back_pressed():
 	get_tree().change_scene_to_file("res://Custom/Scenes/MainMenu_Scene.tscn")
 	print("menu")
+
+
+func _on_start_mouse_entered() -> void:
+	$"../../On Hover Sound".play()

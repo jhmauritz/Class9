@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://728c7mtf5nf1"]
+[gd_scene load_steps=8 format=3 uid="uid://728c7mtf5nf1"]
 
 [ext_resource type="Script" path="res://scripts/ui/viewport_container.gd" id="1_ro5i1"]
 [ext_resource type="Script" path="res://scripts/ui/credits_control.gd" id="2_8kl0r"]
 [ext_resource type="PackedScene" uid="uid://cpxbfthcvg7q5" path="res://scenes/scene_transitions/circle_transition.tscn" id="3_pmtxm"]
 [ext_resource type="StyleBox" uid="uid://bc1isjuwygmdl" path="res://textures/Button_1.tres" id="4_e4mw7"]
 [ext_resource type="Texture2D" uid="uid://cobp0vowivesi" path="res://assets_collected/Icons/Icon_14.png" id="5_kfmxr"]
+[ext_resource type="AudioStream" uid="uid://cj4n82xch7naw" path="res://audio/audio-assets/Class9_SFX_UI_Select.wav" id="6_e22f8"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_hu37d"]
 font_size = 80
@@ -96,3 +97,7 @@ theme_override_styles/normal = ExtResource("4_e4mw7")
 text = "BACK"
 icon = ExtResource("5_kfmxr")
 expand_icon = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="MarginContainer/VBoxContainer/Return"]
+stream = ExtResource("6_e22f8")
+bus = &"SFX"

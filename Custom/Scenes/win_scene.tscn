@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://civu7ckaghge4"]
+[gd_scene load_steps=18 format=3 uid="uid://civu7ckaghge4"]
 
 [ext_resource type="Script" path="res://Custom/Scripts/win_scene.gd" id="1_l6pch"]
 [ext_resource type="FontFile" uid="uid://07yvi11ui7vg" path="res://fonts/Peaberry/PeaberryMono.ttf" id="2_ijp6i"]
@@ -10,8 +10,12 @@
 [ext_resource type="PackedScene" uid="uid://cpxbfthcvg7q5" path="res://scenes/scene_transitions/circle_transition.tscn" id="4_8lqsi"]
 [ext_resource type="StyleBox" uid="uid://bc1isjuwygmdl" path="res://textures/Button_1.tres" id="4_akf60"]
 [ext_resource type="Texture2D" uid="uid://bdpmfchb4u3qk" path="res://assets_collected/Backdrops/1 Backgrounds/8/Night/5.png" id="4_ta0g7"]
+[ext_resource type="Script" path="res://Custom/Scenes/aspect_ratio_container.gd" id="8_frjf0"]
 [ext_resource type="Texture2D" uid="uid://2basarbk0om4" path="res://assets_collected/Icons/Icon_11.png" id="8_lavhc"]
 [ext_resource type="Texture2D" uid="uid://cp58pbfod7to" path="res://assets_collected/Icons/Icon_36.png" id="9_d3nuj"]
+[ext_resource type="AudioStream" uid="uid://sfsnwg68nglr" path="res://audio/audio-assets/BeakerBreakersWinMusic.wav" id="14_ecmu2"]
+[ext_resource type="AudioStream" uid="uid://cj4n82xch7naw" path="res://audio/audio-assets/Class9_SFX_UI_Select.wav" id="15_u7f3o"]
+[ext_resource type="AudioStream" uid="uid://dsdfn7s78cglx" path="res://audio/audio-assets/Class9_SFX_UI_Hover.wav" id="16_meh8k"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_l61c7"]
 texture = ExtResource("3_y0pug")
@@ -60,6 +64,7 @@ offset_left = -489.0
 offset_right = 489.0
 offset_bottom = 709.0
 grow_horizontal = 2
+script = ExtResource("8_frjf0")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Panel/AspectRatioContainer"]
 layout_mode = 2
@@ -90,3 +95,23 @@ text = "MENU
 "
 icon = ExtResource("9_d3nuj")
 expand_icon = true
+
+[node name="Win Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("14_ecmu2")
+autoplay = true
+bus = &"Music"
+
+[node name="On Click" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("15_u7f3o")
+bus = &"SFX"
+
+[node name="On Hover" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("16_meh8k")
+bus = &"SFX"
+
+[connection signal="mouse_entered" from="Panel/AspectRatioContainer/VBoxContainer/Retry" to="Panel/AspectRatioContainer" method="_on_retry_mouse_entered"]
+[connection signal="pressed" from="Panel/AspectRatioContainer/VBoxContainer/Retry" to="." method="_on_retry_pressed"]
+[connection signal="pressed" from="Panel/AspectRatioContainer/VBoxContainer/Retry" to="Panel/AspectRatioContainer" method="_on_retry_pressed"]
+[connection signal="mouse_entered" from="Panel/AspectRatioContainer/VBoxContainer/Quit" to="." method="_on_quit_mouse_entered"]
+[connection signal="mouse_entered" from="Panel/AspectRatioContainer/VBoxContainer/Quit" to="Panel/AspectRatioContainer" method="_on_quit_mouse_entered"]
+[connection signal="pressed" from="Panel/AspectRatioContainer/VBoxContainer/Quit" to="Panel/AspectRatioContainer" method="_on_quit_pressed"]

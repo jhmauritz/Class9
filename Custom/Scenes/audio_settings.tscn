@@ -1,11 +1,14 @@
-[gd_scene load_steps=10 format=3 uid="uid://c4r1chdco3fio"]
+[gd_scene load_steps=13 format=3 uid="uid://c4r1chdco3fio"]
 
 [ext_resource type="Script" path="res://scripts/ui/viewport_container.gd" id="1_jbr7i"]
 [ext_resource type="Script" path="res://scripts/ui/audio_menu.gd" id="2_vcgvu"]
 [ext_resource type="PackedScene" uid="uid://cpxbfthcvg7q5" path="res://scenes/scene_transitions/circle_transition.tscn" id="3_6tst0"]
 [ext_resource type="Theme" uid="uid://byds11vsd6ber" path="res://themes/pixelart/pixelart.tres" id="4_2udlk"]
+[ext_resource type="AudioStream" uid="uid://d2v70qn820lcd" path="res://audio/audio-assets/BeakerBreakersMenuMusic.wav" id="4_iqpcx"]
 [ext_resource type="StyleBox" uid="uid://cefnhxxovol5q" path="res://textures/Slider.tres" id="5_2fxno"]
+[ext_resource type="AudioStream" uid="uid://cj4n82xch7naw" path="res://audio/audio-assets/Class9_SFX_UI_Select.wav" id="5_adwk2"]
 [ext_resource type="StyleBox" uid="uid://bc1isjuwygmdl" path="res://textures/Button_1.tres" id="6_0xoqe"]
+[ext_resource type="AudioStream" uid="uid://dsdfn7s78cglx" path="res://audio/audio-assets/Class9_SFX_UI_Hover.wav" id="6_p80e5"]
 [ext_resource type="Texture2D" uid="uid://b44jbkxmnn7d6" path="res://assets_collected/Icons/Icon_05.png" id="7_6prx3"]
 [ext_resource type="Texture2D" uid="uid://cobp0vowivesi" path="res://assets_collected/Icons/Icon_14.png" id="8_efa6m"]
 
@@ -27,6 +30,19 @@ transition_path = ExtResource("3_6tst0")
 master_slider = NodePath("../MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2/HSlider")
 music_slider = NodePath("../MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2/HSlider2")
 sfx_slider = NodePath("../MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2/HSlider3")
+
+[node name="Menu Music" type="AudioStreamPlayer" parent="Audio Control"]
+stream = ExtResource("4_iqpcx")
+autoplay = true
+bus = &"Music"
+
+[node name="On Click" type="AudioStreamPlayer" parent="Audio Control"]
+stream = ExtResource("5_adwk2")
+bus = &"SFX"
+
+[node name="On Hover" type="AudioStreamPlayer" parent="Audio Control"]
+stream = ExtResource("6_p80e5")
+bus = &"SFX"
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 2

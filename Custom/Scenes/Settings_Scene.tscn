@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://wqk3ahucbblr"]
+[gd_scene load_steps=18 format=3 uid="uid://wqk3ahucbblr"]
 
 [ext_resource type="Theme" uid="uid://byds11vsd6ber" path="res://themes/pixelart/pixelart.tres" id="1_mo8pb"]
 [ext_resource type="Texture2D" uid="uid://bto18iw78ks85" path="res://assets_collected/Overlays/17.png" id="2_5rhmf"]
@@ -12,6 +12,9 @@
 [ext_resource type="Texture2D" uid="uid://c54ocwxyjl5et" path="res://assets_collected/Icons/Icon_24.png" id="10_arspu"]
 [ext_resource type="Texture2D" uid="uid://dbjo2i4nmyjuf" path="res://assets_collected/Icons/Icon_25.png" id="11_4ssy2"]
 [ext_resource type="Texture2D" uid="uid://cobp0vowivesi" path="res://assets_collected/Icons/Icon_14.png" id="12_7jh7d"]
+[ext_resource type="AudioStream" uid="uid://d2v70qn820lcd" path="res://audio/audio-assets/BeakerBreakersMenuMusic.wav" id="13_67qb6"]
+[ext_resource type="AudioStream" uid="uid://cj4n82xch7naw" path="res://audio/audio-assets/Class9_SFX_UI_Select.wav" id="14_mc2f2"]
+[ext_resource type="AudioStream" uid="uid://dsdfn7s78cglx" path="res://audio/audio-assets/Class9_SFX_UI_Hover.wav" id="15_uf0r0"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ycrn7"]
 texture = ExtResource("2_5rhmf")
@@ -136,3 +139,27 @@ text = "BACK"
 icon = ExtResource("12_7jh7d")
 expand_icon = true
 language = "en_US"
+
+[node name="Menu Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("13_67qb6")
+autoplay = true
+bus = &"Music"
+
+[node name="On Click" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("14_mc2f2")
+bus = &"SFX"
+
+[node name="On Hover" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("15_uf0r0")
+bus = &"SFX"
+
+[connection signal="mouse_entered" from="Settings Menu/MarginContainer/VBoxContainer/Audio_button" to="Settings Menu" method="_on_audio_button_mouse_entered"]
+[connection signal="pressed" from="Settings Menu/MarginContainer/VBoxContainer/Audio_button" to="Settings Menu" method="_on_audio_button_pressed"]
+[connection signal="mouse_entered" from="Settings Menu/MarginContainer/VBoxContainer/Video" to="Settings Menu" method="_on_video_mouse_entered"]
+[connection signal="pressed" from="Settings Menu/MarginContainer/VBoxContainer/Video" to="Settings Menu" method="_on_video_pressed"]
+[connection signal="mouse_entered" from="Settings Menu/MarginContainer/VBoxContainer/Credits" to="Settings Menu" method="_on_credits_mouse_entered"]
+[connection signal="pressed" from="Settings Menu/MarginContainer/VBoxContainer/Credits" to="Settings Menu" method="_on_credits_pressed"]
+[connection signal="mouse_entered" from="Settings Menu/MarginContainer/VBoxContainer/Accessibility" to="Settings Menu" method="_on_accessibility_mouse_entered"]
+[connection signal="pressed" from="Settings Menu/MarginContainer/VBoxContainer/Accessibility" to="Settings Menu" method="_on_accessibility_pressed"]
+[connection signal="mouse_entered" from="Settings Menu/MarginContainer/VBoxContainer/Back" to="Settings Menu" method="_on_back_mouse_entered"]
+[connection signal="pressed" from="Settings Menu/MarginContainer/VBoxContainer/Back" to="Settings Menu" method="_on_back_pressed"]

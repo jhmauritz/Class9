@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://c1ep2p1qiiyp6"]
+[gd_scene load_steps=16 format=3 uid="uid://c1ep2p1qiiyp6"]
 
 [ext_resource type="Theme" uid="uid://byds11vsd6ber" path="res://themes/pixelart/pixelart.tres" id="1_jajgh"]
 [ext_resource type="Texture2D" uid="uid://boi07b2eq3pvw" path="res://assets_collected/Overlays/22.png" id="2_y0rlc"]
@@ -10,6 +10,9 @@
 [ext_resource type="StyleBox" uid="uid://bc1isjuwygmdl" path="res://textures/Button_1.tres" id="8_rv2qn"]
 [ext_resource type="Texture2D" uid="uid://b44jbkxmnn7d6" path="res://assets_collected/Icons/Icon_05.png" id="9_lro78"]
 [ext_resource type="Texture2D" uid="uid://cobp0vowivesi" path="res://assets_collected/Icons/Icon_14.png" id="10_bg2kr"]
+[ext_resource type="AudioStream" uid="uid://d2v70qn820lcd" path="res://audio/audio-assets/BeakerBreakersMenuMusic.wav" id="11_ccauo"]
+[ext_resource type="AudioStream" uid="uid://cj4n82xch7naw" path="res://audio/audio-assets/Class9_SFX_UI_Select.wav" id="12_1tji4"]
+[ext_resource type="AudioStream" uid="uid://dsdfn7s78cglx" path="res://audio/audio-assets/Class9_SFX_UI_Hover.wav" id="13_ptdp2"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5u6q2"]
 texture = ExtResource("2_y0rlc")
@@ -168,3 +171,29 @@ text = "BACK
 "
 icon = ExtResource("10_bg2kr")
 expand_icon = true
+
+[node name="Menu Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_ccauo")
+autoplay = true
+bus = &"Music"
+
+[node name="On Click" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("12_1tji4")
+bus = &"SFX"
+
+[node name="on Hover" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("13_ptdp2")
+bus = &"SFX"
+
+[connection signal="drag_ended" from="Audio Settings/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2/HSlider" to="Audio Settings" method="_on_h_slider_drag_ended"]
+[connection signal="drag_started" from="Audio Settings/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2/HSlider" to="Audio Settings" method="_on_h_slider_drag_started"]
+[connection signal="drag_ended" from="Audio Settings/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2/HSlider2" to="Audio Settings" method="_on_h_slider_2_drag_ended"]
+[connection signal="drag_started" from="Audio Settings/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2/HSlider2" to="Audio Settings" method="_on_h_slider_2_drag_started"]
+[connection signal="drag_ended" from="Audio Settings/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2/HSlider3" to="Audio Settings" method="_on_h_slider_3_drag_ended"]
+[connection signal="drag_started" from="Audio Settings/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2/HSlider3" to="Audio Settings" method="_on_h_slider_3_drag_started"]
+[connection signal="mouse_entered" from="Audio Settings/MarginContainer/VBoxContainer/Save" to="Audio Settings/Audio Control" method="_on_save_mouse_entered"]
+[connection signal="pressed" from="Audio Settings/MarginContainer/VBoxContainer/Save" to="Audio Settings" method="_on_save_pressed"]
+[connection signal="pressed" from="Audio Settings/MarginContainer/VBoxContainer/Save" to="Audio Settings/Audio Control" method="_on_save_pressed"]
+[connection signal="mouse_entered" from="Audio Settings/MarginContainer/VBoxContainer/Return" to="Audio Settings/Audio Control" method="_on_return_mouse_entered"]
+[connection signal="pressed" from="Audio Settings/MarginContainer/VBoxContainer/Return" to="Audio Settings" method="_on_return_pressed"]
+[connection signal="pressed" from="Audio Settings/MarginContainer/VBoxContainer/Return" to="Audio Settings/Audio Control" method="_on_return_pressed"]
