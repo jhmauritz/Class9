@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=4 uid="uid://bdesyd2e3t0eh"]
+[gd_scene load_steps=7 format=4 uid="uid://bdesyd2e3t0eh"]
 
 [ext_resource type="Texture2D" uid="uid://br5nc8ctmiflp" path="res://assets_collected/Tile-Assets/1 Tiles/Tileset.png" id="1_tp488"]
 [ext_resource type="Texture2D" uid="uid://by104me1m4aka" path="res://assets_collected/Tile-Assets/1 Tiles/IndustrialTile_71.png" id="2_nake1"]
 [ext_resource type="Texture2D" uid="uid://djh7rlbt6l440" path="res://assets_collected/Tile-Assets/1 Tiles/Tile_55.png" id="3_2y6ee"]
+[ext_resource type="AudioStream" uid="uid://bhogr6pv8pvfw" path="res://audio/audio-assets/Class9-music.wav" id="4_ata4a"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_435ve"]
 texture = ExtResource("1_tp488")
@@ -343,3 +344,9 @@ texture = ExtResource("2_nake1")
 position = Vector2(35, 0)
 scale = Vector2(1.25, 1)
 texture = ExtResource("2_nake1")
+
+[node name="AudioStreamPlayer-music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_ata4a")
+volume_db = -5.009
+autoplay = true
+bus = &"Music"
