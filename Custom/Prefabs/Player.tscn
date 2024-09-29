@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://c72jkuqqvpqrw"]
+[gd_scene load_steps=30 format=3 uid="uid://c72jkuqqvpqrw"]
 
 [ext_resource type="Texture2D" uid="uid://dfivl1t233cm" path="res://assets_collected/Characters/Humans/City_men_1/Idle.png" id="1_b3hgy"]
 [ext_resource type="Script" path="res://Custom/Scripts/player.gd" id="1_jlfog"]
@@ -151,7 +151,10 @@ animations = [{
 radius = 14.0
 height = 72.0
 
-[node name="CharacterBody2D" type="CharacterBody2D" node_paths=PackedStringArray("gravity_component", "input_component", "movement_component", "animation_component", "jump_component") groups=["player"]]
+[sub_resource type="LabelSettings" id="LabelSettings_o8e0o"]
+font_size = 20
+
+[node name="CharacterBody2D" type="CharacterBody2D" node_paths=PackedStringArray("gravity_component", "input_component", "movement_component", "animation_component", "jump_component", "label_complete", "label_resource") groups=["player"]]
 disable_mode = 2
 collision_mask = 3
 script = ExtResource("1_jlfog")
@@ -160,6 +163,8 @@ input_component = NodePath("InputComponent")
 movement_component = NodePath("MovementComponent")
 animation_component = NodePath("AnimationComponent")
 jump_component = NodePath("JumpComponent")
+label_complete = NodePath("Label")
+label_resource = NodePath("Label2")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 root_node = NodePath("../AnimatedSprite2D")
@@ -179,6 +184,7 @@ shape = SubResource("CapsuleShape2D_vul53")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 scale = Vector2(0.4, 0.4)
+zoom = Vector2(3.055, 3.055)
 
 [node name="InputComponent" parent="." instance=ExtResource("5_y5fh0")]
 
@@ -194,5 +200,24 @@ jump_velocity = -450.0
 
 [node name="Footstep" type="AudioStreamPlayer2D" parent="."]
 position = Vector2(5.96046e-08, -9.53674e-07)
-scale = Vector2(1, 1)
 bus = &"SFX"
+
+[node name="Label" type="Label" parent="."]
+offset_left = 39.0
+offset_top = -115.0
+offset_right = 209.0
+offset_bottom = -61.0
+text = "ehhhh"
+label_settings = SubResource("LabelSettings_o8e0o")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="."]
+offset_left = -209.0
+offset_top = -118.0
+offset_right = -39.0
+offset_bottom = -64.0
+text = "ehhhh"
+label_settings = SubResource("LabelSettings_o8e0o")
+horizontal_alignment = 1
+vertical_alignment = 1

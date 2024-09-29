@@ -8,6 +8,8 @@ extends Node
 @export var yellow_color: Color
 @export var original_color: Color
 
+var og_time
+
 var task_started = false
 var task_running = false
 
@@ -15,6 +17,7 @@ func _ready() -> void:
 	interaction_area.interact = Callable(self, "_on_interact")
 	timer_label.hide()
 	timer_label.modulate = original_color
+	og_time = death_timer.wait_time
 	
 func _process(delta: float) -> void:
 	update_label_text()
@@ -22,20 +25,25 @@ func _process(delta: float) -> void:
 		_task_started()
 		task_started = false
 	
-	if death_timer.time_left <= 30 && death_timer.time_left >= 15:
+	var timer_time = death_timer.time_left/og_time
+	if timer_time <= 1 && timer_time >= .7:
+		print(timer_time)
 		timer_label.modulate = original_color
-	elif death_timer.time_left <= 14 && death_timer.time_left >= 6:
+	elif timer_time <= .6 && timer_time >= .3:
 		timer_label.modulate = yellow_color
-	if death_timer.time_left <= 5:
+	if timer_time <= .2:
 		timer_label.modulate = red_color
 	
 func _on_interact():
-	if GM.has_resource == true:
+	var time_percent = death_timer.time_left/og_time
+	if GM.has_resource == true && task_running == false:
 		GM.has_resource = false
 		task_started = true
-	elif task_running == true && death_timer.time_left <= 5:
+	elif task_running == true && time_percent <= .2:
 		death_timer.stop()
 		GM.task_completed += 1
+		timer_label.hide()
+		self.queue_free()
 	else:
 		print("No Resource Dumby!")
 		
