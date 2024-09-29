@@ -40,17 +40,16 @@ func flip():
 
 func update_animation():
 	if sprite:
-		if velocity.x != 0:
+		if velocity.x != 0: 
 			sprite.play("walk")
 		else:
 			sprite.play("idle")
 
 	# Ensure the sprite is facing the correct direction
-	if velocity.x > 0:
+	if velocity.x < 0:
 		sprite.flip_h = false
 	elif velocity.x < 0:
 		sprite.flip_h = true
-
 func _on_player_detection_body_entered(body):
 	if body.name == "Player":
 		print("Player detected! You Lose")
