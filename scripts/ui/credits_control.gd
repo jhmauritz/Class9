@@ -28,3 +28,10 @@ func _back_to_setting():
 
 func _on_credits_pressed():
 	get_tree().change_scene_to_file("res://Custom/Scenes/credits.tscn")
+
+
+func _on_return_pressed() -> void:
+	$"../../On Click".play()
+
+func _on_return_mouse_entered() -> void:
+	$"../../On Hover".play()

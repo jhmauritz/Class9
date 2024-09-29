@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://bi4l8wiru6gcg"]
+[gd_scene load_steps=23 format=3 uid="uid://bi4l8wiru6gcg"]
 
 [ext_resource type="Theme" uid="uid://byds11vsd6ber" path="res://themes/pixelart/pixelart.tres" id="1_12xku"]
 [ext_resource type="Texture2D" uid="uid://bdngpidsrxxhc" path="res://assets_collected/Overlays/11.png" id="2_unkr0"]
@@ -9,10 +9,16 @@
 [ext_resource type="PackedScene" uid="uid://cpxbfthcvg7q5" path="res://scenes/scene_transitions/circle_transition.tscn" id="7_gnfvj"]
 [ext_resource type="StyleBox" uid="uid://bc1isjuwygmdl" path="res://textures/Button_1.tres" id="8_8qmxc"]
 [ext_resource type="Texture2D" uid="uid://d0bygl2qq3qk8" path="res://assets_collected/Icons/Icon_34.png" id="9_a7xqn"]
+[ext_resource type="Script" path="res://Custom/Scenes/start_button.gd" id="10_eid5d"]
+[ext_resource type="AudioStream" uid="uid://cj4n82xch7naw" path="res://audio/audio-assets/Class9_SFX_UI_Select.wav" id="10_ve0eg"]
 [ext_resource type="PackedScene" uid="uid://dhl2s7a33d1qg" path="res://scenes/common/ui/load_button.tscn" id="10_ycdwx"]
 [ext_resource type="Texture2D" uid="uid://c1gblu2ig6hnv" path="res://assets_collected/Icons/Icon_18.png" id="11_vie5p"]
 [ext_resource type="Texture2D" uid="uid://dh8w4dim3ncse" path="res://assets_collected/Icons/Icon_26.png" id="12_5f2d5"]
 [ext_resource type="Texture2D" uid="uid://cw2hitg0pr62e" path="res://assets_collected/Icons/Icon_35.png" id="13_y52tn"]
+[ext_resource type="AudioStream" uid="uid://d2v70qn820lcd" path="res://audio/audio-assets/BeakerBreakersMenuMusic.wav" id="14_a5akn"]
+[ext_resource type="Script" path="res://Custom/Scenes/settings_button.gd" id="14_yncbk"]
+[ext_resource type="Script" path="res://Custom/Scenes/exit_button.gd" id="16_i0xvx"]
+[ext_resource type="AudioStream" uid="uid://dsdfn7s78cglx" path="res://audio/audio-assets/Class9_SFX_UI_Hover.wav" id="17_yi7wy"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_moxjd"]
 texture = ExtResource("2_unkr0")
@@ -117,6 +123,7 @@ theme_override_styles/normal = ExtResource("8_8qmxc")
 text = "START"
 icon = ExtResource("9_a7xqn")
 expand_icon = true
+script = ExtResource("10_eid5d")
 
 [node name="load_button" parent="Main Menu/MarginContainer/VBoxContainer" instance=ExtResource("10_ycdwx")]
 layout_mode = 2
@@ -134,6 +141,7 @@ theme_override_styles/normal = ExtResource("8_8qmxc")
 text = "SETTINGS"
 icon = ExtResource("12_5f2d5")
 expand_icon = true
+script = ExtResource("14_yncbk")
 
 [node name="exit_button" type="Button" parent="Main Menu/MarginContainer/VBoxContainer"]
 layout_mode = 2
@@ -142,5 +150,26 @@ theme_override_styles/normal = ExtResource("8_8qmxc")
 text = "EXIT"
 icon = ExtResource("13_y52tn")
 expand_icon = true
+script = ExtResource("16_i0xvx")
 
+[node name="Menu Music Player" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("14_a5akn")
+autoplay = true
+bus = &"Music"
+
+[node name="On Click Sound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_ve0eg")
+
+[node name="On Hover Sound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("17_yi7wy")
+
+[connection signal="mouse_entered" from="Main Menu/Menu Control" to="Main Menu/Menu Control" method="_on_mouse_entered"]
+[connection signal="mouse_entered" from="Main Menu/MarginContainer/VBoxContainer/start_button" to="Main Menu/MarginContainer/VBoxContainer/start_button" method="_on_mouse_entered"]
+[connection signal="pressed" from="Main Menu/MarginContainer/VBoxContainer/start_button" to="Main Menu/MarginContainer/VBoxContainer/start_button" method="_on_pressed"]
+[connection signal="mouse_entered" from="Main Menu/MarginContainer/VBoxContainer/load_button" to="Main Menu/MarginContainer/VBoxContainer/load_button" method="_on_mouse_entered"]
+[connection signal="pressed" from="Main Menu/MarginContainer/VBoxContainer/load_button" to="Main Menu/MarginContainer/VBoxContainer/load_button" method="_on_pressed"]
+[connection signal="mouse_entered" from="Main Menu/MarginContainer/VBoxContainer/settings_button" to="Main Menu/MarginContainer/VBoxContainer/settings_button" method="_on_mouse_entered"]
 [connection signal="pressed" from="Main Menu/MarginContainer/VBoxContainer/settings_button" to="Main Menu/Menu Control" method="_on_settings_pressed"]
+[connection signal="pressed" from="Main Menu/MarginContainer/VBoxContainer/settings_button" to="Main Menu/MarginContainer/VBoxContainer/settings_button" method="_on_pressed"]
+[connection signal="mouse_entered" from="Main Menu/MarginContainer/VBoxContainer/exit_button" to="Main Menu/MarginContainer/VBoxContainer/exit_button" method="_on_mouse_entered"]
+[connection signal="pressed" from="Main Menu/MarginContainer/VBoxContainer/exit_button" to="Main Menu/MarginContainer/VBoxContainer/exit_button" method="_on_pressed"]

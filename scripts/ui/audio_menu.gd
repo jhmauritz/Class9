@@ -72,3 +72,19 @@ func _save_audio_settings():
 func _back_to_settings():
 	get_tree().change_scene_to_file("res://Custom/Scenes/Settings_Scene.tscn")
 	
+
+
+func _on_save_pressed() -> void:
+	$"../../On Click".play()
+
+
+func _on_save_mouse_entered() -> void:
+	$"../../on Hover".play()
+
+
+func _on_return_pressed() -> void:
+	$"../../On Click".play()
+
+
+func _on_return_mouse_entered() -> void:
+	$"../../on Hover".play()

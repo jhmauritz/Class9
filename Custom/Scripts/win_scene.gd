@@ -32,3 +32,7 @@ func _on_retry_pressed():
 
 func _on_menu_pressed():
 	get_tree().change_scene_to_file("res://Custom/Scenes/MainMenu_Scene.tscn")
+
+
+func _on_quit_mouse_entered() -> void:
+	pass # Replace with function body.

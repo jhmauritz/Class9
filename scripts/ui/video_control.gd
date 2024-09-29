@@ -67,3 +67,35 @@ func _back_to_settings() -> void:
 
 func _on_video_pressed():
 	get_tree().change_scene_to_file("res://Custom/Scenes/Video_scene.tscn")
+
+
+func _on_h_slider_drag_started() -> void:
+	$"../../On Click".play()
+
+
+func _on_h_slider_drag_ended(value_changed: bool) -> void:
+	$"../../On Click".play()
+
+
+func _on_h_slider_2_drag_started() -> void:
+	$"../../On Click".play()
+
+
+func _on_h_slider_2_drag_ended(value_changed: bool) -> void:
+	$"../../On Click".play()
+
+
+func _on_save_pressed() -> void:
+	$"../../On Click".play()
+
+
+func _on_save_mouse_entered() -> void:
+	$"../../On Hover".play()
+
+
+func _on_return_pressed() -> void:
+	$"../../On Click".play()
+
+
+func _on_return_mouse_entered() -> void:
+	$"../../On Hover".play()

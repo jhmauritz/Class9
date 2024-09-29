@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://x4tq1gyf7uts"]
+[gd_scene load_steps=17 format=3 uid="uid://x4tq1gyf7uts"]
 
 [ext_resource type="Script" path="res://Custom/Scripts/lose_scene.gd" id="1_xm4iu"]
 [ext_resource type="Theme" uid="uid://byds11vsd6ber" path="res://themes/pixelart/pixelart.tres" id="2_5pbpp"]
@@ -12,6 +12,9 @@
 [ext_resource type="StyleBox" uid="uid://bc1isjuwygmdl" path="res://textures/Button_1.tres" id="7_6yev3"]
 [ext_resource type="Texture2D" uid="uid://2basarbk0om4" path="res://assets_collected/Icons/Icon_11.png" id="8_jpdwk"]
 [ext_resource type="Texture2D" uid="uid://cp58pbfod7to" path="res://assets_collected/Icons/Icon_36.png" id="9_yl5ht"]
+[ext_resource type="AudioStream" uid="uid://d2v70qn820lcd" path="res://audio/audio-assets/BeakerBreakersMenuMusic.wav" id="13_xg38q"]
+[ext_resource type="AudioStream" uid="uid://dsdfn7s78cglx" path="res://audio/audio-assets/Class9_SFX_UI_Hover.wav" id="14_j2fid"]
+[ext_resource type="AudioStream" uid="uid://cj4n82xch7naw" path="res://audio/audio-assets/Class9_SFX_UI_Select.wav" id="15_1cy2d"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_cbimk"]
 texture = ExtResource("3_dmgfa")
@@ -89,3 +92,18 @@ text = "MENU
 "
 icon = ExtResource("9_yl5ht")
 expand_icon = true
+
+[node name="Menu Music" type="AudioStreamPlayer" parent="Panel/AspectRatioContainer"]
+stream = ExtResource("13_xg38q")
+autoplay = true
+
+[node name="On Hover" type="AudioStreamPlayer" parent="Panel/AspectRatioContainer"]
+stream = ExtResource("14_j2fid")
+
+[node name="On Click" type="AudioStreamPlayer" parent="Panel/AspectRatioContainer"]
+stream = ExtResource("15_1cy2d")
+
+[connection signal="mouse_entered" from="Panel/AspectRatioContainer/VBoxContainer/Retry" to="." method="_on_retry_mouse_entered"]
+[connection signal="pressed" from="Panel/AspectRatioContainer/VBoxContainer/Retry" to="." method="_on_retry_pressed"]
+[connection signal="mouse_entered" from="Panel/AspectRatioContainer/VBoxContainer/Quit" to="." method="_on_quit_mouse_entered"]
+[connection signal="pressed" from="Panel/AspectRatioContainer/VBoxContainer/Quit" to="." method="_on_quit_pressed"]

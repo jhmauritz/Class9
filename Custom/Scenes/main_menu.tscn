@@ -14,7 +14,6 @@
 [ext_resource type="StyleBox" uid="uid://bc1isjuwygmdl" path="res://textures/Button_1.tres" id="12_3n3wl"]
 [ext_resource type="Texture2D" uid="uid://d0bygl2qq3qk8" path="res://assets_collected/Icons/Icon_34.png" id="13_332gq"]
 [ext_resource type="PackedScene" uid="uid://dhl2s7a33d1qg" path="res://scenes/common/ui/load_button.tscn" id="14_1al5m"]
-[ext_resource type="AudioStream" uid="uid://cj4n82xch7naw" path="res://audio/audio-assets/Class9_SFX_UI_Select.wav" id="14_l3dls"]
 [ext_resource type="Texture2D" uid="uid://c1gblu2ig6hnv" path="res://assets_collected/Icons/Icon_18.png" id="15_ukpas"]
 [ext_resource type="Texture2D" uid="uid://dh8w4dim3ncse" path="res://assets_collected/Icons/Icon_26.png" id="16_7wqmw"]
 [ext_resource type="Texture2D" uid="uid://cw2hitg0pr62e" path="res://assets_collected/Icons/Icon_35.png" id="17_pkhe7"]
@@ -35,6 +34,7 @@
 [ext_resource type="StyleBox" uid="uid://i1yrv604rfv5" path="res://textures/Flatstyle_1_pressed.tres" id="30_nr5mk"]
 [ext_resource type="Script" path="res://scripts/ui/load_control.gd" id="31_ucwy8"]
 [ext_resource type="FontFile" uid="uid://gw131jxas0sc" path="res://fonts/Peaberry/PeaberryBase.ttf" id="32_5iwkf"]
+[ext_resource type="AudioStream" uid="uid://d2v70qn820lcd" path="res://audio/audio-assets/BeakerBreakersMenuMusic.wav" id="35_uc52p"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ve7hb"]
 
@@ -196,10 +196,6 @@ text = "START"
 icon = ExtResource("13_332gq")
 expand_icon = true
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Main Menu/MarginContainer/VBoxContainer/start_button"]
-stream = ExtResource("14_l3dls")
-bus = &"SFX"
-
 [node name="load_button" parent="Main Menu/MarginContainer/VBoxContainer" instance=ExtResource("14_1al5m")]
 layout_mode = 2
 size_flags_vertical = 1
@@ -208,10 +204,6 @@ text = "CONTINUE"
 icon = ExtResource("15_ukpas")
 expand_icon = true
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Main Menu/MarginContainer/VBoxContainer/load_button"]
-stream = ExtResource("14_l3dls")
-bus = &"SFX"
-
 [node name="settings_button" type="Button" parent="Main Menu/MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_styles/normal = ExtResource("12_3n3wl")
@@ -219,20 +211,12 @@ text = "SETTINGS"
 icon = ExtResource("16_7wqmw")
 expand_icon = true
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Main Menu/MarginContainer/VBoxContainer/settings_button"]
-stream = ExtResource("14_l3dls")
-bus = &"SFX"
-
 [node name="exit_button" type="Button" parent="Main Menu/MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_styles/normal = ExtResource("12_3n3wl")
 text = "EXIT"
 icon = ExtResource("17_pkhe7")
 expand_icon = true
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Main Menu/MarginContainer/VBoxContainer/exit_button"]
-stream = ExtResource("14_l3dls")
-bus = &"SFX"
 
 [node name="Settings Menu" type="AspectRatioContainer" parent="."]
 layout_mode = 0
@@ -788,5 +772,12 @@ next/audio_settings = &"audio_settings"
 tree_root = ExtResource("25_4q3t3")
 advance_expression_base_node = NodePath("../Main Menu/Menu Control")
 anim_player = NodePath("../AnimationPlayer")
+
+[node name="Main Menu Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("35_uc52p")
+
+[node name="On Hover Audio" type="AudioStreamPlayer" parent="."]
+
+[node name="On Click Audio" type="AudioStreamPlayer" parent="."]
 
 [connection signal="pressed" from="Main Menu/MarginContainer/VBoxContainer/settings_button" to="Main Menu/Menu Control" method="_on_settings_pressed"]

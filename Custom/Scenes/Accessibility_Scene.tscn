@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://dblpqks84iud5"]
+[gd_scene load_steps=16 format=3 uid="uid://dblpqks84iud5"]
 
 [ext_resource type="Theme" uid="uid://byds11vsd6ber" path="res://themes/pixelart/pixelart.tres" id="1_lwg68"]
 [ext_resource type="Texture2D" uid="uid://1teor1rbrqyo" path="res://assets_collected/Overlays/7.png" id="2_s1tw8"]
@@ -10,6 +10,9 @@
 [ext_resource type="StyleBox" uid="uid://bc1isjuwygmdl" path="res://textures/Button_1.tres" id="8_l03ym"]
 [ext_resource type="Texture2D" uid="uid://b44jbkxmnn7d6" path="res://assets_collected/Icons/Icon_05.png" id="9_qhc65"]
 [ext_resource type="Texture2D" uid="uid://cobp0vowivesi" path="res://assets_collected/Icons/Icon_14.png" id="10_275gs"]
+[ext_resource type="AudioStream" uid="uid://d2v70qn820lcd" path="res://audio/audio-assets/BeakerBreakersMenuMusic.wav" id="11_nw0ki"]
+[ext_resource type="AudioStream" uid="uid://dsdfn7s78cglx" path="res://audio/audio-assets/Class9_SFX_UI_Hover.wav" id="12_mjn6t"]
+[ext_resource type="AudioStream" uid="uid://cj4n82xch7naw" path="res://audio/audio-assets/Class9_SFX_UI_Select.wav" id="13_qlh21"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_h31k6"]
 texture = ExtResource("2_s1tw8")
@@ -149,3 +152,25 @@ theme_override_styles/normal = ExtResource("8_l03ym")
 text = "BACK"
 icon = ExtResource("10_275gs")
 expand_icon = true
+
+[node name="Menu Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_nw0ki")
+autoplay = true
+bus = &"Music"
+
+[node name="On Hover" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("12_mjn6t")
+bus = &"SFX"
+
+[node name="On Click" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("13_qlh21")
+bus = &"SFX"
+
+[connection signal="mouse_entered" from="Accessibility/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/CheckButton" to="Accessibility" method="_on_check_button_mouse_entered"]
+[connection signal="pressed" from="Accessibility/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/CheckButton" to="Accessibility" method="_on_check_button_pressed"]
+[connection signal="mouse_entered" from="Accessibility/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/OptionsButton" to="Accessibility" method="_on_options_button_mouse_entered"]
+[connection signal="pressed" from="Accessibility/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/OptionsButton" to="Accessibility" method="_on_options_button_pressed"]
+[connection signal="mouse_entered" from="Accessibility/MarginContainer/VBoxContainer/Save" to="Accessibility" method="_on_save_mouse_entered"]
+[connection signal="pressed" from="Accessibility/MarginContainer/VBoxContainer/Save" to="Accessibility" method="_on_save_pressed"]
+[connection signal="mouse_entered" from="Accessibility/MarginContainer/VBoxContainer/Return" to="Accessibility" method="_on_return_mouse_entered"]
+[connection signal="pressed" from="Accessibility/MarginContainer/VBoxContainer/Return" to="Accessibility" method="_on_return_pressed"]

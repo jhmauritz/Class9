@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://nx1857h124dk"]
+[gd_scene load_steps=13 format=3 uid="uid://nx1857h124dk"]
 
 [ext_resource type="Theme" uid="uid://byds11vsd6ber" path="res://themes/pixelart/pixelart.tres" id="1_m3ds3"]
 [ext_resource type="Texture2D" uid="uid://wmo2vt1ij5fo" path="res://assets_collected/Overlays/29.png" id="2_pqlnk"]
@@ -7,6 +7,9 @@
 [ext_resource type="Script" path="res://scripts/ui/credits_control.gd" id="4_hm88a"]
 [ext_resource type="PackedScene" uid="uid://cpxbfthcvg7q5" path="res://scenes/scene_transitions/circle_transition.tscn" id="5_hoef5"]
 [ext_resource type="Texture2D" uid="uid://cobp0vowivesi" path="res://assets_collected/Icons/Icon_14.png" id="5_t0b2p"]
+[ext_resource type="AudioStream" uid="uid://d2v70qn820lcd" path="res://audio/audio-assets/BeakerBreakersMenuMusic.wav" id="8_wvwpn"]
+[ext_resource type="AudioStream" uid="uid://cj4n82xch7naw" path="res://audio/audio-assets/Class9_SFX_UI_Select.wav" id="9_qkius"]
+[ext_resource type="AudioStream" uid="uid://dsdfn7s78cglx" path="res://audio/audio-assets/Class9_SFX_UI_Hover.wav" id="10_t44h7"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_u68g2"]
 texture = ExtResource("2_pqlnk")
@@ -143,3 +146,19 @@ theme_override_styles/normal = ExtResource("4_buf3w")
 text = "BACK"
 icon = ExtResource("5_t0b2p")
 expand_icon = true
+
+[node name="Menu Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_wvwpn")
+autoplay = true
+bus = &"Music"
+
+[node name="On Click" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_qkius")
+bus = &"SFX"
+
+[node name="On Hover" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_t44h7")
+bus = &"SFX"
+
+[connection signal="mouse_entered" from="AspectRatioContainer/MarginContainer/VBoxContainer/Return" to="AspectRatioContainer/Credits Control" method="_on_return_mouse_entered"]
+[connection signal="pressed" from="AspectRatioContainer/MarginContainer/VBoxContainer/Return" to="AspectRatioContainer/Credits Control" method="_on_return_pressed"]
