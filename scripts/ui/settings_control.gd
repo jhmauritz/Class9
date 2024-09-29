@@ -50,3 +50,4 @@ func _on_access_pressed():
 
 func _on_back_pressed():
 	get_tree().change_scene_to_file("res://Custom/Scenes/MainMenu_Scene.tscn")
+	SettingsSignalBus.emit_set_settings_dictionary(SettingstDataCont.create_storage_dict())
