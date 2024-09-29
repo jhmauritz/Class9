@@ -4,7 +4,7 @@
 animation = &"RESET"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_dycrc"]
-animation = &"access_menu"
+animation = &"accessibility"
 use_custom_timeline = true
 timeline_length = 1.0
 stretch_time_scale = true
@@ -12,7 +12,7 @@ start_offset = 0.0
 loop_mode = 0
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_bs7so"]
-animation = &"audio_menu"
+animation = &"audio_settings"
 use_custom_timeline = true
 timeline_length = 1.0
 stretch_time_scale = true
@@ -20,7 +20,7 @@ start_offset = 0.0
 loop_mode = 0
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_6g1np"]
-animation = &"credits_menu"
+animation = &"credits"
 use_custom_timeline = true
 timeline_length = 1.0
 stretch_time_scale = true
@@ -52,7 +52,7 @@ start_offset = 0.0
 loop_mode = 0
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ld1il"]
-animation = &"video_menu"
+animation = &"video_settings"
 use_custom_timeline = true
 timeline_length = 1.0
 stretch_time_scale = true
@@ -79,8 +79,8 @@ print(\"audio\")"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_svvwq"]
 advance_mode = 2
-advance_expression = "self.current_menu == Menu.AUDIO_SETTINGS
-print(\"audio\")"
+advance_expression = "self.current_menu == Menu.SETTINGS_MENU
+print(\"settings\")"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_1t8jm"]
 advance_mode = 2
@@ -124,20 +124,20 @@ allow_transition_to_self = true
 states/End/position = Vector2(1956, 172)
 states/RESET/node = SubResource("AnimationNodeAnimation_5umwu")
 states/RESET/position = Vector2(165, 375)
-states/Start/position = Vector2(200, 69)
-states/access_menu/node = SubResource("AnimationNodeAnimation_dycrc")
-states/access_menu/position = Vector2(442, 423)
-states/audio_menu/node = SubResource("AnimationNodeAnimation_bs7so")
-states/audio_menu/position = Vector2(744, 91)
-states/credits_menu/node = SubResource("AnimationNodeAnimation_6g1np")
-states/credits_menu/position = Vector2(744, 431)
+states/Start/position = Vector2(198, 91)
+states/accessibility/node = SubResource("AnimationNodeAnimation_dycrc")
+states/accessibility/position = Vector2(441, 431)
+states/audio_settings/node = SubResource("AnimationNodeAnimation_bs7so")
+states/audio_settings/position = Vector2(744, 91)
+states/credits/node = SubResource("AnimationNodeAnimation_6g1np")
+states/credits/position = Vector2(744, 431)
 states/load_menu/node = SubResource("AnimationNodeAnimation_v1tcb")
 states/load_menu/position = Vector2(355, 264)
 states/main_menu/node = SubResource("AnimationNodeAnimation_h0fc5")
-states/main_menu/position = Vector2(433, 69)
+states/main_menu/position = Vector2(431, 91)
 states/settings_menu/node = SubResource("AnimationNodeAnimation_cmvsc")
 states/settings_menu/position = Vector2(586, 264)
-states/video_menu/node = SubResource("AnimationNodeAnimation_ld1il")
-states/video_menu/position = Vector2(830, 264)
-transitions = ["Start", "main_menu", SubResource("AnimationNodeStateMachineTransition_ckc0g"), "main_menu", "settings_menu", SubResource("AnimationNodeStateMachineTransition_huiay"), "settings_menu", "main_menu", SubResource("AnimationNodeStateMachineTransition_b8jnv"), "settings_menu", "audio_menu", SubResource("AnimationNodeStateMachineTransition_y3qis"), "audio_menu", "settings_menu", SubResource("AnimationNodeStateMachineTransition_svvwq"), "settings_menu", "video_menu", SubResource("AnimationNodeStateMachineTransition_1t8jm"), "video_menu", "settings_menu", SubResource("AnimationNodeStateMachineTransition_j8k0f"), "credits_menu", "settings_menu", SubResource("AnimationNodeStateMachineTransition_cej46"), "settings_menu", "credits_menu", SubResource("AnimationNodeStateMachineTransition_krif7"), "settings_menu", "access_menu", SubResource("AnimationNodeStateMachineTransition_pktgg"), "access_menu", "settings_menu", SubResource("AnimationNodeStateMachineTransition_purjt"), "load_menu", "settings_menu", SubResource("AnimationNodeStateMachineTransition_sh0md"), "settings_menu", "load_menu", SubResource("AnimationNodeStateMachineTransition_evsjh")]
-graph_offset = Vector2(-221, 25)
+states/video_settings/node = SubResource("AnimationNodeAnimation_ld1il")
+states/video_settings/position = Vector2(830, 264)
+transitions = ["Start", "main_menu", SubResource("AnimationNodeStateMachineTransition_ckc0g"), "main_menu", "settings_menu", SubResource("AnimationNodeStateMachineTransition_huiay"), "settings_menu", "main_menu", SubResource("AnimationNodeStateMachineTransition_b8jnv"), "settings_menu", "audio_settings", SubResource("AnimationNodeStateMachineTransition_y3qis"), "audio_settings", "settings_menu", SubResource("AnimationNodeStateMachineTransition_svvwq"), "settings_menu", "video_settings", SubResource("AnimationNodeStateMachineTransition_1t8jm"), "video_settings", "settings_menu", SubResource("AnimationNodeStateMachineTransition_j8k0f"), "credits", "settings_menu", SubResource("AnimationNodeStateMachineTransition_cej46"), "settings_menu", "credits", SubResource("AnimationNodeStateMachineTransition_krif7"), "settings_menu", "accessibility", SubResource("AnimationNodeStateMachineTransition_pktgg"), "accessibility", "settings_menu", SubResource("AnimationNodeStateMachineTransition_purjt"), "load_menu", "settings_menu", SubResource("AnimationNodeStateMachineTransition_sh0md"), "settings_menu", "load_menu", SubResource("AnimationNodeStateMachineTransition_evsjh")]
+graph_offset = Vector2(-220, 71)

@@ -2,6 +2,7 @@ extends Node
 
 #@onready var game_manager: GameManager = get_node("/root/game")
 @onready var interaction_area: InteractionArea = $InteractionBound
+@onready var timer_label: Label = $Label
 @export var death_timer: Timer
 var task_started = false
 var task_running = false
@@ -11,20 +12,18 @@ func _ready() -> void:
 	print(death_timer)
 	
 func _process(delta: float) -> void:
+	update_label_text()
 	if task_started == true:
 		_task_started()
 		task_started = false
 	
 func _on_interact():
-	if game_manager_class.has_resource == true:
-		game_manager_class.has_resource = false
+	if GM.has_resource == true:
+		GM.has_resource = false
 		task_started = true
-		print("Has Reouce! Starting Timer")
 	elif task_running == true:
 		death_timer.stop()
-		print("win")
-		#add path to win screen
-		#get_tree().change_scene_to_file()
+		GM.task_completed += 1
 	else:
 		print("No Resource Dumby!")
 		
@@ -33,17 +32,9 @@ func _task_started():
 	task_running = true
 	print(death_timer.time_left)
 
-
-#func _on_timer_timeout() -> void:
-	#add in transition scene
-	#get_tree().change_scene_to_file()
-	#print("Dead")
-	#pass # Replace with function body.
-
-
 func _on_timer_timeout() -> void:
 	if task_running == true:
-		print("Dead")
-		# add lose screen path
-		#get_tree().change_scene_to_file()
-	pass # Replace with function body.
+		get_tree().change_scene_to_file("res://Custom/Scenes/lose_scene.tscn")
+		
+func update_label_text():
+	timer_label.text = str(ceil(death_timer.time_left))

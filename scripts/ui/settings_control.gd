@@ -1,6 +1,7 @@
-extends Control
+extends Control 
 
-enum Menu { MAIN_MENU, SETTINGS_MENU, AUDIO_SETTINGS, VIDEO_SETTINGS, CREDITS, ACCESSIBILITY, LOAD_MENU }
+class_name MenuSetting
+
 
 @export var transition_path : PackedScene
 
@@ -11,7 +12,14 @@ enum Menu { MAIN_MENU, SETTINGS_MENU, AUDIO_SETTINGS, VIDEO_SETTINGS, CREDITS, A
 @export var back : Button
 
 
-var current_menu : Menu = Menu.SETTINGS_MENU
+var current_menu = MenuEnums.Menu.SETTINGS
+
+func _ready():
+	audio.pressed.connect(_on_audio_pressed)
+	video.pressed.connect(_on_video_pressed)
+	credits.pressed.connect(_on_credits_pressed)
+	accessibility.pressed.connect(_on_access_pressed)
+	back.pressed.connect(_on_back_pressed)
 
 func _enter_tree():
 	audio.pressed.connect(_on_audio_pressed)
@@ -29,16 +37,16 @@ func _exit_tree():
 
 
 func _on_audio_pressed():
-	current_menu = Menu.AUDIO_SETTINGS
+	get_tree().change_scene_to_file("res://Custom/Scenes/Audio_Scene.tscn")
 	
 func _on_video_pressed():
-	current_menu = Menu.VIDEO_SETTINGS
-	
+	get_tree().change_scene_to_file("res://Custom/Scenes/Video_scene.tscn")
+
 func _on_credits_pressed():
-	current_menu = Menu.CREDITS
+	get_tree().change_scene_to_file("res://Custom/Scenes/credits_Scene.tscn")
 
 func _on_access_pressed():
-	current_menu = Menu.ACCESSIBILITY
+	get_tree().change_scene_to_file("res://Custom/Scenes/Accessibility_Scene.tscn")
 
 func _on_back_pressed():
-	current_menu = Menu.MAIN_MENU
+	get_tree().change_scene_to_file("res://Custom/Scenes/MainMenu_Scene.tscn")

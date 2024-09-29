@@ -1,6 +1,5 @@
 extends Control
 
-enum Menu { MAIN_MENU, LOAD_MENU, SETTINGS_MENU, AUDIO_SETTINGS, VIDEO_SETTINGS, CREDITS, ACCESSIBILITY }
 
 @export var transition_path : PackedScene
 
@@ -10,8 +9,7 @@ enum Menu { MAIN_MENU, LOAD_MENU, SETTINGS_MENU, AUDIO_SETTINGS, VIDEO_SETTINGS,
 @export var video1_slider : Slider
 @export var windowmode : OptionButton
 
-var current_menu : Menu = Menu.VIDEO_SETTINGS
-
+var current_menu = MenuEnums.Menu.VIDEO
 
 
 #func 
@@ -21,15 +19,19 @@ var current_menu : Menu = Menu.VIDEO_SETTINGS
 #@onready var music_bus = AudioServer.get_bus_index('Music')
 #@onready var sfx_bus = AudioServer.get_bus_index('SFX')
 
-#func _enter_tree():
+func _enter_tree():
 #	brightness_slider_slider.value_changed.connect(_on_brightness_value_changed)
 #	video1_slider_slider.value_changed.connect(_on_music_audio_value_changed)
 #	video2_slider_slider.value_changed.connect(_on_sfx_audio_value_changed)
+	savesettings.pressed.connect(_save_video_settings)
+	back.pressed.connect(_back_to_settings)
 
-#func _exit_tree():
+func _exit_tree():
 #	brightness_slider_slider.value_changed.disconnect(_on_master_audio_value_changed)
 #	video1_slider_slider.value_changed.disconnect(_on_music_audio_value_changed)
 #	video2_slider_slider.value_changed.disconnect(_on_sfx_audio_value_changed)
+	savesettings.pressed.disconnect(_save_video_settings)
+	back.pressed.disconnect(_back_to_settings)
 
 #func _ready():
 #	brightness_slider_slider.value = db_to_linear(AudioServer.get_bus_volume_db(master_bus))
@@ -57,11 +59,11 @@ var current_menu : Menu = Menu.VIDEO_SETTINGS
 #		linear_to_db(value)
 #	)
 
+func _save_video_settings() -> void:
+	pass
 
-#func _on_video_pressed():
-#	current_menu = Menu.VIDEO_SETTINGS
-#	print("video")
-
+func _back_to_settings() -> void:
+	get_tree().change_scene_to_file("res://Custom/Scenes/Settings_Scene.tscn")
 
 func _on_video_pressed():
-	current_menu = Menu.VIDEO_SETTINGS
+	get_tree().change_scene_to_file("res://Custom/Scenes/Video_scene.tscn")

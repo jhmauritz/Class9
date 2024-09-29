@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://brb5susakhh0l" path="res://Custom/interaction/interaction area/interaction_bound.tscn" id="2_wrxxj"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_x8vmh"]
-radius = 47.0
+radius = 60.1332
 
 [node name="Collect" type="Node2D"]
 script = ExtResource("1_07rb5")
@@ -19,5 +19,5 @@ region_rect = Rect2(1, -2, 123, 130)
 [node name="InteractionBound" parent="." instance=ExtResource("2_wrxxj")]
 action_name = "Collect"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionBound"]
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="InteractionBound"]
 shape = SubResource("CircleShape2D_x8vmh")
