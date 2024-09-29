@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://bjs4cmo8sww8m" path="res://Custom/Scenes/main_menu.tscn" id="2_rusvp"]
 [ext_resource type="Theme" uid="uid://byds11vsd6ber" path="res://themes/pixelart/pixelart.tres" id="3_2cdw5"]
 [ext_resource type="FontFile" uid="uid://gw131jxas0sc" path="res://fonts/Peaberry/PeaberryBase.ttf" id="3_7gy63"]
-[ext_resource type="PackedScene" uid="uid://tqr8mcs2r0kr" path="res://scenes/samples/platformer_sample.tscn" id="3_v7ysy"]
+[ext_resource type="PackedScene" uid="uid://e1tl5vj7ue8j" path="res://Lab-City.tscn" id="3_180cm"]
 [ext_resource type="Texture2D" uid="uid://kt1eaqqyaudy" path="res://assets_collected/Overlays/27.png" id="3_y0pug"]
 [ext_resource type="PackedScene" uid="uid://cpxbfthcvg7q5" path="res://scenes/scene_transitions/circle_transition.tscn" id="4_8lqsi"]
 [ext_resource type="StyleBox" uid="uid://bc1isjuwygmdl" path="res://textures/Button_1.tres" id="4_akf60"]
@@ -28,7 +28,7 @@ script = ExtResource("1_l6pch")
 menu = NodePath("Panel/AspectRatioContainer/VBoxContainer/Quit")
 retry = NodePath("Panel/AspectRatioContainer/VBoxContainer/Retry")
 menu_scene_path = ExtResource("2_rusvp")
-start_scene_path = ExtResource("3_v7ysy")
+start_scene_path = ExtResource("3_180cm")
 transition_path = ExtResource("4_8lqsi")
 
 [node name="Panel" type="Panel" parent="."]

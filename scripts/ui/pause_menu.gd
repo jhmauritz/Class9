@@ -15,8 +15,8 @@ func _enter_tree():
 func _exit_tree():
 	is_paused.on_value_changed.disconnect(_on_pause_changed)
 
-#func _ready():
-#	is_paused.value = false
+func _ready():
+	is_paused.value = false
 
 func _input(event : InputEvent):
 	if event.is_action_pressed("ui_cancel"):
