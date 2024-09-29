@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://x008d2p7uih0"]
+[gd_scene load_steps=16 format=3 uid="uid://x008d2p7uih0"]
 
 [ext_resource type="Theme" uid="uid://byds11vsd6ber" path="res://themes/pixelart/pixelart.tres" id="1_wmfj6"]
 [ext_resource type="Texture2D" uid="uid://bto18iw78ks85" path="res://assets_collected/Overlays/17.png" id="2_fdths"]
@@ -10,7 +10,9 @@
 [ext_resource type="Texture2D" uid="uid://dyoy1lym2sxi2" path="res://assets_collected/Icons/Icon_37.png" id="8_uthf3"]
 [ext_resource type="Texture2D" uid="uid://ba7xgyoyfmna" path="res://assets_collected/Icons/Icon_07.png" id="9_e0xvu"]
 [ext_resource type="Texture2D" uid="uid://dbjo2i4nmyjuf" path="res://assets_collected/Icons/Icon_25.png" id="11_dkcja"]
+[ext_resource type="AudioStream" uid="uid://dsdfn7s78cglx" path="res://audio/audio-assets/Class9_SFX_UI_Hover.wav" id="12_1cmqq"]
 [ext_resource type="Texture2D" uid="uid://cobp0vowivesi" path="res://assets_collected/Icons/Icon_14.png" id="12_583hm"]
+[ext_resource type="AudioStream" uid="uid://cj4n82xch7naw" path="res://audio/audio-assets/Class9_SFX_UI_Select.wav" id="13_qi65q"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ycrn7"]
 texture = ExtResource("2_fdths")
@@ -125,3 +127,20 @@ text = "BACK"
 icon = ExtResource("12_583hm")
 expand_icon = true
 language = "en_US"
+
+[node name="On Hover" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("12_1cmqq")
+bus = &"SFX"
+
+[node name="On Click" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("13_qi65q")
+bus = &"SFX"
+
+[connection signal="mouse_entered" from="Settings Menu/MarginContainer/VBoxContainer/Audio_button" to="Settings Menu" method="_on_audio_button_mouse_entered"]
+[connection signal="pressed" from="Settings Menu/MarginContainer/VBoxContainer/Audio_button" to="Settings Menu" method="_on_audio_button_pressed"]
+[connection signal="mouse_entered" from="Settings Menu/MarginContainer/VBoxContainer/Video" to="Settings Menu" method="_on_video_mouse_entered"]
+[connection signal="pressed" from="Settings Menu/MarginContainer/VBoxContainer/Video" to="Settings Menu" method="_on_video_pressed"]
+[connection signal="mouse_entered" from="Settings Menu/MarginContainer/VBoxContainer/Accessibility" to="Settings Menu" method="_on_accessibility_mouse_entered"]
+[connection signal="pressed" from="Settings Menu/MarginContainer/VBoxContainer/Accessibility" to="Settings Menu" method="_on_accessibility_pressed"]
+[connection signal="mouse_entered" from="Settings Menu/MarginContainer/VBoxContainer/Back" to="Settings Menu" method="_on_back_mouse_entered"]
+[connection signal="pressed" from="Settings Menu/MarginContainer/VBoxContainer/Back" to="Settings Menu" method="_on_back_pressed"]

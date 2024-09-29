@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://lk52t8opirvk"]
+[gd_scene load_steps=15 format=3 uid="uid://lk52t8opirvk"]
 
 [ext_resource type="Theme" uid="uid://byds11vsd6ber" path="res://themes/pixelart/pixelart.tres" id="1_y7qlu"]
 [ext_resource type="Texture2D" uid="uid://r6eptufkhlbc" path="res://assets_collected/Overlays/16.png" id="2_x822k"]
@@ -6,7 +6,6 @@
 [ext_resource type="Script" path="res://scripts/ui/viewport_container.gd" id="4_8vh4i"]
 [ext_resource type="Script" path="res://scripts/ui/video_control.gd" id="5_n2r2r"]
 [ext_resource type="PackedScene" uid="uid://cpxbfthcvg7q5" path="res://scenes/scene_transitions/circle_transition.tscn" id="6_hc5e4"]
-[ext_resource type="StyleBox" uid="uid://cefnhxxovol5q" path="res://textures/Slider.tres" id="7_bhlll"]
 [ext_resource type="StyleBox" uid="uid://bc1isjuwygmdl" path="res://textures/Button_1.tres" id="8_1hvc8"]
 [ext_resource type="Texture2D" uid="uid://b44jbkxmnn7d6" path="res://assets_collected/Icons/Icon_05.png" id="9_seqvo"]
 [ext_resource type="Texture2D" uid="uid://cobp0vowivesi" path="res://assets_collected/Icons/Icon_14.png" id="10_ue4mb"]
@@ -70,15 +69,14 @@ grow_vertical = 2
 script = ExtResource("4_8vh4i")
 metadata/_edit_lock_ = true
 
-[node name="Video Control" type="Control" parent="Video Settings" node_paths=PackedStringArray("savesettings", "back", "brightness_slider", "video1_slider", "windowmode")]
+[node name="Video Control" type="Control" parent="Video Settings" node_paths=PackedStringArray("savesettings", "back", "windowmode", "resolution")]
 layout_mode = 2
 script = ExtResource("5_n2r2r")
 transition_path = ExtResource("6_hc5e4")
 savesettings = NodePath("../MarginContainer/VBoxContainer/Save")
 back = NodePath("../MarginContainer/VBoxContainer/Return")
-brightness_slider = NodePath("../MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2/HSlider")
-video1_slider = NodePath("../MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2/HSlider2")
-windowmode = NodePath("../MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2/OptionButton")
+windowmode = NodePath("../MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2/windowmode option")
+resolution = NodePath("../MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2/resolution option")
 
 [node name="MarginContainer" type="MarginContainer" parent="Video Settings"]
 layout_mode = 2
@@ -101,25 +99,26 @@ layout_mode = 2
 [node name="VBoxContainer" type="VBoxContainer" parent="Video Settings/MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="Video Settings/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
-layout_mode = 2
-theme = ExtResource("1_y7qlu")
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-text = "Brightness"
-vertical_alignment = 1
-
 [node name="Label2" type="Label" parent="Video Settings/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
+size_flags_vertical = 6
 theme = ExtResource("1_y7qlu")
 theme_override_colors/font_color = Color(1, 1, 1, 1)
-text = "Video 1"
+text = "Resolution"
 vertical_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="Video Settings/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("1_y7qlu")
+theme_override_constants/separation = 45
 
 [node name="Label3" type="Label" parent="Video Settings/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
+size_flags_vertical = 6
 theme = ExtResource("1_y7qlu")
 theme_override_colors/font_color = Color(1, 1, 1, 1)
-text = "Video 2
+text = "Window Mode
 "
 vertical_alignment = 1
 
@@ -128,28 +127,28 @@ layout_mode = 2
 size_flags_horizontal = 3
 alignment = 1
 
-[node name="HSlider" type="HSlider" parent="Video Settings/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2"]
+[node name="resolution option" type="OptionButton" parent="Video Settings/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2"]
 layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 1
+size_flags_vertical = 3
 theme = ExtResource("1_y7qlu")
-theme_override_styles/slider = ExtResource("7_bhlll")
-max_value = 1.0
-step = 0.01
+theme_override_constants/h_separation = 5
+alignment = 1
 
-[node name="HSlider2" type="HSlider" parent="Video Settings/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2"]
+[node name="HSeparator2" type="HSeparator" parent="Video Settings/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2"]
 layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 1
+size_flags_vertical = 3
 theme = ExtResource("1_y7qlu")
-theme_override_styles/slider = ExtResource("7_bhlll")
-max_value = 1.0
-step = 0.01
+theme_override_constants/separation = 45
 
-[node name="OptionButton" type="OptionButton" parent="Video Settings/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2"]
+[node name="windowmode option" type="OptionButton" parent="Video Settings/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2"]
 layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("1_y7qlu")
+theme_override_constants/h_separation = 5
+alignment = 1
 
 [node name="Save" type="Button" parent="Video Settings/MarginContainer/VBoxContainer"]
+visible = false
 layout_mode = 2
 theme = ExtResource("1_y7qlu")
 theme_override_styles/normal = ExtResource("8_1hvc8")
@@ -180,14 +179,12 @@ bus = &"SFX"
 stream = ExtResource("13_y84y2")
 bus = &"SFX"
 
-[connection signal="mouse_entered" from="Video Settings/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Label" to="Video Settings" method="_on_label_mouse_entered"]
-[connection signal="mouse_entered" from="Video Settings/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Label2" to="Video Settings" method="_on_label_2_mouse_entered"]
-[connection signal="mouse_entered" from="Video Settings/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Label3" to="Video Settings" method="_on_label_3_mouse_entered"]
-[connection signal="drag_ended" from="Video Settings/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2/HSlider" to="Video Settings/Video Control" method="_on_h_slider_drag_ended"]
-[connection signal="drag_started" from="Video Settings/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2/HSlider" to="Video Settings" method="_on_h_slider_drag_started"]
-[connection signal="drag_started" from="Video Settings/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2/HSlider" to="Video Settings/Video Control" method="_on_h_slider_drag_started"]
-[connection signal="drag_ended" from="Video Settings/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2/HSlider2" to="Video Settings/Video Control" method="_on_h_slider_2_drag_ended"]
-[connection signal="drag_started" from="Video Settings/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2/HSlider2" to="Video Settings/Video Control" method="_on_h_slider_2_drag_started"]
+[connection signal="item_focused" from="Video Settings/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2/resolution option" to="Video Settings" method="_on_option_button_item_focused"]
+[connection signal="item_selected" from="Video Settings/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2/resolution option" to="Video Settings" method="_on_option_button_item_selected"]
+[connection signal="pressed" from="Video Settings/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2/resolution option" to="Video Settings" method="_on_option_button_pressed"]
+[connection signal="item_focused" from="Video Settings/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2/windowmode option" to="Video Settings" method="_on_option_button_2_item_focused"]
+[connection signal="item_selected" from="Video Settings/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2/windowmode option" to="Video Settings" method="_on_option_button_2_item_selected"]
+[connection signal="pressed" from="Video Settings/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2/windowmode option" to="Video Settings" method="_on_option_button_2_pressed"]
 [connection signal="mouse_entered" from="Video Settings/MarginContainer/VBoxContainer/Save" to="Video Settings/Video Control" method="_on_save_mouse_entered"]
 [connection signal="pressed" from="Video Settings/MarginContainer/VBoxContainer/Save" to="Video Settings" method="_on_save_pressed"]
 [connection signal="pressed" from="Video Settings/MarginContainer/VBoxContainer/Save" to="Video Settings/Video Control" method="_on_save_pressed"]

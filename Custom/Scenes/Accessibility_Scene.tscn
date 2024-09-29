@@ -72,7 +72,7 @@ layout_mode = 2
 script = ExtResource("5_kx3vx")
 savesettings = NodePath("../MarginContainer/VBoxContainer/Save")
 back = NodePath("../MarginContainer/VBoxContainer/Return")
-captions = NodePath("../MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/CheckButton")
+captions = NodePath("../MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer/CheckButton")
 language = NodePath("../MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/OptionsButton")
 transition_path = ExtResource("6_djehk")
 
@@ -109,6 +109,7 @@ text = "Captions"
 vertical_alignment = 1
 
 [node name="Label5" type="Label" parent="Accessibility/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2"]
+visible = false
 layout_mode = 2
 size_flags_vertical = 6
 theme = ExtResource("1_lwg68")
@@ -120,14 +121,30 @@ vertical_alignment = 1
 layout_mode = 2
 alignment = 1
 
-[node name="CheckButton" type="CheckButton" parent="Accessibility/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Accessibility/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="CheckButton" type="CheckButton" parent="Accessibility/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer"]
 clip_contents = true
 layout_mode = 2
+theme = ExtResource("1_lwg68")
+theme_override_constants/h_separation = 8
+theme_override_font_sizes/font_size = 16
 theme_override_styles/pressed = ExtResource("7_5teey")
 theme_override_styles/normal = ExtResource("7_5teey")
-button_pressed = true
+alignment = 1
+language = "en_US"
+
+[node name="VSeparator" type="VSeparator" parent="Accessibility/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Accessibility/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_lwg68")
+text = "Off"
 
 [node name="OptionsButton" type="OptionButton" parent="Accessibility/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+visible = false
 clip_contents = true
 layout_mode = 2
 theme_override_styles/pressed = ExtResource("7_5teey")
@@ -138,6 +155,7 @@ popup/item_0/text = "English"
 popup/item_0/separator = true
 
 [node name="Save" type="Button" parent="Accessibility/MarginContainer/VBoxContainer"]
+visible = false
 layout_mode = 2
 theme = ExtResource("1_lwg68")
 theme_override_styles/normal = ExtResource("8_l03ym")
@@ -166,8 +184,7 @@ bus = &"SFX"
 stream = ExtResource("13_qlh21")
 bus = &"SFX"
 
-[connection signal="mouse_entered" from="Accessibility/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/CheckButton" to="Accessibility" method="_on_check_button_mouse_entered"]
-[connection signal="pressed" from="Accessibility/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/CheckButton" to="Accessibility" method="_on_check_button_pressed"]
+[connection signal="mouse_entered" from="Accessibility/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer/CheckButton" to="Accessibility" method="_on_check_button_mouse_entered"]
 [connection signal="mouse_entered" from="Accessibility/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/OptionsButton" to="Accessibility" method="_on_options_button_mouse_entered"]
 [connection signal="pressed" from="Accessibility/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/OptionsButton" to="Accessibility" method="_on_options_button_pressed"]
 [connection signal="mouse_entered" from="Accessibility/MarginContainer/VBoxContainer/Save" to="Accessibility" method="_on_save_mouse_entered"]

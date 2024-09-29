@@ -116,3 +116,58 @@ func _on_label_2_mouse_entered() -> void:
 
 func _on_label_3_mouse_entered() -> void:
 	$"../On Hover".play()
+
+
+func _on_option_button_item_focused(index: int) -> void:
+	$"../On Hover".play()
+
+
+func _on_option_button_pressed() -> void:
+	$"../On Hover".play()
+
+
+func _on_option_button_2_item_focused(index: int) -> void:
+	$"../On Hover".play()
+
+
+func _on_option_button_2_pressed() -> void:
+	$"../On Hover".play()
+
+
+func _on_option_button_2_item_selected(index: int) -> void:
+	$"../On Click".play()
+
+func _on_option_button_item_selected(index: int) -> void:
+	$"../On Click".play()
+
+
+func _on_load_button_pressed() -> void:
+	$"../On Click Sound".play()
+
+
+func _on_save_button_pressed() -> void:
+	$"../On Click Sound".play()
+
+
+func _on_settings_button_pressed() -> void:
+	$"../On Click Sound".play()
+
+
+func _on_quit_button_pressed() -> void:
+	$"../On Click Sound".play()
+
+
+func _on_load_button_mouse_entered() -> void:
+	$"../On Hover Sound".play()
+
+
+func _on_save_button_mouse_entered() -> void:
+	$"../On Hover Sound".play()
+
+
+func _on_settings_button_mouse_entered() -> void:
+	$"../On Hover Sound".play()
+
+
+func _on_quit_button_mouse_entered() -> void:
+	$"../On Hover Sound".play()
