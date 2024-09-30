@@ -21,12 +21,12 @@ func _physics_process(delta: float) -> void:
 
 	# Move back and forth
 	velocity.x = -speed if facing_left else speed
-
+	
 	# Check if we need to turn around
 	if position.x <= 0:
 		flip()
 		velocity.x = speed
-	if position.x >= platform_width:
+	if position.x >= 0:
 		flip()
 		velocity.x = -speed
 
@@ -35,8 +35,7 @@ func _physics_process(delta: float) -> void:
 
 func flip():
 	facing_left = !facing_left
-	scale.x = -scale.x  # Flip the sprite
-	
+	scale.x = abs(scale.x) * -1
 
 func update_animation():
 	if sprite:
@@ -50,6 +49,8 @@ func update_animation():
 		sprite.flip_h = false
 	elif velocity.x < 0:
 		sprite.flip_h = true
+		
 func _on_player_detection_body_entered(body):
-	if body.name == "Player":
-		print("Player detected! You Lose")
+	print(body.name)
+	if body.name == "player":
+		get_tree().change_scene_to_file("res://Custom/Scenes/lose_scene.tscn")
