@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://djujqcbughbl"]
+[gd_scene load_steps=22 format=3 uid="uid://djujqcbughbl"]
 
 [ext_resource type="Script" path="res://scripts/ui/pause_menu.gd" id="1_kcrr8"]
 [ext_resource type="Theme" uid="uid://byds11vsd6ber" path="res://themes/pixelart/pixelart.tres" id="2_807cf"]
@@ -9,12 +9,16 @@
 [ext_resource type="PackedScene" uid="uid://dhl2s7a33d1qg" path="res://scenes/common/ui/load_button.tscn" id="5_mxgd3"]
 [ext_resource type="Texture2D" uid="uid://h2se2lqosqgo" path="res://assets_collected/Overlays/24.png" id="6_y06xg"]
 [ext_resource type="Script" path="res://scripts/ui/viewport_texture_rect.gd" id="7_4eqlv"]
+[ext_resource type="Script" path="res://scripts/ui/viewport_container.gd" id="8_38qcv"]
 [ext_resource type="Texture2D" uid="uid://b44jbkxmnn7d6" path="res://assets_collected/Icons/Icon_05.png" id="9_0a3xs"]
 [ext_resource type="StyleBox" uid="uid://bc1isjuwygmdl" path="res://textures/Button_1.tres" id="9_5pjas"]
 [ext_resource type="Texture2D" uid="uid://c1gblu2ig6hnv" path="res://assets_collected/Icons/Icon_18.png" id="11_ykn0f"]
 [ext_resource type="Texture2D" uid="uid://dh8w4dim3ncse" path="res://assets_collected/Icons/Icon_26.png" id="12_c7ev5"]
 [ext_resource type="Texture2D" uid="uid://cw2hitg0pr62e" path="res://assets_collected/Icons/Icon_35.png" id="14_sk68w"]
 [ext_resource type="Script" path="res://scenes/common/ui/quit_button.gd" id="16_4bkfw"]
+[ext_resource type="AudioStream" uid="uid://d2v70qn820lcd" path="res://audio/audio-assets/BeakerBreakersMenuMusic.wav" id="17_08x0a"]
+[ext_resource type="AudioStream" uid="uid://cj4n82xch7naw" path="res://audio/audio-assets/Class9_SFX_UI_Select.wav" id="18_mw3kt"]
+[ext_resource type="AudioStream" uid="uid://dsdfn7s78cglx" path="res://audio/audio-assets/Class9_SFX_UI_Hover.wav" id="19_qdisw"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_j07ig"]
 font_size = 141
@@ -84,6 +88,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
+script = ExtResource("8_38qcv")
 
 [node name="MarginContainer" type="MarginContainer" parent="Paused Menus"]
 layout_mode = 2
@@ -131,5 +136,25 @@ icon = ExtResource("14_sk68w")
 expand_icon = true
 script = ExtResource("16_4bkfw")
 
+[node name="Menu Music Player" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("17_08x0a")
+autoplay = true
+bus = &"Music"
+
+[node name="On Click Sound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("18_mw3kt")
+
+[node name="On Hover Sound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("19_qdisw")
+
+[connection signal="mouse_entered" from="Paused Menus/MarginContainer/VBoxContainer/load_button" to="Paused Menus" method="_on_load_button_mouse_entered"]
+[connection signal="pressed" from="Paused Menus/MarginContainer/VBoxContainer/load_button" to="." method="_on_load_button_pressed"]
+[connection signal="pressed" from="Paused Menus/MarginContainer/VBoxContainer/load_button" to="Paused Menus" method="_on_load_button_pressed"]
+[connection signal="mouse_entered" from="Paused Menus/MarginContainer/VBoxContainer/save_button" to="Paused Menus" method="_on_save_button_mouse_entered"]
+[connection signal="pressed" from="Paused Menus/MarginContainer/VBoxContainer/save_button" to="Paused Menus" method="_on_save_button_pressed"]
+[connection signal="mouse_entered" from="Paused Menus/MarginContainer/VBoxContainer/settings_button" to="Paused Menus" method="_on_settings_button_mouse_entered"]
 [connection signal="pressed" from="Paused Menus/MarginContainer/VBoxContainer/settings_button" to="." method="_on_settings_button_pressed"]
+[connection signal="pressed" from="Paused Menus/MarginContainer/VBoxContainer/settings_button" to="Paused Menus" method="_on_settings_button_pressed"]
+[connection signal="mouse_entered" from="Paused Menus/MarginContainer/VBoxContainer/quit_button" to="Paused Menus" method="_on_quit_button_mouse_entered"]
 [connection signal="pressed" from="Paused Menus/MarginContainer/VBoxContainer/quit_button" to="." method="_on_quit_button_pressed"]
+[connection signal="pressed" from="Paused Menus/MarginContainer/VBoxContainer/quit_button" to="Paused Menus" method="_on_quit_button_pressed"]

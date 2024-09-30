@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://bp0lf62vwisuu"]
+[gd_scene load_steps=16 format=3 uid="uid://bp0lf62vwisuu"]
 
 [ext_resource type="Theme" uid="uid://byds11vsd6ber" path="res://themes/pixelart/pixelart.tres" id="1_jenxi"]
 [ext_resource type="Texture2D" uid="uid://1teor1rbrqyo" path="res://assets_collected/Overlays/7.png" id="2_jvqtx"]
@@ -10,6 +10,9 @@
 [ext_resource type="StyleBox" uid="uid://bc1isjuwygmdl" path="res://textures/Button_1.tres" id="8_4qenl"]
 [ext_resource type="Texture2D" uid="uid://b44jbkxmnn7d6" path="res://assets_collected/Icons/Icon_05.png" id="9_s1hyy"]
 [ext_resource type="Texture2D" uid="uid://cobp0vowivesi" path="res://assets_collected/Icons/Icon_14.png" id="10_di304"]
+[ext_resource type="AudioStream" uid="uid://dsdfn7s78cglx" path="res://audio/audio-assets/Class9_SFX_UI_Hover.wav" id="11_gk42g"]
+[ext_resource type="AudioStream" uid="uid://cj4n82xch7naw" path="res://audio/audio-assets/Class9_SFX_UI_Select.wav" id="12_upcae"]
+[ext_resource type="AudioStream" uid="uid://d2v70qn820lcd" path="res://audio/audio-assets/BeakerBreakersMenuMusic.wav" id="13_03liw"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_h31k6"]
 texture = ExtResource("2_jvqtx")
@@ -69,7 +72,7 @@ layout_mode = 2
 script = ExtResource("5_a13jh")
 savesettings = NodePath("../MarginContainer/VBoxContainer/Save")
 back = NodePath("../MarginContainer/VBoxContainer/Return")
-captions = NodePath("../MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/CheckButton")
+captions = NodePath("../MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer/CheckButton")
 language = NodePath("../MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/OptionsButton")
 transition_path = ExtResource("6_7en0y")
 
@@ -106,6 +109,7 @@ text = "Captions"
 vertical_alignment = 1
 
 [node name="Label5" type="Label" parent="Accessibility/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2"]
+visible = false
 layout_mode = 2
 size_flags_vertical = 6
 theme = ExtResource("1_jenxi")
@@ -117,14 +121,30 @@ vertical_alignment = 1
 layout_mode = 2
 alignment = 1
 
-[node name="CheckButton" type="CheckButton" parent="Accessibility/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Accessibility/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="CheckButton" type="CheckButton" parent="Accessibility/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer"]
 clip_contents = true
 layout_mode = 2
+theme = ExtResource("1_jenxi")
+theme_override_constants/h_separation = 8
+theme_override_font_sizes/font_size = 16
 theme_override_styles/pressed = ExtResource("7_tdjtq")
 theme_override_styles/normal = ExtResource("7_tdjtq")
-button_pressed = true
+alignment = 1
+language = "en_US"
+
+[node name="VSeparator" type="VSeparator" parent="Accessibility/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Accessibility/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_jenxi")
+text = "Off"
 
 [node name="OptionsButton" type="OptionButton" parent="Accessibility/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+visible = false
 clip_contents = true
 layout_mode = 2
 theme_override_styles/pressed = ExtResource("7_tdjtq")
@@ -135,6 +155,7 @@ popup/item_0/text = "English"
 popup/item_0/separator = true
 
 [node name="Save" type="Button" parent="Accessibility/MarginContainer/VBoxContainer"]
+visible = false
 layout_mode = 2
 theme = ExtResource("1_jenxi")
 theme_override_styles/normal = ExtResource("8_4qenl")
@@ -149,3 +170,22 @@ theme_override_styles/normal = ExtResource("8_4qenl")
 text = "BACK"
 icon = ExtResource("10_di304")
 expand_icon = true
+
+[node name="On Hover" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_gk42g")
+bus = &"SFX"
+
+[node name="On Click" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("12_upcae")
+bus = &"SFX"
+
+[node name="Menu Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("13_03liw")
+autoplay = true
+bus = &"Music"
+
+[connection signal="pressed" from="Accessibility/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer/CheckButton" to="Accessibility" method="_on_check_button_pressed"]
+[connection signal="mouse_entered" from="Accessibility/MarginContainer/VBoxContainer/Save" to="Accessibility" method="_on_save_mouse_entered"]
+[connection signal="pressed" from="Accessibility/MarginContainer/VBoxContainer/Save" to="Accessibility" method="_on_save_pressed"]
+[connection signal="mouse_entered" from="Accessibility/MarginContainer/VBoxContainer/Return" to="Accessibility" method="_on_return_mouse_entered"]
+[connection signal="pressed" from="Accessibility/MarginContainer/VBoxContainer/Return" to="Accessibility" method="_on_return_pressed"]
